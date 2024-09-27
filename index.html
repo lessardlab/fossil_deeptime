@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.14">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Gabriel Munoz-Acevedo">
+<meta name="author" content="JP Lessard">
+<meta name="dcterms.date" content="2024-09-27">
+<meta name="keywords" content="paleoclimates, biotas, historical biogeography">
+
+<title>Shifts in Climate Change and Their Influence on Deep-Time Fossil Composition Dynamics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-018089954d508eae8a473f0b7f0491f0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-5b60bf50ef3d38e12ad24b3343fb6b90.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
+
+
+<meta name="citation_title" content="Shifts in Climate Change and Their Influence on Deep-Time Fossil Composition Dynamics">
+<meta name="citation_abstract" content="Novel environmental pressures influences community assembly dynamics and broad scale patterns in biodiversity composition. While modern community assembly theory offers insights into the effects of climate change on broad-scale biodiversity patterns, these are often based on short-term snapshots, limiting our understanding of long-term processes underlying patterns of species turnover across ecological communities. Morevoer, a critical gap remains in elucidating how deep-time climatic shifts have shaped  historical community assembly, as represented by the fossil record. In this study, we aim to uncover the historical dynamics into the mechanisms that could shape present and future biodiversity patterns in response to ongoing climate change. We evaluate two hypotheses regarding the impact of paleo-climate change on shifts in fossil species composition between distinct sites within a broader region, also known as beta-diversity. The Severity of Climate Change hypothesis posits that species turnover increases with the magnitude of climate change, while the Climatic Instability hypothesis suggests that frequent climate fluctuations promote higher species turnover through dynamic niche shifts. We evaluate our hypothesis  alongside the influences of contemporary niche and dispersal assembly processes, which are typically considered in current ecological studies. To test these, we integrate fossil and paleoclimatic data focusing on large-mammals in the Neogene, a time marked by major climatic shifts in Northern latitudes. We found that ...
+">
+<meta name="citation_keywords" content="paleoclimates,biotas,historical biogeography">
+<meta name="citation_author" content="Gabriel Munoz-Acevedo">
+<meta name="citation_author" content="JP Lessard">
+<meta name="citation_publication_date" content="2024-09-27">
+<meta name="citation_cover_date" content="2024-09-27">
+<meta name="citation_year" content="2024">
+<meta name="citation_online_date" content="2024-09-27">
+<meta name="citation_language" content="en">
+<meta name="citation_reference" content="citation_title=Determinism and stochasticity in the spatial–temporal continuum of ecological communities: The case of tropical mountains;,citation_author=Gabriel Khattar;,citation_author=Margarete Macedo;,citation_author=Ricardo Monteiro;,citation_author=Pedro Peres-Neto;,citation_publication_date=2021;,citation_cover_date=2021;,citation_year=2021;,citation_issue=9;,citation_volume=44;,citation_journal_title=Ecography;,citation_publisher=Wiley Online Library;">
+<meta name="citation_reference" content="citation_title=Permanence via invasion graphs: Incorporating community assembly into modern coexistence theory;,citation_author=Josef Hofbauer;,citation_author=Sebastian J Schreiber;,citation_publication_date=2022;,citation_cover_date=2022;,citation_year=2022;,citation_issue=5;,citation_volume=85;,citation_journal_title=Journal of mathematical biology;,citation_publisher=Springer;">
+<meta name="citation_reference" content="citation_title=Community assembly, coexistence and the environmental filtering metaphor;,citation_author=Nathan JB Kraft;,citation_author=Peter B Adler;,citation_author=Oscar Godoy;,citation_author=Emily C James;,citation_author=Steve Fuller;,citation_author=Jonathan M Levine;,citation_publication_date=2015;,citation_cover_date=2015;,citation_year=2015;,citation_issue=5;,citation_volume=29;,citation_journal_title=Functional ecology;,citation_publisher=Wiley Online Library;">
+<meta name="citation_reference" content="citation_title=Community assembly, niche conservatism, and adaptive evolution in changing environments;,citation_author=David D Ackerly;,citation_publication_date=2003;,citation_cover_date=2003;,citation_year=2003;,citation_issue=S3;,citation_volume=164;,citation_journal_title=International Journal of Plant Sciences;,citation_publisher=The University of Chicago Press;">
+<meta name="citation_reference" content="citation_title=Integrating succession and community assembly perspectives;,citation_author=Cynthia Chang;,citation_author=Janneke HilleRisLambers;,citation_publication_date=2016;,citation_cover_date=2016;,citation_year=2016;,citation_volume=5;,citation_journal_title=F1000Research;,citation_publisher=Faculty of 1000 Ltd;">
+<meta name="citation_reference" content="citation_title=Advances, challenges and a developing synthesis of ecological community assembly theory;,citation_author=Evan Weiher;,citation_author=Deborah Freund;,citation_author=Tyler Bunton;,citation_author=Artur Stefanski;,citation_author=Tali Lee;,citation_author=Stephen Bentivenga;,citation_publication_date=2011;,citation_cover_date=2011;,citation_year=2011;,citation_issue=1576;,citation_volume=366;,citation_journal_title=Philosophical Transactions of the Royal Society B: Biological Sciences;,citation_publisher=The Royal Society;">
+<meta name="citation_reference" content="citation_title=Historical contingency in community assembly: Integrating niches, species pools, and priority effects;,citation_author=Tadashi Fukami;,citation_publication_date=2015;,citation_cover_date=2015;,citation_year=2015;,citation_issue=1;,citation_volume=46;,citation_journal_title=Annual review of ecology, evolution, and systematics;,citation_publisher=Annual Reviews;">
+<meta name="citation_reference" content="citation_title=Climate and plant community diversity in space and time;,citation_author=Susan Harrison;,citation_author=Marko J Spasojevic;,citation_author=Daijiang Li;,citation_publication_date=2020;,citation_cover_date=2020;,citation_year=2020;,citation_issue=9;,citation_volume=117;,citation_journal_title=Proceedings of the National Academy of Sciences;,citation_publisher=National Acad Sciences;">
+<meta name="citation_reference" content="citation_title=Climate as a driver of evolutionary change;,citation_author=Douglas H Erwin;,citation_publication_date=2009;,citation_cover_date=2009;,citation_year=2009;,citation_issue=14;,citation_volume=19;,citation_journal_title=Current Biology;,citation_publisher=Elsevier;">
+<meta name="citation_reference" content="citation_title=Long-term stasis in ecological assemblages: Evidence from the fossil record;,citation_author=William A DiMichele;,citation_author=Anna K Behrensmeyer;,citation_author=TD Olszewski;,citation_author=Conrad C Labandeira;,citation_author=John M Pandolfi;,citation_author=Scott L Wing;,citation_author=Rene Bobe;,citation_publication_date=2004;,citation_cover_date=2004;,citation_year=2004;,citation_issue=1;,citation_volume=35;,citation_journal_title=Annu. Rev. Ecol. Evol. Syst.;,citation_publisher=Annual Reviews;">
+<meta name="citation_reference" content="citation_title=Community ecology in a changing environment: Perspectives from the quaternary;,citation_author=Stephen T Jackson;,citation_author=Jessica L Blois;,citation_publication_date=2015;,citation_cover_date=2015;,citation_year=2015;,citation_issue=16;,citation_volume=112;,citation_journal_title=Proceedings of the National Academy of Sciences;,citation_publisher=National Acad Sciences;">
+<meta name="citation_reference" content="citation_title=What can we learn about ecology and evolution from the fossil record?;,citation_author=Jeremy BC Jackson;,citation_author=Douglas H Erwin;,citation_publication_date=2006;,citation_cover_date=2006;,citation_year=2006;,citation_issue=6;,citation_volume=21;,citation_journal_title=Trends in Ecology &amp;amp;amp; Evolution;,citation_publisher=Elsevier;">
+<meta name="citation_reference" content="citation_title=Five palaeobiological laws needed to understand the evolution of the living biota;,citation_author=Charles R Marshall;,citation_publication_date=2017;,citation_cover_date=2017;,citation_year=2017;,citation_issue=6;,citation_volume=1;,citation_journal_title=Nature ecology &amp;amp;amp; evolution;,citation_publisher=Nature Publishing Group UK London;">
+<meta name="citation_reference" content="citation_title=The future of the fossil record: Paleontology in the 21st century;,citation_author=David Jablonski;,citation_author=Neil H Shubin;,citation_publication_date=2015;,citation_cover_date=2015;,citation_year=2015;,citation_issue=16;,citation_volume=112;,citation_journal_title=Proceedings of the National Academy of Sciences;,citation_publisher=National Acad Sciences;">
+<meta name="citation_reference" content="citation_title=Life in the last few million years;,citation_author=Jeremy BC Jackson;,citation_author=Kenneth G Johnson;,citation_publication_date=2000;,citation_cover_date=2000;,citation_year=2000;,citation_issue=S4;,citation_volume=26;,citation_journal_title=Paleobiology;,citation_publisher=Cambridge University Press;">
+<meta name="citation_reference" content="citation_title=Perspectives of regional paleoclimate modeling;,citation_author=Patrick Ludwig;,citation_author=Juan J Gómez-Navarro;,citation_author=Joaquim G Pinto;,citation_author=Christoph C Raible;,citation_author=Sebastian Wagner;,citation_author=Eduardo Zorita;,citation_publication_date=2019;,citation_cover_date=2019;,citation_year=2019;,citation_issue=1;,citation_volume=1436;,citation_journal_title=Annals of the New York Academy of Sciences;,citation_publisher=Wiley Online Library;">
+<meta name="citation_reference" content="citation_title=On the importance of paleoclimate modelling for improving predictions of future climate change;,citation_author=JC Hargreaves;,citation_author=JD Annan;,citation_publication_date=2009;,citation_cover_date=2009;,citation_year=2009;,citation_issue=4;,citation_volume=5;,citation_journal_title=Climate of the Past;,citation_publisher=Copernicus Publications Göttingen, Germany;">
+<meta name="citation_reference" content="citation_title=Biodiversity across space and time in the fossil record;,citation_author=Roger BJ Benson;,citation_author=Richard Butler;,citation_author=Roger A Close;,citation_author=Erin Saupe;,citation_author=Daniel L Rabosky;,citation_publication_date=2021;,citation_cover_date=2021;,citation_year=2021;,citation_issue=19;,citation_volume=31;,citation_journal_title=Current Biology;,citation_publisher=Elsevier;">
+<meta name="citation_reference" content="citation_title=Orbital variations, climate and paleoecology;,citation_author=PATRICK J Bartlein;,citation_author=IC Prentice;,citation_publication_date=1989;,citation_cover_date=1989;,citation_year=1989;,citation_issue=7;,citation_volume=4;,citation_journal_title=Trends in ecology &amp;amp;amp; evolution;,citation_publisher=Elsevier;">
+<meta name="citation_reference" content="citation_title=Climate change and faunal turnover: Testing the mechanics of the turnover-pulse hypothesis with south african fossil data;,citation_author=J Tyler Faith;,citation_author=Anna K Behrensmeyer;,citation_publication_date=2013;,citation_cover_date=2013;,citation_year=2013;,citation_issue=4;,citation_volume=39;,citation_journal_title=Paleobiology;,citation_publisher=Cambridge University Press;">
+<meta name="citation_reference" content="citation_title=The latitudinal biodiversity gradient through deep time;,citation_author=Philip D Mannion;,citation_author=Paul Upchurch;,citation_author=Roger BJ Benson;,citation_author=Anjali Goswami;,citation_publication_date=2014;,citation_cover_date=2014;,citation_year=2014;,citation_issue=1;,citation_volume=29;,citation_journal_title=Trends in ecology &amp;amp;amp; evolution;,citation_publisher=Elsevier;">
+<meta name="citation_reference" content="citation_title=PaleoENM: Applying ecological niche modeling to the fossil record;,citation_author=Corinne E Myers;,citation_author=Alycia L Stigall;,citation_author=Bruce S Lieberman;,citation_publication_date=2015;,citation_cover_date=2015;,citation_year=2015;,citation_issue=2;,citation_volume=41;,citation_journal_title=Paleobiology;,citation_publisher=Cambridge University Press;">
+<meta name="citation_reference" content="citation_title=Signal or noise? A null model method for evaluating the significance of turnover pulses;,citation_author=W Andrew Barr;,citation_publication_date=2017;,citation_cover_date=2017;,citation_year=2017;,citation_issue=4;,citation_volume=43;,citation_journal_title=Paleobiology;,citation_publisher=Cambridge University Press;">
+<meta name="citation_reference" content="citation_title=Improving the relevance of paleontology to climate change policy;,citation_author=Wolfgang Kiessling;,citation_author=Jansen A Smith;,citation_author=Nussaı̈bah B Raja;,citation_publication_date=2023;,citation_cover_date=2023;,citation_year=2023;,citation_issue=7;,citation_volume=120;,citation_journal_title=Proceedings of the National Academy of Sciences;,citation_publisher=National Acad Sciences;">
+<meta name="citation_reference" content="citation_title=Coupling eco-evolutionary mechanisms with deep-time environmental dynamics to understand biodiversity patterns;,citation_author=Oskar Hagen;,citation_publication_date=2023;,citation_cover_date=2023;,citation_year=2023;,citation_issue=4;,citation_volume=2023;,citation_journal_title=Ecography;,citation_publisher=Wiley Online Library;">
+<meta name="citation_reference" content="citation_title=Trends, rhythms, and aberrations in global climate 65 ma to present;,citation_author=James Zachos;,citation_author=Mark Pagani;,citation_author=Lisa Sloan;,citation_author=Ellen Thomas;,citation_author=Katharina Billups;,citation_publication_date=2001;,citation_cover_date=2001;,citation_year=2001;,citation_issue=5517;,citation_volume=292;,citation_journal_title=science;,citation_publisher=American Association for the Advancement of Science;">
+<meta name="citation_reference" content="citation_title=Climate as a driver of evolutionary change;,citation_author=Douglas H Erwin;,citation_publication_date=2009;,citation_cover_date=2009;,citation_year=2009;,citation_issue=14;,citation_volume=19;,citation_journal_title=Current Biology;,citation_publisher=Elsevier;">
+<meta name="citation_reference" content="citation_title=Predicting the past distribution of species climatic niches;,citation_author=David Nogués-Bravo;,citation_publication_date=2009;,citation_cover_date=2009;,citation_year=2009;,citation_issue=5;,citation_volume=18;,citation_journal_title=Global Ecology and Biogeography;,citation_publisher=Wiley Online Library;">
+<meta name="citation_reference" content="citation_title=Cracking the code of biodiversity responses to past climate change;,citation_author=David Nogués-Bravo;,citation_author=Francisco Rodrı́guez-Sánchez;,citation_author=Luisa Orsini;,citation_author=Erik Boer;,citation_author=Roland Jansson;,citation_author=Helene Morlon;,citation_author=Damien A Fordham;,citation_author=Stephen T Jackson;,citation_publication_date=2018;,citation_cover_date=2018;,citation_year=2018;,citation_issue=10;,citation_volume=33;,citation_journal_title=Trends in ecology &amp;amp;amp; evolution;,citation_publisher=Elsevier;">
+<meta name="citation_reference" content="citation_title=Global climate change and north american mammalian evolution;,citation_author=John Alroy;,citation_author=Paul L Koch;,citation_author=James C Zachos;,citation_publication_date=2000;,citation_cover_date=2000;,citation_year=2000;,citation_issue=S4;,citation_volume=26;,citation_journal_title=Paleobiology;,citation_publisher=Cambridge University Press;">
+<meta name="citation_reference" content="citation_title=Across space and time: A review of sampling, preservational, analytical, and anthropogenic biases in fossil data across macroecological scales;,citation_author=Karma Nanglu;,citation_author=Thomas M Cullen;,citation_publication_date=2023;,citation_cover_date=2023;,citation_year=2023;,citation_journal_title=Earth-Science Reviews;,citation_publisher=Elsevier;">
+<meta name="citation_reference" content="citation_title=Punctuated ecological equilibrium in mammal communities over evolutionary time scales;,citation_author=Fernando Blanco;,citation_author=Joaquı́n Calatayud;,citation_author=David M Martı́n-Perea;,citation_author=M Soledad Domingo;,citation_author=Iris Menéndez;,citation_author=Johannes Müller;,citation_author=Manuel Hernández Fernández;,citation_author=Juan L Cantalapiedra;,citation_publication_date=2021;,citation_cover_date=2021;,citation_year=2021;,citation_issue=6539;,citation_volume=372;,citation_journal_title=Science;,citation_publisher=American Association for the Advancement of Science;">
+<meta name="citation_reference" content="citation_title=Range shifts and adaptive responses to quaternary climate change;,citation_author=Margaret B Davis;,citation_author=Ruth G Shaw;,citation_publication_date=2001;,citation_cover_date=2001;,citation_year=2001;,citation_issue=5517;,citation_volume=292;,citation_journal_title=Science;,citation_publisher=American Association for the Advancement of Science;">
+<meta name="citation_reference" content="citation_title=Palaeoverse: A community-driven r package to support palaeobiological analysis;,citation_author=Lewis A. Jones;,citation_author=William Gearty;,citation_author=Bethany J. Allen;,citation_author=Kilian Eichenseer;,citation_author=Christopher D. Dean;,citation_author=Sofía Galván;,citation_author=Miranta Kouvari;,citation_author=Pedro L. Godoy;,citation_author=Cecily S. C. Nicholl;,citation_author=Lucas Buffan;,citation_author=Erin M. Dillon;,citation_author=Joseph T. Flannery-Sutherland;,citation_author=Alfio Alessandro Chiarenza;,citation_publication_date=2023;,citation_cover_date=2023;,citation_year=2023;,citation_doi=10.1111/2041-210X.14099;,citation_journal_title=Methods in Ecology and Evolution;">
+<meta name="citation_reference" content="citation_title=Extending full-plate tectonic models into deep time: Linking the neoproterozoic and the phanerozoic;,citation_author=Andrew S Merdith;,citation_author=Simon E Williams;,citation_author=Alan S Collins;,citation_author=Michael G Tetley;,citation_author=Jacob A Mulder;,citation_author=Morgan L Blades;,citation_author=Alexander Young;,citation_author=Sheree E Armistead;,citation_author=John Cannon;,citation_author=Sabin Zahirovic;,citation_author=others;,citation_publication_date=2021;,citation_cover_date=2021;,citation_year=2021;,citation_volume=214;,citation_journal_title=Earth-Science Reviews;,citation_publisher=Elsevier;">
+<meta name="citation_reference" content="citation_title=Retiring “cradles” and “museums” of biodiversity;,citation_author=Thais Vasconcelos;,citation_author=Brian C O’Meara;,citation_author=Jeremy M Beaulieu;,citation_publication_date=2022;,citation_cover_date=2022;,citation_year=2022;,citation_issue=2;,citation_volume=199;,citation_journal_title=The American Naturalist;,citation_publisher=The University of Chicago Press Chicago, IL;">
+<meta name="citation_reference" content="citation_title=The deep past controls the phylogenetic structure of present, local communities;,citation_author=Pille Gerhold;,citation_author=Marcos B Carlucci;,citation_author=Şerban Procheş;,citation_author=Andreas Prinzing;,citation_publication_date=2018;,citation_cover_date=2018;,citation_year=2018;,citation_volume=49;,citation_journal_title=Annual Review of Ecology, Evolution, and Systematics;,citation_publisher=Annual Reviews;">
+<meta name="citation_reference" content="citation_title=Biodiversity cradles and museums segregating within hotspots of endemism;,citation_author=Jesper Sonne;,citation_author=Bo Dalsgaard;,citation_author=Michael K Borregaard;,citation_author=Jonathan Kennedy;,citation_author=Jon Fjeldså;,citation_author=Carsten Rahbek;,citation_publication_date=2022;,citation_cover_date=2022;,citation_year=2022;,citation_issue=1981;,citation_volume=289;,citation_journal_title=Proceedings of the Royal Society B;,citation_publisher=The Royal Society;">
+<meta name="citation_reference" content="citation_title=Evolutionary legacy effects on ecosystems: Biogeographic origins, plant traits, and implications for management in the era of global change;,citation_author=Jeannine Cavender-Bares;,citation_author=David D Ackerly;,citation_author=Sarah E Hobbie;,citation_author=Philip A Townsend;,citation_publication_date=2016;,citation_cover_date=2016;,citation_year=2016;,citation_volume=47;,citation_journal_title=Annual Review of Ecology, Evolution, and Systematics;,citation_publisher=Annual Reviews;">
+<meta name="citation_reference" content="citation_title=Predicted alteration of vertebrate communities in response to climate-induced elevational shifts;,citation_author=Alejandro Fuente;,citation_author=Andrew Krockenberger;,citation_author=Ben Hirsch;,citation_author=Lucas Cernusak;,citation_author=Stephen E Williams;,citation_publication_date=2022;,citation_cover_date=2022;,citation_year=2022;,citation_issue=6;,citation_volume=28;,citation_journal_title=Diversity and Distributions;,citation_publisher=Wiley Online Library;">
+<meta name="citation_reference" content="citation_title=Evolutionary responses to changing climate;,citation_author=Margaret B Davis;,citation_author=Ruth G Shaw;,citation_author=Julie R Etterson;,citation_publication_date=2005;,citation_cover_date=2005;,citation_year=2005;,citation_issue=7;,citation_volume=86;,citation_journal_title=Ecology;,citation_publisher=Wiley Online Library;">
+<meta name="citation_reference" content="citation_title=Global acceleration in rates of vegetation change over the past 18,000 years;,citation_author=Ondřej Mottl;,citation_author=Suzette GA Flantua;,citation_author=Kuber P Bhatta;,citation_author=Vivian A Felde;,citation_author=Thomas Giesecke;,citation_author=Simon Goring;,citation_author=Eric C Grimm;,citation_author=Simon Haberle;,citation_author=Henry Hooghiemstra;,citation_author=Sarah Ivory;,citation_author=others;,citation_publication_date=2021;,citation_cover_date=2021;,citation_year=2021;,citation_issue=6544;,citation_volume=372;,citation_journal_title=Science;,citation_publisher=American Association for the Advancement of Science;">
+<meta name="citation_reference" content="citation_title=Assessing metacommunity processes through signatures in spatiotemporal turnover of community composition;,citation_author=Franck Jabot;,citation_author=Fabien Laroche;,citation_author=François Massol;,citation_author=Florent Arthaud;,citation_author=Julie Crabot;,citation_author=Maxime Dubart;,citation_author=Simon Blanchet;,citation_author=François Munoz;,citation_author=Patrice David;,citation_author=Thibault Datry;,citation_publication_date=2020;,citation_cover_date=2020;,citation_year=2020;,citation_issue=9;,citation_volume=23;,citation_journal_title=Ecology Letters;,citation_publisher=Wiley Online Library;">
+</head>
+
+<body>
+
+<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Shifts in Climate Change and Their Influence on Deep-Time Fossil Composition Dynamics</h1>
+          </div>
+
+    
+    <div class="quarto-title-meta-container">
+      <div class="quarto-title-meta-column-start">
+            <div class="quarto-title-meta-author">
+          <div class="quarto-title-meta-heading">Authors</div>
+          <div class="quarto-title-meta-heading">Affiliation</div>
+          
+                <div class="quarto-title-meta-contents">
+            <p class="author">Gabriel Munoz-Acevedo <a href="mailto:gabriel.munoz@concordia.ca" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+          </div>
+                <div class="quarto-title-meta-contents">
+                    <p class="affiliation">
+                        Concordia University
+                      </p>
+                  </div>
+                      <div class="quarto-title-meta-contents">
+            <p class="author">JP Lessard <a href="mailto:jplessard@concordia.ca" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+          </div>
+                <div class="quarto-title-meta-contents">
+                    <p class="affiliation">
+                        Concordia University
+                      </p>
+                  </div>
+                    </div>
+        
+        <div class="quarto-title-meta">
+
+                      
+                <div>
+            <div class="quarto-title-meta-heading">Published</div>
+            <div class="quarto-title-meta-contents">
+              <p class="date">September 27, 2024</p>
+            </div>
+          </div>
+          
+                
+              </div>
+      </div>
+      <div class="quarto-title-meta-column-end quarto-other-formats-target">
+      <div class="quarto-alternate-formats"><div class="quarto-title-meta-heading">Other Formats</div><div class="quarto-title-meta-contents"><p><a href="index.docx"><i class="bi bi-file-word"></i>MS Word</a></p></div><div class="quarto-title-meta-contents"><p><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF (agu)</a></p></div><div class="quarto-title-meta-contents"><p><a href="index-meca.zip" data-meca-link="true"><i class="bi bi-archive"></i>MECA Bundle</a></p></div></div></div>
+    </div>
+
+    <div>
+      <div class="abstract">
+        <div class="block-title">Abstract</div>
+        <p>Novel environmental pressures influences community assembly dynamics and broad scale patterns in biodiversity composition. While modern community assembly theory offers insights into the effects of climate change on broad-scale biodiversity patterns, these are often based on short-term snapshots, limiting our understanding of long-term processes underlying patterns of species turnover across ecological communities. Morevoer, a critical gap remains in elucidating how deep-time climatic shifts have shaped historical community assembly, as represented by the fossil record. In this study, we aim to uncover the historical dynamics into the mechanisms that could shape present and future biodiversity patterns in response to ongoing climate change. We evaluate two hypotheses regarding the impact of paleo-climate change on shifts in fossil species composition between distinct sites within a broader region, also known as beta-diversity. The Severity of Climate Change hypothesis posits that species turnover increases with the magnitude of climate change, while the Climatic Instability hypothesis suggests that frequent climate fluctuations promote higher species turnover through dynamic niche shifts. We evaluate our hypothesis alongside the influences of contemporary niche and dispersal assembly processes, which are typically considered in current ecological studies. To test these, we integrate fossil and paleoclimatic data focusing on large-mammals in the Neogene, a time marked by major climatic shifts in Northern latitudes. We found that …</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="keywords">
+        <div class="block-title">Keywords</div>
+        <p>paleoclimates, biotas, historical biogeography</p>
+      </div>
+    </div>
+
+    <div class="quarto-other-links-text-target">
+    </div>  </div>
+</header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">Methods</a>
+  <ul class="collapse">
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a>
+  <ul class="collapse">
+  <li><a href="#study-taxa" id="toc-study-taxa" class="nav-link" data-scroll-target="#study-taxa">Study taxa</a></li>
+  <li><a href="#temporal-scope" id="toc-temporal-scope" class="nav-link" data-scroll-target="#temporal-scope">Temporal scope</a></li>
+  <li><a href="#region-of-interest" id="toc-region-of-interest" class="nav-link" data-scroll-target="#region-of-interest">Region of interest</a></li>
+  <li><a href="#palaeoatmospheric-data" id="toc-palaeoatmospheric-data" class="nav-link" data-scroll-target="#palaeoatmospheric-data">Palaeoatmospheric data</a></li>
+  </ul></li>
+  <li><a href="#statistical-analyses" id="toc-statistical-analyses" class="nav-link" data-scroll-target="#statistical-analyses">Statistical analyses</a>
+  <ul class="collapse">
+  <li><a href="#broad-scale-fossil-diversity-patterns" id="toc-broad-scale-fossil-diversity-patterns" class="nav-link" data-scroll-target="#broad-scale-fossil-diversity-patterns">Broad-scale fossil diversity patterns</a></li>
+  <li><a href="#paleoclimatic-variables" id="toc-paleoclimatic-variables" class="nav-link" data-scroll-target="#paleoclimatic-variables">Paleoclimatic variables</a></li>
+  <li><a href="#general-dissimilarity-modelling" id="toc-general-dissimilarity-modelling" class="nav-link" data-scroll-target="#general-dissimilarity-modelling">General dissimilarity modelling</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a>
+  <ul class="collapse">
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-notebooks"><h2>Notebooks</h2><ul><li><a href="notebooks/03_evaluate_fossil_dissimilarity-preview.html"><i class="bi bi-journal-code"></i>Evaluate fossil assemblage dissimilarity</a></li><li><a href="notebooks/02_prepare_climate_var_features-preview.html"><i class="bi bi-journal-code"></i>Feature preparation for climate variables</a></li><li><a href="notebooks/04_GDMs-preview.html"><i class="bi bi-journal-code"></i>General dissimilarity models</a></li><li><a href="notebooks/00_data_import-preview.html"><i class="bi bi-journal-code"></i>Preprocessing fossil data</a></li><li><a href="notebooks/01_env_data_inport-preview.html"><i class="bi bi-journal-code"></i>Preprocessing paleoclimatic data</a></li></ul></div></nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+  
+
+
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>The impact of climate change on biodiversity patterns, particularly at broad spatial scales, has been a central focus in modern community assembly theory <span class="citation" data-cites="ackerly2003community kraft2015community harrison2020climate">(<a href="#ref-ackerly2003community" role="doc-biblioref">Ackerly 2003</a>; <a href="#ref-kraft2015community" role="doc-biblioref">Kraft et al. 2015</a>; <a href="#ref-harrison2020climate" role="doc-biblioref">Harrison, Spasojevic, and Li 2020</a>)</span>. However, much of the current research remains limited by the temporal scope of available data. Ecologists critic community assembly studies on their relying on “one-time snapshots” of species distributions to infer long-term processes <span class="citation" data-cites="khattar2021determinism harrison2020climate chang2016integrating">(<a href="#ref-khattar2021determinism" role="doc-biblioref">Khattar et al. 2021</a>; <a href="#ref-harrison2020climate" role="doc-biblioref">Harrison, Spasojevic, and Li 2020</a>; <a href="#ref-chang2016integrating" role="doc-biblioref">Chang and HilleRisLambers 2016</a>)</span>. Such approach als falls short in capturing how species turnover is shaped by climate dynamics over extended geological periods <span class="citation" data-cites="weiher2011advances fukami2015historical dimichele2004long">(<a href="#ref-weiher2011advances" role="doc-biblioref">Weiher et al. 2011</a>; <a href="#ref-fukami2015historical" role="doc-biblioref">Fukami 2015</a>; <a href="#ref-dimichele2004long" role="doc-biblioref">DiMichele et al. 2004</a>)</span>. The result is a fragmented understanding of how long-term climate change dynamics has influenced species turnover across large spatial scales, especially over timescales relevant to both evolutionary and ecological community assembly processes <span class="citation" data-cites="erwin2009climate jackson2015community jackson2006can">(<a href="#ref-erwin2009climate" role="doc-biblioref">Erwin 2009</a>; <a href="#ref-jackson2015community" role="doc-biblioref">S. T. Jackson and Blois 2015</a>; <a href="#ref-jackson2006can" role="doc-biblioref">J. B. Jackson and Erwin 2006</a>)</span>.</p>
+<p>In addition to the typically evaluated contemporary niche and dispersal based processes, two hypotheses offer a framework to understand climate change’s impact on biodiversity distribution across several time periods. The&nbsp;severity of climate change&nbsp;hypothesis suggests that if the magnitude of climate change drives turnover, then the compositional differences between fossil assemblages in space and over time will increase with larger climatic magnitude deltas. This is because shifts in the average climate conditions of a region over multi-million years may encourage species origination through local adaptation or migration from neighboring regions, while also increasing global extinction and local extirpation rates <span class="citation" data-cites="davis2001range davis2005evolutionary de2022predicted vasconcelos2022retiring">(<a href="#ref-davis2001range" role="doc-biblioref">Davis and Shaw 2001</a>; <a href="#ref-davis2005evolutionary" role="doc-biblioref">Davis, Shaw, and Etterson 2005</a>; <a href="#ref-de2022predicted" role="doc-biblioref">Fuente et al. 2022</a>; <a href="#ref-vasconcelos2022retiring" role="doc-biblioref">Vasconcelos, O’Meara, and Beaulieu 2022</a>)</span>. The&nbsp;Climatic Instability&nbsp;hypothesis posits that compositional differences between fossil assemblages in space to be associated with the degree of temporal change in a region’s climate spatial heterogeneity. This is because unstable climates can create new ecological niches within a region that offer opportunities for diversification and extinction, while stable climates lessen the pressures for adaptation, migration, and extinction <span class="citation" data-cites="vasconcelos2022retiring cavender2016evolutionary sonne2022biodiversity gerhold2018deep">(<a href="#ref-vasconcelos2022retiring" role="doc-biblioref">Vasconcelos, O’Meara, and Beaulieu 2022</a>; <a href="#ref-cavender2016evolutionary" role="doc-biblioref">Cavender-Bares et al. 2016</a>; <a href="#ref-sonne2022biodiversity" role="doc-biblioref">Sonne et al. 2022</a>; <a href="#ref-gerhold2018deep" role="doc-biblioref">Gerhold et al. 2018</a>)</span></p>
+<p>In Earth’s history, broad scale climatic changes <span class="citation" data-cites="zachos2001trends">(<a href="#ref-zachos2001trends" role="doc-biblioref">Zachos et al. 2001</a>)</span> create novel pressures that influences species’ distributional ranges&nbsp;<span class="citation" data-cites="erwin2009climate nogues2009predicting nogues2018cracking alroy2000global">(<a href="#ref-erwin2009climate" role="doc-biblioref">Erwin 2009</a>; <a href="#ref-nogues2009predicting" role="doc-biblioref">Nogués-Bravo 2009</a>; <a href="#ref-nogues2018cracking" role="doc-biblioref">Nogués-Bravo et al. 2018</a>; <a href="#ref-alroy2000global" role="doc-biblioref">Alroy, Koch, and Zachos 2000</a>)</span>. Thus far, we understand very little the role of these deep time climatic changes in shaping macroscale patterns in biodiversity <span class="citation" data-cites="myers2015paleoenm benson2021biodiversity bartlein1989orbital">(<a href="#ref-myers2015paleoenm" role="doc-biblioref">Myers, Stigall, and Lieberman 2015</a>; <a href="#ref-benson2021biodiversity" role="doc-biblioref">Benson et al. 2021</a>; <a href="#ref-bartlein1989orbital" role="doc-biblioref">Bartlein and Prentice 1989</a>)</span>. This knowledge can be critical to make informed predictions about past, current, and future biodiversity distribution in light of ongoing climatic changes <span class="citation" data-cites="kiessling2023improving hagen2023coupling nogues2018cracking">(<a href="#ref-kiessling2023improving" role="doc-biblioref">Kiessling, Smith, and Raja 2023</a>; <a href="#ref-hagen2023coupling" role="doc-biblioref">Hagen 2023</a>; <a href="#ref-nogues2018cracking" role="doc-biblioref">Nogués-Bravo et al. 2018</a>)</span>. Paleoclimate models—reconstructions of Earth’s climate over geological timescales—offer a promising avenue for integration with independent paleoecological data <span class="citation" data-cites="hargreaves2009importance ludwig2019perspectives faith2013climate barr2017signal">(<a href="#ref-hargreaves2009importance" role="doc-biblioref">Hargreaves and Annan 2009</a>; <a href="#ref-ludwig2019perspectives" role="doc-biblioref">Ludwig et al. 2019</a>; <a href="#ref-faith2013climate" role="doc-biblioref">Faith and Behrensmeyer 2013</a>; <a href="#ref-barr2017signal" role="doc-biblioref">Barr 2017</a>)</span>. By combining paleoclimatic reconstructions, fossil data, and community assembly theory, we can model a relationship between historical climatic changes and the changes the compositional dissimilarity of fossil assemblages at macroecological scales across stratigraphic periods <span class="citation" data-cites="naglu2023across blanco2021punctuated mottl2021global jabot2020assessing">(<a href="#ref-naglu2023across" role="doc-biblioref"><strong>naglu2023across?</strong></a>; <a href="#ref-blanco2021punctuated" role="doc-biblioref">Blanco et al. 2021</a>; <a href="#ref-mottl2021global" role="doc-biblioref">Mottl et al. 2021</a>; <a href="#ref-jabot2020assessing" role="doc-biblioref">Jabot et al. 2020</a>)</span>. Here we aim to model the compositional dissimilarity of large-mammal fossil assemblages within North America and Europe and during the Neogene period. Specifically, we ask 1) Does the magnitude of climate change influence fossil assemblage dissimilarity? and 2) To what extent do temproal instability and spatial heterogeneity of climate contribute to fossil assemblage dissimilarity? While more extreme climatic shifts are expected to increase turnover through mechanisms such as origination, extirpation, and extinction, their impact on assemblage dissimilarity will be amplified if these shifts are also accompanied by significant climatic instability and fluctuations in spatial heterogeneity.</p>
+</section>
+<section id="methods" class="level1">
+<h1>Methods</h1>
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">Data</h2>
+<section id="study-taxa" class="level3">
+<h3 class="anchored" data-anchor-id="study-taxa">Study taxa</h3>
+<p>Fossils of large mammals are particularly useful to uncover macro-evolutionary trends as they are often preserved with higher spatial fidelity and therefore less prone to taphonomic biases compared to other fossil organisms. Moreover, the results of centuries of paleontological research are now digitally available in aggregated fossil databases with standardized taxonomic nomenclature and geotagged records. For this study, we gathered fossil data from the NOW database, excluding all records where the genus or species was classified as indeterminate (“indet.”).</p>
+</section>
+<section id="temporal-scope" class="level3">
+<h3 class="anchored" data-anchor-id="temporal-scope">Temporal scope</h3>
+<p>The Neogene period (23-2.6 million years ago) provides an ideal case study to test these hypotheses, as this period was characterized by significant climatic changes. This period saw the emergence of many modern plant and animal families, as well as the extinction of many others that were widespread. During this time, the Earth’s climate transitioned from a greenhouse to an icehouse state, with the onset of the Northern Hemisphere glaciation around 3 million years ago. These led to the transformation of tropical areas in high latitudes into open landscapes such as savannas and prairies, and the expansion of temperate and boreal forests. These changes were driven by a combination of tectonic and oceanographic events, including the establishment of the modern-day Gulf Stream, the uplift of the Rocky Mountains and the Alps.</p>
+<p>The Neogene is divided into several stratigraphic stages based on geologic time. We aggregated fossil observations into categorical stratigraphic ages based on their mid-point betwen the maximun and minumum radiocarbon based age estimates. The <strong>Aquitanian</strong> (23–21 Ma) marks the beginning of the Neogene and is characterized by early Miocene climate conditions. The <strong>Burdigalian</strong> (20–16 Ma) follows, marked by warmer climates, while the <strong>Langhian</strong> (15–14 Ma) and <strong>Serravallian</strong> (13–12 Ma) represent mid-Miocene periods of global cooling. The late Miocene stages, <strong>Tortonian</strong> (11–8 Ma) and <strong>Messinian</strong> (7–5 Ma), involve further cooling and tectonic shifts, culminating in the Mediterranean Salinity Crisis during the Messinian. The Pliocene stages, <strong>Zanclean</strong> (5–4 Ma) and <strong>Piacenzian</strong> (3–2 Ma), feature continued global cooling, setting the stage for the Pleistocene glaciations.</p>
+</section>
+<section id="region-of-interest" class="level3">
+<h3 class="anchored" data-anchor-id="region-of-interest">Region of interest</h3>
+<p>The study area spans North-America and Europe. We divided continental masses into subregions: Eastern, Central, and Western USA, as well as Western Europe, Eastern Europe, and the Caucasus region. These geographic divisions capture key continental-scale gradients, allowing for analysis of species turnover and the regional variability in climatic effects. We aggregated present-day geographic coordinates of fossil observations using an equal-area hexagonal grid (100 Km spacing) rotated to Phanerozoic stratigraphic stages <span class="citation" data-cites="merdith2021extending">(<a href="#ref-merdith2021extending" role="doc-biblioref">Merdith et al. 2021</a>)</span>, aggregating all coordinates within the same grid cell, implemented in the <code>grid</code> method of the <code>paelorotate</code> function of the <code>paleoverse</code> <span class="citation" data-cites="Lewis2023paleo">(<a href="#ref-Lewis2023paleo" role="doc-biblioref">Jones et al. 2023</a>)</span> package for <code>R</code>. Further, we aggregated fossil’ hexagonal binned records into square-gridded fossil paleocommunities, each of of 25 degree squared area. We computed sampling effort per grid as the count of all unique Locality Identification Numbers (LIDNUM), a unique identifier assigned to each fossil locality represented in the NOW database.</p>
+</section>
+<section id="palaeoatmospheric-data" class="level3">
+<h3 class="anchored" data-anchor-id="palaeoatmospheric-data">Palaeoatmospheric data</h3>
+<p>We utilized paleo-atmospheric temperature reconstructions for the Northern Hemisphere (Hagen et al., 2019) as a proxy for macro-scale climatic variation across continental regions and Neogene time periods. The dataset from Hagen et al.&nbsp;(2019) spans the Cenozoic (60 Ma to the present), and we extracted a subset corresponding to the temporal range of our fossil data. To align the spatial resolution of the climate data with that of our fossil paleocommunities (5x5 degree grid cells), we aggregated the 1x1 degree grid cell temperature records by calculating simple means within each 5x5 degree grid cell.</p>
+<p>To assess the distribution of temperature across regions within each stratigraphic stage, we aggregated 1 Ma temperature records by calculating simple means. To quantify the magnitude of climate change, we computed the temporal slope for each grid cell by fitting a linear regression model to the 1 Ma temperature records within each stratigraphic stage as a function of time. The slope of this model represents the rate of temperature change, while the standard deviation of the residuals from the regression captures temporal variability in climate for each region within a given stratigraphic stage.</p>
+</section>
+</section>
+<section id="statistical-analyses" class="level2">
+<h2 class="anchored" data-anchor-id="statistical-analyses">Statistical analyses</h2>
+<section id="broad-scale-fossil-diversity-patterns" class="level3">
+<h3 class="anchored" data-anchor-id="broad-scale-fossil-diversity-patterns">Broad-scale fossil diversity patterns</h3>
+<section id="taxonomic-richness" class="level4">
+<h4 class="anchored" data-anchor-id="taxonomic-richness">Taxonomic richness</h4>
+<p>Our analysis began with quantifying the relative abundance of fossil genera across various grid cells and stratigraphic stages. For each grid cell, we normalized the genus counts by dividing the number of occurrences of each genus by the total species count at that site. This proportional representation enabled meaningful comparisons of genus composition across both spatial and temporal scales.</p>
+</section>
+<section id="paleocommunity-composition" class="level4">
+<h4 class="anchored" data-anchor-id="paleocommunity-composition">Paleocommunity composition</h4>
+<p>To evaluate the ecological dissimilarity between regions and time periods, we constructed genus-by-site matrices for each stratigraphic stage. We created these matrices by cross-tabulating the normalized genus abundances against the sites, with the exclusion of any sites lacking fossil records (i.e., those with zero total counts), ensuring our analysis was restricted to regions with available data (at least 3 unique genera recorded). We then calculated pairwise Bray-Curtis dissimilarities between grid cells within each stratigraphic stage. This approach provided an overview of taxonomic turnover of continental fossil communities across different stratigraphic stages.</p>
+</section>
+</section>
+<section id="paleoclimatic-variables" class="level3">
+<h3 class="anchored" data-anchor-id="paleoclimatic-variables">Paleoclimatic variables</h3>
+<p>From Hagen’s (2019) 1-million-year (1Ma) resolution paleoclimatic reconstructions, we derived a set of four paleoclimatic variables, each aggregated by stratigraphic period within the Neogene. Specifically, these variables include: 1) <strong>Average atmospheric temperature (t_var)</strong>, calculated as the mean temperature across all 1Ma intervals within each stratigraphic stage; 2) <strong>Magnitude of atmospheric temperature change (t_slope)</strong>, which represents the slope of a linear regression model fitted to the relationship between age and temperature for a given stratigraphic stage; 3) <strong>Atmospheric temperature temporal instability (t_inst)</strong>, measured as the standard deviation of the residuals from the linear model used to estimate t_slope; and 4) <strong>Spatial heterogeneity of atmospheric temperature (t_svar)</strong>, computed as the mean difference between a focal temperature cell and its eight neighboring cells within a stratigraphic period, following the Horn algorithm.</p>
+<section id="fluctuations-in-spatial-heterogeneity-of-atmospheric-temperature-t_svar" class="level4">
+<h4 class="anchored" data-anchor-id="fluctuations-in-spatial-heterogeneity-of-atmospheric-temperature-t_svar">Fluctuations in spatial heterogeneity of atmospheric temperature (t_svar)</h4>
+</section>
+</section>
+<section id="general-dissimilarity-modelling" class="level3">
+<h3 class="anchored" data-anchor-id="general-dissimilarity-modelling">General dissimilarity modelling</h3>
+<p>In this study, we applied General Dissimilarity Models (GDM) to explore spatial variation in fossil paleocommunity composition across environmental gradients and stratigraphic stages. GDMs offer a non-linear framework to quantify species turnover across environmental gradients while accounting for spatial effects on ecological dissimilarity. By focusing our analysis on fossil genera instead of species, we minimized biases associated with inconsistent taxonomic resolution across fossil sites. Separate GDMs were fitted to compositional dissimilarity matrices for each stratigraphic stage, modeling compositional turnover as a function of four paleoclimatic temperature variables: average atmospheric temperature (t_mean), magnitude of temperature change (t_slope), temporal temperature instability (t_var), and spatial temperature heterogeneity (t_svar). The geographic distance between fossil paleocommunities was included as a covariate, calculated as the Euclidean distance between site centroids within each paleocommunity grid. The relative contribution of each variable was determined through iterative adjustment of spline functions to maximize the fit between observed and predicted dissimilarity. We then examined how the explanatory power of each temperature variable shifted across stratigraphic stages. Lastly, by transforming and rescaling each environmental predictor to a common scale of biological relevance, we mapped geographic variation in community assembly processes over time, enabling a more meaningful comparison of climatic drivers of species turnover across regions and stages.</p>
+</section>
+</section>
+</section>
+<section id="results" class="level1">
+<h1>Results</h1>
+</section>
+<section id="discussion" class="level1">
+<h1>Discussion</h1>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section"></h3>
+</section>
+<section id="section-1" class="level3 unnumbered">
+
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-ackerly2003community" class="csl-entry" role="listitem">
+Ackerly, David D. 2003. <span>“Community Assembly, Niche Conservatism, and Adaptive Evolution in Changing Environments.”</span> <em>International Journal of Plant Sciences</em> 164 (S3): S165–84.
+</div>
+<div id="ref-alroy2000global" class="csl-entry" role="listitem">
+Alroy, John, Paul L Koch, and James C Zachos. 2000. <span>“Global Climate Change and North American Mammalian Evolution.”</span> <em>Paleobiology</em> 26 (S4): 259–88.
+</div>
+<div id="ref-barr2017signal" class="csl-entry" role="listitem">
+Barr, W Andrew. 2017. <span>“Signal or Noise? A Null Model Method for Evaluating the Significance of Turnover Pulses.”</span> <em>Paleobiology</em> 43 (4): 656–66.
+</div>
+<div id="ref-bartlein1989orbital" class="csl-entry" role="listitem">
+Bartlein, PATRICK J, and IC Prentice. 1989. <span>“Orbital Variations, Climate and Paleoecology.”</span> <em>Trends in Ecology &amp; Evolution</em> 4 (7): 195–99.
+</div>
+<div id="ref-benson2021biodiversity" class="csl-entry" role="listitem">
+Benson, Roger BJ, Richard Butler, Roger A Close, Erin Saupe, and Daniel L Rabosky. 2021. <span>“Biodiversity Across Space and Time in the Fossil Record.”</span> <em>Current Biology</em> 31 (19): R1225–36.
+</div>
+<div id="ref-blanco2021punctuated" class="csl-entry" role="listitem">
+Blanco, Fernando, Joaquı́n Calatayud, David M Martı́n-Perea, M Soledad Domingo, Iris Menéndez, Johannes Müller, Manuel Hernández Fernández, and Juan L Cantalapiedra. 2021. <span>“Punctuated Ecological Equilibrium in Mammal Communities over Evolutionary Time Scales.”</span> <em>Science</em> 372 (6539): 300–303.
+</div>
+<div id="ref-cavender2016evolutionary" class="csl-entry" role="listitem">
+Cavender-Bares, Jeannine, David D Ackerly, Sarah E Hobbie, and Philip A Townsend. 2016. <span>“Evolutionary Legacy Effects on Ecosystems: Biogeographic Origins, Plant Traits, and Implications for Management in the Era of Global Change.”</span> <em>Annual Review of Ecology, Evolution, and Systematics</em> 47: 433–62.
+</div>
+<div id="ref-chang2016integrating" class="csl-entry" role="listitem">
+Chang, Cynthia, and Janneke HilleRisLambers. 2016. <span>“Integrating Succession and Community Assembly Perspectives.”</span> <em>F1000Research</em> 5.
+</div>
+<div id="ref-davis2001range" class="csl-entry" role="listitem">
+Davis, Margaret B, and Ruth G Shaw. 2001. <span>“Range Shifts and Adaptive Responses to Quaternary Climate Change.”</span> <em>Science</em> 292 (5517): 673–79.
+</div>
+<div id="ref-davis2005evolutionary" class="csl-entry" role="listitem">
+Davis, Margaret B, Ruth G Shaw, and Julie R Etterson. 2005. <span>“Evolutionary Responses to Changing Climate.”</span> <em>Ecology</em> 86 (7): 1704–14.
+</div>
+<div id="ref-dimichele2004long" class="csl-entry" role="listitem">
+DiMichele, William A, Anna K Behrensmeyer, TD Olszewski, Conrad C Labandeira, John M Pandolfi, Scott L Wing, and Rene Bobe. 2004. <span>“Long-Term Stasis in Ecological Assemblages: Evidence from the Fossil Record.”</span> <em>Annu. Rev. Ecol. Evol. Syst.</em> 35 (1): 285–322.
+</div>
+<div id="ref-erwin2009climate" class="csl-entry" role="listitem">
+Erwin, Douglas H. 2009. <span>“Climate as a Driver of Evolutionary Change.”</span> <em>Current Biology</em> 19 (14): R575–83.
+</div>
+<div id="ref-faith2013climate" class="csl-entry" role="listitem">
+Faith, J Tyler, and Anna K Behrensmeyer. 2013. <span>“Climate Change and Faunal Turnover: Testing the Mechanics of the Turnover-Pulse Hypothesis with South African Fossil Data.”</span> <em>Paleobiology</em> 39 (4): 609–27.
+</div>
+<div id="ref-de2022predicted" class="csl-entry" role="listitem">
+Fuente, Alejandro de la, Andrew Krockenberger, Ben Hirsch, Lucas Cernusak, and Stephen E Williams. 2022. <span>“Predicted Alteration of Vertebrate Communities in Response to Climate-Induced Elevational Shifts.”</span> <em>Diversity and Distributions</em> 28 (6): 1180–90.
+</div>
+<div id="ref-fukami2015historical" class="csl-entry" role="listitem">
+Fukami, Tadashi. 2015. <span>“Historical Contingency in Community Assembly: Integrating Niches, Species Pools, and Priority Effects.”</span> <em>Annual Review of Ecology, Evolution, and Systematics</em> 46 (1): 1–23.
+</div>
+<div id="ref-gerhold2018deep" class="csl-entry" role="listitem">
+Gerhold, Pille, Marcos B Carlucci, Şerban Procheş, and Andreas Prinzing. 2018. <span>“The Deep Past Controls the Phylogenetic Structure of Present, Local Communities.”</span> <em>Annual Review of Ecology, Evolution, and Systematics</em> 49: 477–97.
+</div>
+<div id="ref-hagen2023coupling" class="csl-entry" role="listitem">
+Hagen, Oskar. 2023. <span>“Coupling Eco-Evolutionary Mechanisms with Deep-Time Environmental Dynamics to Understand Biodiversity Patterns.”</span> <em>Ecography</em> 2023 (4): e06132.
+</div>
+<div id="ref-hargreaves2009importance" class="csl-entry" role="listitem">
+Hargreaves, JC, and JD Annan. 2009. <span>“On the Importance of Paleoclimate Modelling for Improving Predictions of Future Climate Change.”</span> <em>Climate of the Past</em> 5 (4): 803–14.
+</div>
+<div id="ref-harrison2020climate" class="csl-entry" role="listitem">
+Harrison, Susan, Marko J Spasojevic, and Daijiang Li. 2020. <span>“Climate and Plant Community Diversity in Space and Time.”</span> <em>Proceedings of the National Academy of Sciences</em> 117 (9): 4464–70.
+</div>
+<div id="ref-jabot2020assessing" class="csl-entry" role="listitem">
+Jabot, Franck, Fabien Laroche, François Massol, Florent Arthaud, Julie Crabot, Maxime Dubart, Simon Blanchet, François Munoz, Patrice David, and Thibault Datry. 2020. <span>“Assessing Metacommunity Processes Through Signatures in Spatiotemporal Turnover of Community Composition.”</span> <em>Ecology Letters</em> 23 (9): 1330–39.
+</div>
+<div id="ref-jackson2006can" class="csl-entry" role="listitem">
+Jackson, Jeremy BC, and Douglas H Erwin. 2006. <span>“What Can We Learn about Ecology and Evolution from the Fossil Record?”</span> <em>Trends in Ecology &amp; Evolution</em> 21 (6): 322–28.
+</div>
+<div id="ref-jackson2015community" class="csl-entry" role="listitem">
+Jackson, Stephen T, and Jessica L Blois. 2015. <span>“Community Ecology in a Changing Environment: Perspectives from the Quaternary.”</span> <em>Proceedings of the National Academy of Sciences</em> 112 (16): 4915–21.
+</div>
+<div id="ref-Lewis2023paleo" class="csl-entry" role="listitem">
+Jones, Lewis A., William Gearty, Bethany J. Allen, Kilian Eichenseer, Christopher D. Dean, Sofía Galván, Miranta Kouvari, et al. 2023. <span>“Palaeoverse: A Community-Driven r Package to Support Palaeobiological Analysis.”</span> <em>Methods in Ecology and Evolution</em>, 1–11. <a href="https://doi.org/10.1111/2041-210X.14099">https://doi.org/10.1111/2041-210X.14099</a>.
+</div>
+<div id="ref-khattar2021determinism" class="csl-entry" role="listitem">
+Khattar, Gabriel, Margarete Macedo, Ricardo Monteiro, and Pedro Peres-Neto. 2021. <span>“Determinism and Stochasticity in the Spatial–Temporal Continuum of Ecological Communities: The Case of Tropical Mountains.”</span> <em>Ecography</em> 44 (9): 1391–1402.
+</div>
+<div id="ref-kiessling2023improving" class="csl-entry" role="listitem">
+Kiessling, Wolfgang, Jansen A Smith, and Nussaı̈bah B Raja. 2023. <span>“Improving the Relevance of Paleontology to Climate Change Policy.”</span> <em>Proceedings of the National Academy of Sciences</em> 120 (7): e2201926119.
+</div>
+<div id="ref-kraft2015community" class="csl-entry" role="listitem">
+Kraft, Nathan JB, Peter B Adler, Oscar Godoy, Emily C James, Steve Fuller, and Jonathan M Levine. 2015. <span>“Community Assembly, Coexistence and the Environmental Filtering Metaphor.”</span> <em>Functional Ecology</em> 29 (5): 592–99.
+</div>
+<div id="ref-ludwig2019perspectives" class="csl-entry" role="listitem">
+Ludwig, Patrick, Juan J Gómez-Navarro, Joaquim G Pinto, Christoph C Raible, Sebastian Wagner, and Eduardo Zorita. 2019. <span>“Perspectives of Regional Paleoclimate Modeling.”</span> <em>Annals of the New York Academy of Sciences</em> 1436 (1): 54–69.
+</div>
+<div id="ref-merdith2021extending" class="csl-entry" role="listitem">
+Merdith, Andrew S, Simon E Williams, Alan S Collins, Michael G Tetley, Jacob A Mulder, Morgan L Blades, Alexander Young, et al. 2021. <span>“Extending Full-Plate Tectonic Models into Deep Time: Linking the Neoproterozoic and the Phanerozoic.”</span> <em>Earth-Science Reviews</em> 214: 103477.
+</div>
+<div id="ref-mottl2021global" class="csl-entry" role="listitem">
+Mottl, Ondřej, Suzette GA Flantua, Kuber P Bhatta, Vivian A Felde, Thomas Giesecke, Simon Goring, Eric C Grimm, et al. 2021. <span>“Global Acceleration in Rates of Vegetation Change over the Past 18,000 Years.”</span> <em>Science</em> 372 (6544): 860–64.
+</div>
+<div id="ref-myers2015paleoenm" class="csl-entry" role="listitem">
+Myers, Corinne E, Alycia L Stigall, and Bruce S Lieberman. 2015. <span>“PaleoENM: Applying Ecological Niche Modeling to the Fossil Record.”</span> <em>Paleobiology</em> 41 (2): 226–44.
+</div>
+<div id="ref-nogues2009predicting" class="csl-entry" role="listitem">
+Nogués-Bravo, David. 2009. <span>“Predicting the Past Distribution of Species Climatic Niches.”</span> <em>Global Ecology and Biogeography</em> 18 (5): 521–31.
+</div>
+<div id="ref-nogues2018cracking" class="csl-entry" role="listitem">
+Nogués-Bravo, David, Francisco Rodrı́guez-Sánchez, Luisa Orsini, Erik de Boer, Roland Jansson, Helene Morlon, Damien A Fordham, and Stephen T Jackson. 2018. <span>“Cracking the Code of Biodiversity Responses to Past Climate Change.”</span> <em>Trends in Ecology &amp; Evolution</em> 33 (10): 765–76.
+</div>
+<div id="ref-sonne2022biodiversity" class="csl-entry" role="listitem">
+Sonne, Jesper, Bo Dalsgaard, Michael K Borregaard, Jonathan Kennedy, Jon Fjeldså, and Carsten Rahbek. 2022. <span>“Biodiversity Cradles and Museums Segregating Within Hotspots of Endemism.”</span> <em>Proceedings of the Royal Society B</em> 289 (1981): 20221102.
+</div>
+<div id="ref-vasconcelos2022retiring" class="csl-entry" role="listitem">
+Vasconcelos, Thais, Brian C O’Meara, and Jeremy M Beaulieu. 2022. <span>“Retiring <span>‘Cradles’</span> and <span>‘Museums’</span> of Biodiversity.”</span> <em>The American Naturalist</em> 199 (2): 194–205.
+</div>
+<div id="ref-weiher2011advances" class="csl-entry" role="listitem">
+Weiher, Evan, Deborah Freund, Tyler Bunton, Artur Stefanski, Tali Lee, and Stephen Bentivenga. 2011. <span>“Advances, Challenges and a Developing Synthesis of Ecological Community Assembly Theory.”</span> <em>Philosophical Transactions of the Royal Society B: Biological Sciences</em> 366 (1576): 2403–13.
+</div>
+<div id="ref-zachos2001trends" class="csl-entry" role="listitem">
+Zachos, James, Mark Pagani, Lisa Sloan, Ellen Thomas, and Katharina Billups. 2001. <span>“Trends, Rhythms, and Aberrations in Global Climate 65 Ma to Present.”</span> <em>Science</em> 292 (5517): 686–93.
+</div>
+</div></section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

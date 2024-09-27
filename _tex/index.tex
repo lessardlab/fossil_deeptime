@@ -1,0 +1,677 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+]{agujournal2019}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\usepackage{url} %this package should fix any errors with URLs in refs.
+\usepackage{lineno}
+\usepackage[inline]{trackchanges} %for better track changes. finalnew option will compile document with changes incorporated.
+\usepackage{soul}
+\linenumbers
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Shifts in Climate Change and Their Influence on Deep-Time Fossil Composition Dynamics},
+  pdfauthor={Gabriel Munoz-Acevedo; JP Lessard},
+  pdfkeywords={paleoclimates, biotas, historical biogeography},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+
+\draftfalse
+
+\begin{document}
+\title{Shifts in Climate Change and Their Influence on Deep-Time Fossil
+Composition Dynamics}
+
+\authors{Gabriel Munoz-Acevedo\affil{1}, JP Lessard\affil{1}}
+\affiliation{1}{Concordia University, }
+
+
+
+\begin{abstract}
+Novel environmental pressures influences community assembly dynamics and
+broad scale patterns in biodiversity composition. While modern community
+assembly theory offers insights into the effects of climate change on
+broad-scale biodiversity patterns, these are often based on short-term
+snapshots, limiting our understanding of long-term processes underlying
+patterns of species turnover across ecological communities. Morevoer, a
+critical gap remains in elucidating how deep-time climatic shifts have
+shaped historical community assembly, as represented by the fossil
+record. In this study, we aim to uncover the historical dynamics into
+the mechanisms that could shape present and future biodiversity patterns
+in response to ongoing climate change. We evaluate two hypotheses
+regarding the impact of paleo-climate change on shifts in fossil species
+composition between distinct sites within a broader region, also known
+as beta-diversity. The Severity of Climate Change hypothesis posits that
+species turnover increases with the magnitude of climate change, while
+the Climatic Instability hypothesis suggests that frequent climate
+fluctuations promote higher species turnover through dynamic niche
+shifts. We evaluate our hypothesis alongside the influences of
+contemporary niche and dispersal assembly processes, which are typically
+considered in current ecological studies. To test these, we integrate
+fossil and paleoclimatic data focusing on large-mammals in the Neogene,
+a time marked by major climatic shifts in Northern latitudes. We found
+that \ldots{}
+\end{abstract}
+
+
+
+
+
+\section{Introduction}\label{introduction}
+
+The impact of climate change on biodiversity patterns, particularly at
+broad spatial scales, has been a central focus in modern community
+assembly theory (Ackerly, 2003; Harrison et al., 2020; Kraft et al.,
+2015). However, much of the current research remains limited by the
+temporal scope of available data. Ecologists critic community assembly
+studies on their relying on ``one-time snapshots'' of species
+distributions to infer long-term processes (Chang \& HilleRisLambers,
+2016; Harrison et al., 2020; Khattar et al., 2021). Such approach als
+falls short in capturing how species turnover is shaped by climate
+dynamics over extended geological periods (DiMichele et al., 2004;
+Fukami, 2015; Weiher et al., 2011). The result is a fragmented
+understanding of how long-term climate change dynamics has influenced
+species turnover across large spatial scales, especially over timescales
+relevant to both evolutionary and ecological community assembly
+processes (Erwin, 2009; J. B. Jackson \& Erwin, 2006; S. T. Jackson \&
+Blois, 2015).
+
+In addition to the typically evaluated contemporary niche and dispersal
+based processes, two hypotheses offer a framework to understand climate
+change's impact on biodiversity distribution across several time
+periods. The~severity of climate change~hypothesis suggests that if the
+magnitude of climate change drives turnover, then the compositional
+differences between fossil assemblages in space and over time will
+increase with larger climatic magnitude deltas. This is because shifts
+in the average climate conditions of a region over multi-million years
+may encourage species origination through local adaptation or migration
+from neighboring regions, while also increasing global extinction and
+local extirpation rates (Davis et al., 2005; Davis \& Shaw, 2001; Fuente
+et al., 2022; Vasconcelos et al., 2022). The~Climatic
+Instability~hypothesis posits that compositional differences between
+fossil assemblages in space to be associated with the degree of temporal
+change in a region's climate spatial heterogeneity. This is because
+unstable climates can create new ecological niches within a region that
+offer opportunities for diversification and extinction, while stable
+climates lessen the pressures for adaptation, migration, and extinction
+(Cavender-Bares et al., 2016; Gerhold et al., 2018; Sonne et al., 2022;
+Vasconcelos et al., 2022)
+
+In Earth's history, broad scale climatic changes (Zachos et al., 2001)
+create novel pressures that influences species' distributional
+ranges~(Alroy et al., 2000; Erwin, 2009; Nogués-Bravo, 2009;
+Nogués-Bravo et al., 2018). Thus far, we understand very little the role
+of these deep time climatic changes in shaping macroscale patterns in
+biodiversity (Bartlein \& Prentice, 1989; Benson et al., 2021; Myers et
+al., 2015). This knowledge can be critical to make informed predictions
+about past, current, and future biodiversity distribution in light of
+ongoing climatic changes (Hagen, 2023; Kiessling et al., 2023;
+Nogués-Bravo et al., 2018). Paleoclimate models---reconstructions of
+Earth's climate over geological timescales---offer a promising avenue
+for integration with independent paleoecological data (Barr, 2017; Faith
+\& Behrensmeyer, 2013; Hargreaves \& Annan, 2009; Ludwig et al., 2019).
+By combining paleoclimatic reconstructions, fossil data, and community
+assembly theory, we can model a relationship between historical climatic
+changes and the changes the compositional dissimilarity of fossil
+assemblages at macroecological scales across stratigraphic periods
+(Blanco et al., 2021; Jabot et al., 2020; Mottl et al., 2021;
+\textbf{naglu2023across?}). Here we aim to model the compositional
+dissimilarity of large-mammal fossil assemblages within North America
+and Europe and during the Neogene period. Specifically, we ask 1) Does
+the magnitude of climate change influence fossil assemblage
+dissimilarity? and 2) To what extent do temproal instability and spatial
+heterogeneity of climate contribute to fossil assemblage dissimilarity?
+While more extreme climatic shifts are expected to increase turnover
+through mechanisms such as origination, extirpation, and extinction,
+their impact on assemblage dissimilarity will be amplified if these
+shifts are also accompanied by significant climatic instability and
+fluctuations in spatial heterogeneity.
+
+\section{Methods}\label{methods}
+
+\subsection{Data}\label{data}
+
+\subsubsection{Study taxa}\label{study-taxa}
+
+Fossils of large mammals are particularly useful to uncover
+macro-evolutionary trends as they are often preserved with higher
+spatial fidelity and therefore less prone to taphonomic biases compared
+to other fossil organisms. Moreover, the results of centuries of
+paleontological research are now digitally available in aggregated
+fossil databases with standardized taxonomic nomenclature and geotagged
+records. For this study, we gathered fossil data from the NOW database,
+excluding all records where the genus or species was classified as
+indeterminate (``indet.'').
+
+\subsubsection{Temporal scope}\label{temporal-scope}
+
+The Neogene period (23-2.6 million years ago) provides an ideal case
+study to test these hypotheses, as this period was characterized by
+significant climatic changes. This period saw the emergence of many
+modern plant and animal families, as well as the extinction of many
+others that were widespread. During this time, the Earth's climate
+transitioned from a greenhouse to an icehouse state, with the onset of
+the Northern Hemisphere glaciation around 3 million years ago. These led
+to the transformation of tropical areas in high latitudes into open
+landscapes such as savannas and prairies, and the expansion of temperate
+and boreal forests. These changes were driven by a combination of
+tectonic and oceanographic events, including the establishment of the
+modern-day Gulf Stream, the uplift of the Rocky Mountains and the Alps.
+
+The Neogene is divided into several stratigraphic stages based on
+geologic time. We aggregated fossil observations into categorical
+stratigraphic ages based on their mid-point betwen the maximun and
+minumum radiocarbon based age estimates. The \textbf{Aquitanian} (23--21
+Ma) marks the beginning of the Neogene and is characterized by early
+Miocene climate conditions. The \textbf{Burdigalian} (20--16 Ma)
+follows, marked by warmer climates, while the \textbf{Langhian} (15--14
+Ma) and \textbf{Serravallian} (13--12 Ma) represent mid-Miocene periods
+of global cooling. The late Miocene stages, \textbf{Tortonian} (11--8
+Ma) and \textbf{Messinian} (7--5 Ma), involve further cooling and
+tectonic shifts, culminating in the Mediterranean Salinity Crisis during
+the Messinian. The Pliocene stages, \textbf{Zanclean} (5--4 Ma) and
+\textbf{Piacenzian} (3--2 Ma), feature continued global cooling, setting
+the stage for the Pleistocene glaciations.
+
+\subsubsection{Region of interest}\label{region-of-interest}
+
+The study area spans North-America and Europe. We divided continental
+masses into subregions: Eastern, Central, and Western USA, as well as
+Western Europe, Eastern Europe, and the Caucasus region. These
+geographic divisions capture key continental-scale gradients, allowing
+for analysis of species turnover and the regional variability in
+climatic effects. We aggregated present-day geographic coordinates of
+fossil observations using an equal-area hexagonal grid (100 Km spacing)
+rotated to Phanerozoic stratigraphic stages (Merdith et al., 2021),
+aggregating all coordinates within the same grid cell, implemented in
+the \texttt{grid} method of the \texttt{paelorotate} function of the
+\texttt{paleoverse} (Jones et al., 2023) package for \texttt{R}.
+Further, we aggregated fossil' hexagonal binned records into
+square-gridded fossil paleocommunities, each of of 25 degree squared
+area. We computed sampling effort per grid as the count of all unique
+Locality Identification Numbers (LIDNUM), a unique identifier assigned
+to each fossil locality represented in the NOW database.
+
+\subsubsection{Palaeoatmospheric data}\label{palaeoatmospheric-data}
+
+We utilized paleo-atmospheric temperature reconstructions for the
+Northern Hemisphere (Hagen et al., 2019) as a proxy for macro-scale
+climatic variation across continental regions and Neogene time periods.
+The dataset from Hagen et al.~(2019) spans the Cenozoic (60 Ma to the
+present), and we extracted a subset corresponding to the temporal range
+of our fossil data. To align the spatial resolution of the climate data
+with that of our fossil paleocommunities (5x5 degree grid cells), we
+aggregated the 1x1 degree grid cell temperature records by calculating
+simple means within each 5x5 degree grid cell.
+
+To assess the distribution of temperature across regions within each
+stratigraphic stage, we aggregated 1 Ma temperature records by
+calculating simple means. To quantify the magnitude of climate change,
+we computed the temporal slope for each grid cell by fitting a linear
+regression model to the 1 Ma temperature records within each
+stratigraphic stage as a function of time. The slope of this model
+represents the rate of temperature change, while the standard deviation
+of the residuals from the regression captures temporal variability in
+climate for each region within a given stratigraphic stage.
+
+\subsection{Statistical analyses}\label{statistical-analyses}
+
+\subsubsection{Broad-scale fossil diversity
+patterns}\label{broad-scale-fossil-diversity-patterns}
+
+\paragraph{Taxonomic richness}\label{taxonomic-richness}
+
+Our analysis began with quantifying the relative abundance of fossil
+genera across various grid cells and stratigraphic stages. For each grid
+cell, we normalized the genus counts by dividing the number of
+occurrences of each genus by the total species count at that site. This
+proportional representation enabled meaningful comparisons of genus
+composition across both spatial and temporal scales.
+
+\paragraph{Paleocommunity composition}\label{paleocommunity-composition}
+
+To evaluate the ecological dissimilarity between regions and time
+periods, we constructed genus-by-site matrices for each stratigraphic
+stage. We created these matrices by cross-tabulating the normalized
+genus abundances against the sites, with the exclusion of any sites
+lacking fossil records (i.e., those with zero total counts), ensuring
+our analysis was restricted to regions with available data (at least 3
+unique genera recorded). We then calculated pairwise Bray-Curtis
+dissimilarities between grid cells within each stratigraphic stage. This
+approach provided an overview of taxonomic turnover of continental
+fossil communities across different stratigraphic stages.
+
+\subsubsection{Paleoclimatic variables}\label{paleoclimatic-variables}
+
+From Hagen's (2019) 1-million-year (1Ma) resolution paleoclimatic
+reconstructions, we derived a set of four paleoclimatic variables, each
+aggregated by stratigraphic period within the Neogene. Specifically,
+these variables include: 1) \textbf{Average atmospheric temperature
+(t\_var)}, calculated as the mean temperature across all 1Ma intervals
+within each stratigraphic stage; 2) \textbf{Magnitude of atmospheric
+temperature change (t\_slope)}, which represents the slope of a linear
+regression model fitted to the relationship between age and temperature
+for a given stratigraphic stage; 3) \textbf{Atmospheric temperature
+temporal instability (t\_inst)}, measured as the standard deviation of
+the residuals from the linear model used to estimate t\_slope; and 4)
+\textbf{Spatial heterogeneity of atmospheric temperature (t\_svar)},
+computed as the mean difference between a focal temperature cell and its
+eight neighboring cells within a stratigraphic period, following the
+Horn algorithm.
+
+\paragraph{Fluctuations in spatial heterogeneity of atmospheric
+temperature
+(t\_svar)}\label{fluctuations-in-spatial-heterogeneity-of-atmospheric-temperature-t_svar}
+
+\subsubsection{General dissimilarity
+modelling}\label{general-dissimilarity-modelling}
+
+In this study, we applied General Dissimilarity Models (GDM) to explore
+spatial variation in fossil paleocommunity composition across
+environmental gradients and stratigraphic stages. GDMs offer a
+non-linear framework to quantify species turnover across environmental
+gradients while accounting for spatial effects on ecological
+dissimilarity. By focusing our analysis on fossil genera instead of
+species, we minimized biases associated with inconsistent taxonomic
+resolution across fossil sites. Separate GDMs were fitted to
+compositional dissimilarity matrices for each stratigraphic stage,
+modeling compositional turnover as a function of four paleoclimatic
+temperature variables: average atmospheric temperature (t\_mean),
+magnitude of temperature change (t\_slope), temporal temperature
+instability (t\_var), and spatial temperature heterogeneity (t\_svar).
+The geographic distance between fossil paleocommunities was included as
+a covariate, calculated as the Euclidean distance between site centroids
+within each paleocommunity grid. The relative contribution of each
+variable was determined through iterative adjustment of spline functions
+to maximize the fit between observed and predicted dissimilarity. We
+then examined how the explanatory power of each temperature variable
+shifted across stratigraphic stages. Lastly, by transforming and
+rescaling each environmental predictor to a common scale of biological
+relevance, we mapped geographic variation in community assembly
+processes over time, enabling a more meaningful comparison of climatic
+drivers of species turnover across regions and stages.
+
+\section{Results}\label{results}
+
+\section{Discussion}\label{discussion}
+
+\subsubsection{}\label{section}
+
+\subsubsection*{}\label{section-1}
+\addcontentsline{toc}{subsubsection}{}
+
+\phantomsection\label{refs}
+\begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-ackerly2003community}
+Ackerly, D. D. (2003). Community assembly, niche conservatism, and
+adaptive evolution in changing environments. \emph{International Journal
+of Plant Sciences}, \emph{164}(S3), S165--S184.
+
+\bibitem[\citeproctext]{ref-alroy2000global}
+Alroy, J., Koch, P. L., \& Zachos, J. C. (2000). Global climate change
+and north american mammalian evolution. \emph{Paleobiology},
+\emph{26}(S4), 259--288.
+
+\bibitem[\citeproctext]{ref-barr2017signal}
+Barr, W. A. (2017). Signal or noise? A null model method for evaluating
+the significance of turnover pulses. \emph{Paleobiology}, \emph{43}(4),
+656--666.
+
+\bibitem[\citeproctext]{ref-bartlein1989orbital}
+Bartlein, P. J., \& Prentice, I. (1989). Orbital variations, climate and
+paleoecology. \emph{Trends in Ecology \& Evolution}, \emph{4}(7),
+195--199.
+
+\bibitem[\citeproctext]{ref-benson2021biodiversity}
+Benson, R. B., Butler, R., Close, R. A., Saupe, E., \& Rabosky, D. L.
+(2021). Biodiversity across space and time in the fossil record.
+\emph{Current Biology}, \emph{31}(19), R1225--R1236.
+
+\bibitem[\citeproctext]{ref-blanco2021punctuated}
+Blanco, F., Calatayud, J., Martı́n-Perea, D. M., Domingo, M. S.,
+Menéndez, I., Müller, J., et al. (2021). Punctuated ecological
+equilibrium in mammal communities over evolutionary time scales.
+\emph{Science}, \emph{372}(6539), 300--303.
+
+\bibitem[\citeproctext]{ref-cavender2016evolutionary}
+Cavender-Bares, J., Ackerly, D. D., Hobbie, S. E., \& Townsend, P. A.
+(2016). Evolutionary legacy effects on ecosystems: Biogeographic
+origins, plant traits, and implications for management in the era of
+global change. \emph{Annual Review of Ecology, Evolution, and
+Systematics}, \emph{47}, 433--462.
+
+\bibitem[\citeproctext]{ref-chang2016integrating}
+Chang, C., \& HilleRisLambers, J. (2016). Integrating succession and
+community assembly perspectives. \emph{F1000Research}, \emph{5}.
+
+\bibitem[\citeproctext]{ref-davis2001range}
+Davis, M. B., \& Shaw, R. G. (2001). Range shifts and adaptive responses
+to quaternary climate change. \emph{Science}, \emph{292}(5517),
+673--679.
+
+\bibitem[\citeproctext]{ref-davis2005evolutionary}
+Davis, M. B., Shaw, R. G., \& Etterson, J. R. (2005). Evolutionary
+responses to changing climate. \emph{Ecology}, \emph{86}(7), 1704--1714.
+
+\bibitem[\citeproctext]{ref-dimichele2004long}
+DiMichele, W. A., Behrensmeyer, A. K., Olszewski, T., Labandeira, C. C.,
+Pandolfi, J. M., Wing, S. L., \& Bobe, R. (2004). Long-term stasis in
+ecological assemblages: Evidence from the fossil record. \emph{Annu.
+Rev. Ecol. Evol. Syst.}, \emph{35}(1), 285--322.
+
+\bibitem[\citeproctext]{ref-erwin2009climate}
+Erwin, D. H. (2009). Climate as a driver of evolutionary change.
+\emph{Current Biology}, \emph{19}(14), R575--R583.
+
+\bibitem[\citeproctext]{ref-faith2013climate}
+Faith, J. T., \& Behrensmeyer, A. K. (2013). Climate change and faunal
+turnover: Testing the mechanics of the turnover-pulse hypothesis with
+south african fossil data. \emph{Paleobiology}, \emph{39}(4), 609--627.
+
+\bibitem[\citeproctext]{ref-de2022predicted}
+Fuente, A. de la, Krockenberger, A., Hirsch, B., Cernusak, L., \&
+Williams, S. E. (2022). Predicted alteration of vertebrate communities
+in response to climate-induced elevational shifts. \emph{Diversity and
+Distributions}, \emph{28}(6), 1180--1190.
+
+\bibitem[\citeproctext]{ref-fukami2015historical}
+Fukami, T. (2015). Historical contingency in community assembly:
+Integrating niches, species pools, and priority effects. \emph{Annual
+Review of Ecology, Evolution, and Systematics}, \emph{46}(1), 1--23.
+
+\bibitem[\citeproctext]{ref-gerhold2018deep}
+Gerhold, P., Carlucci, M. B., Procheş, Ş., \& Prinzing, A. (2018). The
+deep past controls the phylogenetic structure of present, local
+communities. \emph{Annual Review of Ecology, Evolution, and
+Systematics}, \emph{49}, 477--497.
+
+\bibitem[\citeproctext]{ref-hagen2023coupling}
+Hagen, O. (2023). Coupling eco-evolutionary mechanisms with deep-time
+environmental dynamics to understand biodiversity patterns.
+\emph{Ecography}, \emph{2023}(4), e06132.
+
+\bibitem[\citeproctext]{ref-hargreaves2009importance}
+Hargreaves, J., \& Annan, J. (2009). On the importance of paleoclimate
+modelling for improving predictions of future climate change.
+\emph{Climate of the Past}, \emph{5}(4), 803--814.
+
+\bibitem[\citeproctext]{ref-harrison2020climate}
+Harrison, S., Spasojevic, M. J., \& Li, D. (2020). Climate and plant
+community diversity in space and time. \emph{Proceedings of the National
+Academy of Sciences}, \emph{117}(9), 4464--4470.
+
+\bibitem[\citeproctext]{ref-jabot2020assessing}
+Jabot, F., Laroche, F., Massol, F., Arthaud, F., Crabot, J., Dubart, M.,
+et al. (2020). Assessing metacommunity processes through signatures in
+spatiotemporal turnover of community composition. \emph{Ecology
+Letters}, \emph{23}(9), 1330--1339.
+
+\bibitem[\citeproctext]{ref-jackson2006can}
+Jackson, J. B., \& Erwin, D. H. (2006). What can we learn about ecology
+and evolution from the fossil record? \emph{Trends in Ecology \&
+Evolution}, \emph{21}(6), 322--328.
+
+\bibitem[\citeproctext]{ref-jackson2015community}
+Jackson, S. T., \& Blois, J. L. (2015). Community ecology in a changing
+environment: Perspectives from the quaternary. \emph{Proceedings of the
+National Academy of Sciences}, \emph{112}(16), 4915--4921.
+
+\bibitem[\citeproctext]{ref-Lewis2023paleo}
+Jones, L. A., Gearty, W., Allen, B. J., Eichenseer, K., Dean, C. D.,
+Galván, S., et al. (2023). Palaeoverse: A community-driven r package to
+support palaeobiological analysis. \emph{Methods in Ecology and
+Evolution}, 1--11. \url{https://doi.org/10.1111/2041-210X.14099}
+
+\bibitem[\citeproctext]{ref-khattar2021determinism}
+Khattar, G., Macedo, M., Monteiro, R., \& Peres-Neto, P. (2021).
+Determinism and stochasticity in the spatial--temporal continuum of
+ecological communities: The case of tropical mountains.
+\emph{Ecography}, \emph{44}(9), 1391--1402.
+
+\bibitem[\citeproctext]{ref-kiessling2023improving}
+Kiessling, W., Smith, J. A., \& Raja, N. B. (2023). Improving the
+relevance of paleontology to climate change policy. \emph{Proceedings of
+the National Academy of Sciences}, \emph{120}(7), e2201926119.
+
+\bibitem[\citeproctext]{ref-kraft2015community}
+Kraft, N. J., Adler, P. B., Godoy, O., James, E. C., Fuller, S., \&
+Levine, J. M. (2015). Community assembly, coexistence and the
+environmental filtering metaphor. \emph{Functional Ecology},
+\emph{29}(5), 592--599.
+
+\bibitem[\citeproctext]{ref-ludwig2019perspectives}
+Ludwig, P., Gómez-Navarro, J. J., Pinto, J. G., Raible, C. C., Wagner,
+S., \& Zorita, E. (2019). Perspectives of regional paleoclimate
+modeling. \emph{Annals of the New York Academy of Sciences},
+\emph{1436}(1), 54--69.
+
+\bibitem[\citeproctext]{ref-merdith2021extending}
+Merdith, A. S., Williams, S. E., Collins, A. S., Tetley, M. G., Mulder,
+J. A., Blades, M. L., et al. (2021). Extending full-plate tectonic
+models into deep time: Linking the neoproterozoic and the phanerozoic.
+\emph{Earth-Science Reviews}, \emph{214}, 103477.
+
+\bibitem[\citeproctext]{ref-mottl2021global}
+Mottl, O., Flantua, S. G., Bhatta, K. P., Felde, V. A., Giesecke, T.,
+Goring, S., et al. (2021). Global acceleration in rates of vegetation
+change over the past 18,000 years. \emph{Science}, \emph{372}(6544),
+860--864.
+
+\bibitem[\citeproctext]{ref-myers2015paleoenm}
+Myers, C. E., Stigall, A. L., \& Lieberman, B. S. (2015). PaleoENM:
+Applying ecological niche modeling to the fossil record.
+\emph{Paleobiology}, \emph{41}(2), 226--244.
+
+\bibitem[\citeproctext]{ref-nogues2009predicting}
+Nogués-Bravo, D. (2009). Predicting the past distribution of species
+climatic niches. \emph{Global Ecology and Biogeography}, \emph{18}(5),
+521--531.
+
+\bibitem[\citeproctext]{ref-nogues2018cracking}
+Nogués-Bravo, D., Rodrı́guez-Sánchez, F., Orsini, L., Boer, E. de,
+Jansson, R., Morlon, H., et al. (2018). Cracking the code of
+biodiversity responses to past climate change. \emph{Trends in Ecology
+\& Evolution}, \emph{33}(10), 765--776.
+
+\bibitem[\citeproctext]{ref-sonne2022biodiversity}
+Sonne, J., Dalsgaard, B., Borregaard, M. K., Kennedy, J., Fjeldså, J.,
+\& Rahbek, C. (2022). Biodiversity cradles and museums segregating
+within hotspots of endemism. \emph{Proceedings of the Royal Society B},
+\emph{289}(1981), 20221102.
+
+\bibitem[\citeproctext]{ref-vasconcelos2022retiring}
+Vasconcelos, T., O'Meara, B. C., \& Beaulieu, J. M. (2022). Retiring
+{``cradles''} and {``museums''} of biodiversity. \emph{The American
+Naturalist}, \emph{199}(2), 194--205.
+
+\bibitem[\citeproctext]{ref-weiher2011advances}
+Weiher, E., Freund, D., Bunton, T., Stefanski, A., Lee, T., \&
+Bentivenga, S. (2011). Advances, challenges and a developing synthesis
+of ecological community assembly theory. \emph{Philosophical
+Transactions of the Royal Society B: Biological Sciences},
+\emph{366}(1576), 2403--2413.
+
+\bibitem[\citeproctext]{ref-zachos2001trends}
+Zachos, J., Pagani, M., Sloan, L., Thomas, E., \& Billups, K. (2001).
+Trends, rhythms, and aberrations in global climate 65 ma to present.
+\emph{Science}, \emph{292}(5517), 686--693.
+
+\end{CSLReferences}
+
+
+
+
+\end{document}
