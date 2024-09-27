@@ -66,7 +66,6 @@ To evaluate the ecological dissimilarity between regions and time periods, we co
 
 From Hagen's (2019) 1-million-year (1Ma) resolution paleoclimatic reconstructions, we derived a set of four paleoclimatic variables, each aggregated by stratigraphic period within the Neogene. Specifically, these variables include: 1) **Average atmospheric temperature (t_var)**, calculated as the mean temperature across all 1Ma intervals within each stratigraphic stage; 2) **Magnitude of atmospheric temperature change (t_slope)**, which represents the slope of a linear regression model fitted to the relationship between age and temperature for a given stratigraphic stage; 3) **Atmospheric temperature temporal instability (t_inst)**, measured as the standard deviation of the residuals from the linear model used to estimate t_slope; and 4) **Spatial heterogeneity of atmospheric temperature (t_svar)**, computed as the mean difference between a focal temperature cell and its eight neighboring cells within a stratigraphic period, following the Horn algorithm.
 
-#### Fluctuations in spatial heterogeneity of atmospheric temperature (t_svar) 
 
 ### General dissimilarity modelling
 
@@ -74,8 +73,9 @@ In this study, we applied General Dissimilarity Models (GDM) to explore spatial 
 
 # Results 
 
+TBD
+
 # Discussion 
 
-### 
+TBD
 
-### 
