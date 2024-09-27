@@ -1,0 +1,489 @@
+---
+title: "Preprocessing fossil data"
+author: 'Gabriel Munoz'
+date: today
+freeze: true
+execute: 
+  warning: false
+  message: true
+---
+
+```{r}
+#| eval: true 
+#| echo: false 
+#| message: true   
+#| warning: false
+library(dplyr)
+library(ggplot2)
+library(sf)
+
+library('palaeoverse')
+
+```
+
+## Fossil data
+
+We will use a cut of the NOW database, kindly provided by `Shan`
+
+```{r}
+fossil <- read.csv("DATA/NOW_filtered_by_Shan_Oct2019.csv")
+
+# subset only the data we need 
+
+fossil <- fossil |> 
+  select(LIDNUM, GENUS, SPECIES, FAMILY, ORDER, MIN_AGE, MAX_AGE, LONG, LAT)
+
+```
+
+Let's examine a summary of the dataset
+
+```{r}
+gtsummary::tbl_summary(fossil, 
+                       include = c('ORDER', 'MAX_AGE', 'MIN_AGE'))
+```
+
+### Spatio-temporal data coverage
+
+Let's examine the spatiotemporal extent of the dataset, and filter according to our needs.
+
+First, lets create two new columns, `time_period_min` and `time_period_max` to assign categorical time periods based on the estimated radiocarbon data.
+
+```{r}
+## define a function to assign time periods based on literature thresholds 
+
+change_time_to_period <- function(MIN_AGE){
+  case_when(round(MIN_AGE) %in% c(21:23) ~ 'Aquitanian',  
+            round(MIN_AGE) %in% c(16:20) ~ 'Burdigalian',
+            round(MIN_AGE) %in% c(14:15) ~ 'Langhian',
+            round(MIN_AGE) %in% c(12:13) ~ 'Serravallian',
+            round(MIN_AGE) %in% c(11:8) ~ 'Tortonian',
+            round(MIN_AGE) %in% c(5:7) ~ 'Messinian',
+            round(MIN_AGE) %in% c(4:5) ~ 'Zanclean',
+            round(MIN_AGE) %in% c(2:3) ~ 'Piacenzian')     
+  
+  
+}
+
+change_period_to_midpoint <- function(period) {
+  case_when(
+    period == 'Aquitanian'  ~ mean(c(21, 23)),
+    period == 'Burdigalian' ~ mean(c(16, 20)),
+    period == 'Langhian'    ~ mean(c(14, 15)),
+    period == 'Serravallian' ~ mean(c(12, 13)),
+    period == 'Tortonian'   ~ mean(c(8, 11)),
+    period == 'Messinian'   ~ mean(c(5, 7)),
+    period == 'Zanclean'    ~ mean(c(4, 5)),
+    period == 'Piacenzian'  ~ mean(c(2, 3)),
+    TRUE ~ NA_real_  # Return NA if no match
+  )
+}
+
+
+```
+
+```{r}
+## apply the function
+
+fossil <- 
+  fossil |> 
+  mutate(
+    time_period_max = change_time_to_period(MAX_AGE), 
+    time_period_min = change_time_to_period(MIN_AGE),
+    midpoint_time = rowMeans(data.frame(MAX_AGE, MIN_AGE), na.rm = T), 
+    midpoint_period = change_time_to_period(midpoint_time)
+  )
+
+```
+
+Second, let's bring region level grid-data and match it the spatial coordinates of our dataset. This will be our region of interest `ROI`
+
+```{r}
+## Load grided data on regions of north america and europe
+reg_gridded <- st_read("DATA/regions_gridded/Data_RegionsGridded.shp")
+
+plot(reg_gridded$geometry, col = as.factor(reg_gridded$Region))
+```
+
+Let's now make a geographical linkage between the two datasets, but first correct the coordinates of the fossil dataset with tecnonic plate movement. Using the method of Merdith et al., 2021
+
+```{r, eval = FALSE}
+fossil <- palaeorotate(occdf = fossil, age = "midpoint_time", lat = "LAT", lng = "LONG", method = 'grid')
+fossil_dat <- st_as_sf(fossil, coords = c('rot_lng', 'rot_lat'), remove = F, crs = 4326)
+
+```
+```{r, echo=FALSE}
+fossil_dat <- readRDS("DATA/out/fossil_data_cleaned_geo_corrected.rds")
+
+```
+
+
+```{r}
+# convert fosil data to a geographic object
+
+
+# apply spatial filter to add region info to fossil data
+
+subset_fossil <- fossil_dat[lengths(st_intersects(fossil_dat,reg_gridded)) > 0,] 
+
+## add spatial info to the fossil dataset 
+
+subset_fossil$region <- reg_gridded$Region[st_intersects(fossil_dat,reg_gridded) |> unlist()]
+
+subset_fossil$WorldMapID <- reg_gridded$WorldMapID[st_intersects(fossil_dat,reg_gridded) |> unlist()]
+```
+
+Let's visualize geographical sampling completeness for all time-periods
+
+```{r}
+
+
+## Observe the result 
+
+plot(reg_gridded$geometry, 
+     col = scales::alpha(as.numeric(as.factor(reg_gridded$Region)), 0.2), 
+     border = 0 )
+subset_fossil$geometry |> plot(add = T, pch = 6, cex = 0.2, col = 'black')
+subset_fossil$geometry |> plot(add = T, pch = 2, cex = 0.2, col = 'black')
+
+```
+
+
+
+Let's visualize geographical sampling completeness for each time period
+
+
+```{r}
+subset_fossil |>
+  group_by(rot_age) |> 
+  summarize(nloc = n_distinct(geometry)) |> 
+  ggplot() + 
+  geom_sf(data  = reg_gridded,
+          aes(fill = Region), alpha = 0.3, size = 0.3, color = NA) + 
+  facet_wrap(~rot_age, ncol = 2) + 
+  theme_minimal()  + 
+  geom_sf( shape = 24, fill = 'black', size = 0.2,  col = 'black') + 
+  geom_sf( shape = 6, fill = 'black', col = 'black', size = 0.2) +
+   theme(legend.position = "bottom", legend.direction = "horizontal", 
+             legend.key.size = unit(0.2, "cm"),  # Adjust the size of the legend keys
+    legend.text = element_text(size = 6) ) # Adjust the text size in the legend)
+
+
+
+```
+
+It looks evenly spread! Let's keep the `rot_age:rotated age`` as our reference variable for the temporal axis. Let's redefine the periods based on this axis. 
+
+
+
+```{r}
+
+
+subset_fossil <- 
+subset_fossil |> 
+  mutate(midpoint_period = change_time_to_period(rot_age), 
+         hex_id = paste(rot_lng, rot_lat))
+```
+
+
+```{r}
+
+subset_fossil |>
+  group_by(midpoint_period) |> 
+  summarize(nloc = n_distinct(geometry)) |> 
+  ggplot() +
+ geom_sf(data  = reg_gridded,
+          aes(fill = Region), alpha = 0.3, size = 0.3, color = NA) + 
+  facet_wrap(~midpoint_period, ncol = 2) + 
+  theme_minimal()  + 
+  geom_sf( shape = 24, fill = 'black', size = 0.2,  col = 'black') + 
+  geom_sf( shape = 6, fill = 'black', col = 'black', size = 0.2) +
+   theme(legend.position = "bottom", legend.direction = "horizontal", 
+             legend.key.size = unit(0.2, "cm"),  # Adjust the size of the legend keys
+    legend.text = element_text(size = 6) ) # Adjust the text size in the legend)
+
+```
+
+
+Aggregating hex bins to gridded paleocommunities 
+
+```{r}
+xydat <- subset_fossil %>% 
+distinct(geometry)
+xydat <- st_as_sf(xydat, 
+                  coords = c('rot_lng', 'rot_lat'), 
+                  crs = 4326)
+
+grid_5 <- st_make_grid(xydat, cellsize = 5) |> st_sf()
+
+```
+
+Let’s define a function that matches the focal grids with the fossil sampling locations
+
+```{r}
+assign_grid_id <- function(xydat, grid){
+
+
+my_list <- st_intersects(xydat, grid)
+my_list[lengths(my_list) == 0] <- NA
+
+return(unlist(my_list, use.names = FALSE))
+
+}
+
+
+
+```
+
+
+
+
+```{r}
+subset_fossil <- 
+subset_fossil |> 
+  mutate(grid_id_5  = assign_grid_id(geometry, grid_5))
+```
+
+
+
+
+```{r}
+## summarize sampling intensity and richness
+
+subset_fossil_summary <- 
+subset_fossil |>
+  group_by(midpoint_period, grid_id_5) |> 
+  summarize(sampling_intensity = n_distinct(LIDNUM), 
+            genus_richness = n_distinct(GENUS)) |> 
+  arrange(sampling_intensity) 
+
+```
+
+```{r}
+subset_fossil_summary |>
+  ggplot() + 
+  geom_point(aes(x = sampling_intensity, 
+                 y = genus_richness, 
+                 color = midpoint_period)) + 
+  geom_smooth(aes(x = sampling_intensity, 
+                 y = genus_richness)) + 
+  theme_minimal() + 
+  xlab('Sampling effort') + 
+  ylab('Richness of Genera')
+```
+
+```{r}
+subset_fossil_summary |>
+  ggplot() + 
+  geom_point(aes(x = sampling_intensity, 
+                 y = genus_richness)) + 
+  facet_wrap(~midpoint_period) + 
+  geom_smooth(aes(x = sampling_intensity, 
+                 y = genus_richness)) + 
+  theme_minimal() + 
+  xlab('Sampling effort') + 
+  ylab('Richness of Genera')
+
+```
+
+
+
+
+
+
+
+```{r}
+subset_fossil_summary  |>
+  ggplot() +
+ geom_sf(data  = reg_gridded,
+          aes(fill = Region), alpha = 0.3, size = 0.3, color = NA) + 
+  facet_wrap(~midpoint_period, ncol = 2) + 
+  theme_minimal()  + 
+  geom_sf( shape = 24,  size = sqrt(subset_fossil_summary$sampling_intensity)/5,  col = 'black') + 
+   theme(legend.position = "bottom", legend.direction = "horizontal", 
+             legend.key.size = unit(0.2, "cm"),  # Adjust the size of the legend keys
+    legend.text = element_text(size = 6) ) # Adjust the text size in the legend)
+
+
+```
+
+
+## Taxonomic coverage per time period
+
+```{r}
+library(ggraph)
+library(tidygraph)
+
+## define a function to plot a dendrogram 
+make_dendro <- function(subset_fossil){
+  graph_s <- rbind(
+    subset_fossil %>% 
+      select(ORDER) %>% 
+      mutate(lucy = 1)%>% unique %>% 
+      rename('from' = lucy, 'to' = ORDER) , 
+    subset_fossil %>% 
+      select(ORDER, FAMILY) %>% unique %>% 
+      rename('from' = ORDER, 'to' = FAMILY), 
+    subset_fossil %>% unique %>% 
+      select(FAMILY, GENUS) %>% 
+      rename('from' = FAMILY, 'to' = GENUS ))
+  
+  
+  
+  graph_s <- 
+    graph_s |> 
+    select(from, to) |> 
+    as_tbl_graph(directed = TRUE)
+  
+  ggraph(graph_s, 'dendrogram', circular = TRUE)  + 
+    geom_edge_diagonal() + 
+    geom_node_text(aes(label = ifelse(name %in% subset_fossil$GENUS, "", name))) +  
+    theme_void()
+  
+  
+  
+}
+
+```
+
+::: panel-tabset
+#### Aquitanian
+
+```{r}
+make_dendro(subset_fossil[subset_fossil$midpoint_period == 'Aquitanian', ])
+
+```
+
+#### Burdigalian
+
+```{r}
+make_dendro(subset_fossil[subset_fossil$midpoint_period == 'Burdigalian', ])
+
+```
+
+#### Langhian
+
+```{r}
+make_dendro(subset_fossil[subset_fossil$midpoint_period == 'Langhian', ])
+
+```
+
+#### Serravallian
+
+```{r}
+make_dendro(subset_fossil[subset_fossil$midpoint_period == 'Serravallian', ])
+
+```
+
+#### Tortonian
+
+```{r}
+make_dendro(subset_fossil[subset_fossil$midpoint_period == 'Tortonian', ])
+
+```
+
+#### Messinian
+
+```{r}
+make_dendro(subset_fossil[subset_fossil$midpoint_period == 'Messinian', ])
+
+```
+
+#### Zanclean
+
+```{r}
+make_dendro(subset_fossil[subset_fossil$midpoint_period == 'Zanclean', ])
+
+```
+
+#### Piacenzian
+
+```{r}
+make_dendro(subset_fossil[subset_fossil$midpoint_period == 'Piacenzian', ])
+
+```
+:::
+
+Seems like a balanced distribution of GENUS across time periods, with no extreme changes in the information available.
+
+We can also spot the presence of `indet.` & `incertae sedis` data in the dataset. Those records may correspond to unidentified species or something else. But we will find and remove them from the dataset at the GENUS LEVEL.
+
+```{r}
+library(stringr)
+
+to_rem <- 
+which(
+str_detect(subset_fossil$GENUS, 'indet|incertae') | str_detect(subset_fossil$FAMILY, 'indet|incertae') | str_detect(subset_fossil$SPECIES, 'indet|incertae')
+) 
+
+
+
+# remove indetermined genus 
+
+subset_fossil <- subset_fossil[-to_rem,]
+
+
+```
+
+After this cleaning steps, lets count the number of species per grid and remain only with the grids-periods of time pairs with at least `5` species each.
+
+```{r}
+subset_fossil <- subset_fossil |> mutate(sp_id = paste0(GENUS,"_", SPECIES))
+
+
+subset_fossil$gr_id <- as.numeric(is.numeric(subset_fossil$grid_id_5))
+
+# 
+grid_wt_enough_data <- 
+subset_fossil |> 
+group_by(region, midpoint_period ) |> 
+summarize(n_sp  = n_distinct(sp_id), 
+n_gen = n_distinct(GENUS))  |> 
+filter(n_sp > 5)
+
+
+
+```
+
+let's now filter the fossil dataset based on those grid ids
+
+```{r}
+subset_fossil <- 
+subset_fossil |> 
+filter(paste(region, midpoint_period) %in% 
+paste(grid_wt_enough_data$region, grid_wt_enough_data$midpoint_period))
+
+```
+
+Finally, let's count the dimensions of our dataset
+
+```{r}
+subset_fossil |> dim()
+```
+
+
+```{r}
+saveRDS(subset_fossil, 'DATA/out/fossil_data_cleaned.rds')
+```
+
+
+```{r}
+#| fig-caption: Number of observations per region and time period. Note that the cell numbers have been sqrt transformed for a better visualization of the gradient. 
+#| 
+
+
+## number of records per region and time  
+xtabs(gr_id ~ region + midpoint_period, subset_fossil) |> sqrt() |> heatmap()
+
+
+```
+
+We can observe that regions are relatively equally sample in space, but not in time. Particularly, the periods `Aquitanian`, `Zanclean`, `Serravallian` and `Piacenzian` seem to be relatively less well sampled
+
+```{r}
+#| fig-caption: Number of species counts per region and time period. Note that the cell numbers have been sqrt transformed for a better visualization of the gradient. 
+# number of species per region and time  
+xtabs(ifelse(is.na(subset_fossil$sp_id),0,1) ~ region + midpoint_period, subset_fossil) |> sqrt() |> heatmap()
+
+```
+
+We observe that the species richness patterns follows the sampling effort pattern. We should address this covariance in our modelling approaches.

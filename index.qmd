@@ -1,111 +1,81 @@
 ---
-title: La Palma Earthquakes
-author:
-  - name: Steve Purves
-    orcid: 0000-0002-0760-5497
-    corresponding: true
-    email: steve@curvenote.com
-    roles:
-      - Investigation
-      - Project administration
-      - Software
-      - Visualization
-    affiliations:
-      - Curvenote
-  - name: Rowan Cockett
-    orcid: 0000-0002-7859-8394
-    corresponding: false
-    roles: []
-    affiliations:
-      - Curvenote
-keywords:
-  - La Palma
-  - Earthquakes
+title:  Shifts in Climate Change and Their Influence on Deep-Time Fossil Composition Dynamics 
+author: 
+  - name: Gabriel Munoz-Acevedo
+    affiliation: Concordia University
+    email: gabriel.munoz@concordia.ca
+  - name: JP Lessard
+    affiliation: Concordia University
+    email: jplessard@concordia.ca
+date: today
+keywords: [paleoclimates, biotas, historical biogeography]
 abstract: |
-  In September 2021, a significant jump in seismic activity on the island of La Palma (Canary Islands, Spain) signaled the start of a volcanic crisis that still continues at the time of writing. Earthquake data is continually collected and published by the Instituto Geográphico Nacional (IGN). ...
-plain-language-summary: |
-  Earthquake data for the island of La Palma from the September 2021 eruption is found ...
-key-points:
-  - A web scraping script was developed to pull data from the Instituto Geogràphico Nacional into a machine-readable form for analysis
-  - Earthquake events on La Palma are consistent with the presence of both mantle and crustal reservoirs.
-date: last-modified
+  Novel environmental pressures influences community assembly dynamics and broad scale patterns in biodiversity composition. While modern community assembly theory offers insights into the effects of climate change on broad-scale biodiversity patterns, these are often based on short-term snapshots, limiting our understanding of long-term processes underlying patterns of species turnover across ecological communities. Morevoer, a critical gap remains in elucidating how deep-time climatic shifts have shaped  historical community assembly, as represented by the fossil record. In this study, we aim to uncover the historical dynamics into the mechanisms that could shape present and future biodiversity patterns in response to ongoing climate change. We evaluate two hypotheses regarding the impact of paleo-climate change on shifts in fossil species composition between distinct sites within a broader region, also known as beta-diversity. The Severity of Climate Change hypothesis posits that species turnover increases with the magnitude of climate change, while the Climatic Instability hypothesis suggests that frequent climate fluctuations promote higher species turnover through dynamic niche shifts. We evaluate our hypothesis  alongside the influences of contemporary niche and dispersal assembly processes, which are typically considered in current ecological studies. To test these, we integrate fossil and paleoclimatic data focusing on large-mammals in the Neogene, a time marked by major climatic shifts in Northern latitudes. We found that ... 
+  
+  
+
+  
 bibliography: references.bib
-citation:
-  container-title: Earth and Space Science
-number-sections: true
 ---
 
-## Introduction
+# Introduction
 
-```{r}
-eruptions <- c(1492, 1585, 1646, 1677, 1712, 1949, 1971, 2021)
-n_eruptions <- length(eruptions)
-```
+The impact of climate change on biodiversity patterns, particularly at broad spatial scales, has been a central focus in modern community assembly theory [@ackerly2003community; @kraft2015community; @harrison2020climate]. However, much of the current research remains limited by the temporal scope of available data. Ecologists critic community assembly studies on their relying on "one-time snapshots" of species distributions to infer long-term processes [@khattar2021determinism; @harrison2020climate; @chang2016integrating]. Such approach als falls short in capturing how species turnover is shaped by climate dynamics over extended geological periods [@weiher2011advances; @fukami2015historical; @dimichele2004long]. The result is a fragmented understanding of how long-term climate change dynamics has influenced species turnover across large spatial scales, especially over timescales relevant to both evolutionary and ecological community assembly processes [@erwin2009climate; @jackson2015community; @jackson2006can].
 
-```{r}
-#| label: fig-timeline
-#| fig-cap: Timeline of recent earthquakes on La Palma
-#| fig-alt: An event plot of the years of the last 8 eruptions on La Palma.
-#| fig-height: 1.5
-#| fig-width: 6
-par(mar = c(3, 1, 1, 1) + 0.1)
-plot(eruptions, rep(0, n_eruptions), 
-  pch = "|", axes = FALSE)
-axis(1)
-box()
-```
+In addition to the typically evaluated contemporary niche and dispersal based processes, two hypotheses offer a framework to understand climate change’s impact on biodiversity distribution across several time periods. The severity of climate change hypothesis suggests that if the magnitude of climate change drives turnover, then the compositional differences between fossil assemblages in space and over time will increase with larger climatic magnitude deltas. This is because shifts in the average climate conditions of a region over multi-million years may encourage species origination through local adaptation or migration from neighboring regions, while also increasing global extinction and local extirpation rates [@davis2001range; @davis2005evolutionary; @de2022predicted; @vasconcelos2022retiring]. The Climatic Instability hypothesis posits that compositional differences between fossil assemblages in space to be associated with the degree of temporal change in a region’s climate spatial heterogeneity. This is because unstable climates can create new ecological niches within a region that offer opportunities for diversification and extinction, while stable climates lessen the pressures for adaptation, migration, and extinction [@vasconcelos2022retiring; @cavender2016evolutionary; @sonne2022biodiversity; @gerhold2018deep]
 
-```{r}
-#| output: false
-avg_years_between_eruptions <- mean(diff(eruptions[-n_eruptions]))
-avg_years_between_eruptions
-```
+In our planet’s history, broad scale climatic changes [@zachos2001trends] create novel pressures that influences species' distributional ranges [@erwin2009climate; @nogues2009predicting; @nogues2018cracking; @alroy2000global]. Thus far, we understand very little the role of these deep time climatic changes in shaping macroscale patterns in biodiversity [@myers2015paleoenm; @benson2021biodiversity; @bartlein1989orbital]. This knowledge can be critical to make informed predictions about past, current, and future biodiversity distribution in light of ongoing climatic changes [@kiessling2023improving; @hagen2023coupling; @nogues2018cracking]. Paleoclimate models—reconstructions of Earth's climate over geological timescales—offer a promising avenue for integration with independent paleoecological data [@hargreaves2009importance; @ludwig2019perspectives; @faith2013climate; @barr2017signal]. By combining paleoclimatic reconstructions, fossil data, and community assembly theory, we can model a relationship between historical climatic changes and the changes the compositional dissimilarity of fossil assemblages at macroecological scales across stratigraphic periods [@naglu2023across; @blanco2021punctuated; @mottl2021global; @jabot2020assessing]. Here we aim to model the compositional dissimilarity of large-mammal fossil assemblages within North America and Europe and during the Neogene period. Specifically, we ask 1) Does the magnitude of climate change influence fossil assemblage dissimilarity? and 2) To what extent do temproal instability and spatial heterogeneity of climate contribute to fossil assemblage dissimilarity? While more extreme climatic shifts are expected to increase turnover through mechanisms such as origination, extirpation, and extinction, their impact on assemblage dissimilarity will be amplified if these shifts are also accompanied by significant climatic instability and fluctuations in spatial heterogeneity.
 
-Based on data up to and including 1971, eruptions on La Palma happen every `r round(avg_years_between_eruptions, 1)` years on average.
+# Methods
 
-Studies of the magma systems feeding the volcano, such as @marrero2019, have proposed that there are two main magma reservoirs feeding the Cumbre Vieja volcano; one in the mantle (30-40km depth) which charges and in turn feeds a shallower crustal reservoir (10-20km depth).
+## Data
 
-Eight eruptions have been recorded since the late 1400s (@fig-timeline).
+### Study taxa
 
-Data and methods are discussed in @sec-data-methods.
+Fossils of large mammals are particularly useful to uncover macro-evolutionary trends as they are often preserved with higher spatial fidelity and therefore less prone to taphonomic biases compared to other fossil organisms. Moreover, the results of centuries of paleontological research are now digitally available in aggregated fossil databases with standardized taxonomic nomenclature and geotagged records. For this study, we gathered fossil data from the NOW database, excluding all records where the genus or species was classified as indeterminate ("indet.").
 
-Let $x$ denote the number of eruptions in a year. Then, $x$ can be modeled by a Poisson distribution
+### Temporal scope
 
-$$
-p(x) = \frac{e^{-\lambda} \lambda^{x}}{x !}
-$$ {#eq-poisson}
+The Neogene period (23-2.6 million years ago) provides an ideal case study to test these hypotheses, as this period was characterized by significant climatic changes. This period saw the emergence of many modern plant and animal families, as well as the extinction of many others that were widespread. During this time, the Earth's climate transitioned from a greenhouse to an icehouse state, with the onset of the Northern Hemisphere glaciation around 3 million years ago. These led to the transformation of tropical areas in high latitudes into open landscapes such as savannas and prairies, and the expansion of temperate and boreal forests. These changes were driven by a combination of tectonic and oceanographic events, including the establishment of the modern-day Gulf Stream, the uplift of the Rocky Mountains and the Alps.
 
-where $\lambda$ is the rate of eruptions per year. Using @eq-poisson, the probability of an eruption in the next $t$ years can be calculated.
+The Neogene is divided into several stratigraphic stages based on geologic time. We aggregated fossil observations into categorical stratigraphic ages based on their mid-point betwen the maximun and minumum radiocarbon based age estimates. The **Aquitanian** (23–21 Ma) marks the beginning of the Neogene and is characterized by early Miocene climate conditions. The **Burdigalian** (20–16 Ma) follows, marked by warmer climates, while the **Langhian** (15–14 Ma) and **Serravallian** (13–12 Ma) represent mid-Miocene periods of global cooling. The late Miocene stages, **Tortonian** (11–8 Ma) and **Messinian** (7–5 Ma), involve further cooling and tectonic shifts, culminating in the Mediterranean Salinity Crisis during the Messinian. The Pliocene stages, **Zanclean** (5–4 Ma) and **Piacenzian** (3–2 Ma), feature continued global cooling, setting the stage for the Pleistocene glaciations.
 
-| Name                 | Year   |
-| -------------------- | ------ |
-| Current              | 2021   |
-| Teneguía             | 1971   |
-| Nambroque            | 1949   |
-| El Charco            | 1712   |
-| Volcán San Antonio   | 1677   |
-| Volcán San Martin    | 1646   |
-| Tajuya near El Paso  | 1585   |
-| Montaña Quemada      | 1492   |
+### Region of interest
 
-: Recent historic eruptions on La Palma {#tbl-history}
+The study area spans North-America and Europe. We divided continental masses into subregions: Eastern, Central, and Western USA, as well as Western Europe, Eastern Europe, and the Caucasus region. These geographic divisions capture key continental-scale gradients, allowing for analysis of species turnover and the regional variability in climatic effects. We aggregated present-day geographic coordinates of fossil observations using an equal-area hexagonal grid (100 Km spacing) rotated to Phanerozoic stratigraphic stages [@merdith2021extending], aggregating all coordinates within the same grid cell, implemented in the `grid` method of the `paelorotate` function of the `paleoverse` [@Lewis2023paleo] package for `R`. Further, we aggregated fossil' hexagonal binned records into square-gridded fossil paleocommunities, each of of 25 degree squared area. We computed sampling effort per grid as the count of all unique Locality Identification Numbers (LIDNUM), a unique identifier assigned to each fossil locality represented in the NOW database.
 
-@tbl-history summarises the eruptions recorded since the colonization of the islands by Europeans in the late 1400s.
+### Palaeoatmospheric data
 
-![Map of La Palma](images/la-palma-map.png){#fig-map}
+We utilized paleo-atmospheric temperature reconstructions for the Northern Hemisphere (Hagen et al., 2019) as a proxy for macro-scale climatic variation across continental regions and Neogene time periods. The dataset from Hagen et al. (2019) spans the Cenozoic (60 Ma to the present), and we extracted a subset corresponding to the temporal range of our fossil data. To align the spatial resolution of the climate data with that of our fossil paleocommunities (5x5 degree grid cells), we aggregated the 1x1 degree grid cell temperature records by calculating simple means within each 5x5 degree grid cell.
 
-La Palma is one of the west most islands in the Volcanic Archipelago of the Canary Islands (@fig-map). 
+To assess the distribution of temperature across regions within each stratigraphic stage, we aggregated 1 Ma temperature records by calculating simple means. To quantify the magnitude of climate change, we computed the temporal slope for each grid cell by fitting a linear regression model to the 1 Ma temperature records within each stratigraphic stage as a function of time. The slope of this model represents the rate of temperature change, while the standard deviation of the residuals from the regression captures temporal variability in climate for each region within a given stratigraphic stage.
 
-{{< embed notebooks/explore-earthquakes.qmd#fig-spatial-plot >}}
+## Statistical analyses
 
-@fig-spatial-plot shows the location of recent Earthquakes on La Palma.
+### Broad-scale fossil diversity patterns 
 
-## Data & Methods {#sec-data-methods}
+#### Taxonomic richness
 
-## Conclusion
+Our analysis began with quantifying the relative abundance of fossil genera across various grid cells and stratigraphic stages. For each grid cell, we normalized the genus counts by dividing the number of occurrences of each genus by the total species count at that site. This proportional representation enabled meaningful comparisons of genus composition across both spatial and temporal scales.
 
-## References {.unnumbered}
+#### Paleocommunity composition 
 
-:::{#refs}
+To evaluate the ecological dissimilarity between regions and time periods, we constructed genus-by-site matrices for each stratigraphic stage. We created these matrices by cross-tabulating the normalized genus abundances against the sites, with the exclusion of any sites lacking fossil records (i.e., those with zero total counts), ensuring our analysis was restricted to regions with available data (at least 3 unique genera recorded). We then calculated pairwise Bray-Curtis dissimilarities between grid cells within each stratigraphic stage. This approach provided an overview of taxonomic turnover of continental fossil communities across different stratigraphic stages.
 
-:::
+### Paleoclimatic variables 
+
+From Hagen's (2019) 1-million-year (1Ma) resolution paleoclimatic reconstructions, we derived a set of four paleoclimatic variables, each aggregated by stratigraphic period within the Neogene. Specifically, these variables include: 1) **Average atmospheric temperature (t_var)**, calculated as the mean temperature across all 1Ma intervals within each stratigraphic stage; 2) **Magnitude of atmospheric temperature change (t_slope)**, which represents the slope of a linear regression model fitted to the relationship between age and temperature for a given stratigraphic stage; 3) **Atmospheric temperature temporal instability (t_inst)**, measured as the standard deviation of the residuals from the linear model used to estimate t_slope; and 4) **Spatial heterogeneity of atmospheric temperature (t_svar)**, computed as the mean difference between a focal temperature cell and its eight neighboring cells within a stratigraphic period, following the Horn algorithm.
+
+#### Fluctuations in spatial heterogeneity of atmospheric temperature (t_svar) 
+
+### General dissimilarity modelling
+
+In this study, we applied General Dissimilarity Models (GDM) to explore spatial variation in fossil paleocommunity composition across environmental gradients and stratigraphic stages. GDMs offer a non-linear framework to quantify species turnover across environmental gradients while accounting for spatial effects on ecological dissimilarity. By focusing our analysis on fossil genera instead of species, we minimized biases associated with inconsistent taxonomic resolution across fossil sites. Separate GDMs were fitted to compositional dissimilarity matrices for each stratigraphic stage, modeling compositional turnover as a function of four paleoclimatic temperature variables: average atmospheric temperature (t_mean), magnitude of temperature change (t_slope), temporal temperature instability (t_var), and spatial temperature heterogeneity (t_svar). The geographic distance between fossil paleocommunities was included as a covariate, calculated as the Euclidean distance between site centroids within each paleocommunity grid. The relative contribution of each variable was determined through iterative adjustment of spline functions to maximize the fit between observed and predicted dissimilarity. We then examined how the explanatory power of each temperature variable shifted across stratigraphic stages. Lastly, by transforming and rescaling each environmental predictor to a common scale of biological relevance, we mapped geographic variation in community assembly processes over time, enabling a more meaningful comparison of climatic drivers of species turnover across regions and stages.
+
+# Results 
+
+# Discussion 
+
+### 
+
+### 

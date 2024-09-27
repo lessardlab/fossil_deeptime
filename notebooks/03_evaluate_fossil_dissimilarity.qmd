@@ -1,0 +1,693 @@
+---
+title: "Evaluate fossil assemblage dissimilarity"
+author: 'Gabriel Munoz'
+date: today
+---
+
+## Load libraries
+
+```{r, include = FALSE}
+source("C:/Users/gabri/Documents/PhD/00_Chapter_fossil/02_chapter_fossil/manuscript/quarto_manuscript/notebooks/00_functions.R")
+
+library(deeptime)
+library(tidyverse)
+library(patchwork)
+library(vegan)
+library(sf)
+
+
+reg_gridded <- st_read("DATA/regions_gridded/Data_RegionsGridded.shp")
+```
+
+## Load data 
+
+```{r}
+subset_fossil <- readRDS('DATA/out/fossil_data_cleaned.rds')
+time_order <- c('Aquitanian', 'Burdigalian', 'Langhian', 'Serravallian', 'Tortonian', 'Messinian', 'Zanclean', 'Piacenzian')
+```
+
+
+## Visualize ecological turnover at Family level 
+
+
+```{r}
+
+family_count_age <- 
+  subset_fossil |> 
+  select(-geometry) |> 
+  group_by(stage_age = round(midpoint_time)) |> 
+  summarize(n = n_distinct(FAMILY))  
+
+
+fam_raw_count_plot <- 
+  ggplot(family_count_age) +
+  geom_line(aes(x = stage_age, y = n)) +
+  scale_x_reverse("Age (Ma)") +
+  ylab("Number of Families (raw)") +
+  coord_geo(
+    pos = as.list(rep("bottom", 3)),
+    dat = list("stages", "epochs", "periods"),
+    height = list(unit(2, "lines"), unit(2, "lines"), unit(2, "line")),
+    rot = list(90, 90, 0), size = list(2.5, 2.5, 5), abbrv = FALSE
+  ) +
+  theme_classic(base_size = 16)
+
+
+gen_count_age <- 
+  subset_fossil |> 
+  select(-geometry) |> 
+  group_by(stage_age = round(midpoint_time)) |> 
+  summarize(n = n_distinct(GENUS))  
+
+
+gen_raw_count_plot <- 
+  ggplot(gen_count_age) +
+  geom_line(aes(x = stage_age, y = n)) +
+  scale_x_reverse("Age (Ma)") +
+  ylab("Number of Genera (raw)") +
+  coord_geo(
+    pos = as.list(rep("bottom", 3)),
+    dat = list("stages", "epochs", "periods"),
+    height = list(unit(2, "lines"), unit(2, "lines"), unit(2, "line")),
+    rot = list(90, 90, 0), size = list(2.5, 2.5, 5), abbrv = FALSE
+  ) +
+  theme_classic(base_size = 16)
+
+## combine both plots with ggextra
+
+fam_gen_plot <- gridExtra::grid.arrange(fam_raw_count_plot, gen_raw_count_plot, ncol = 2, nrow = 1)
+
+
+```
+
+Visualize the rarefied counts 
+
+
+```{r}
+subset_fossil <- 
+  subset_fossil |>
+  mutate(stage_age = round(midpoint_time),
+         FAMILY = as.factor(FAMILY))
+```
+
+```{r}
+
+fam_matrix_all <- xtabs(~ midpoint_period + FAMILY, subset_fossil)
+gen_matrix_all <- xtabs(~ midpoint_period + GENUS, subset_fossil)
+
+rar_fam <- vegan::rarefy(fam_matrix_all, 100, se = T) |> 
+  as.data.frame() 
+
+rar_gen <- vegan::rarefy(gen_matrix_all, 100, se = T) |> 
+  as.data.frame() 
+
+
+rar_plot_fam <- 
+  rar_fam[time_order] |> t() |>  as.data.frame() |> 
+  rownames_to_column('Stages') |>
+  mutate(Stages = factor(Stages, levels = time_order)) |> 
+  ggplot(aes(S, Stages)) +
+  geom_col() + 
+  coord_flip() + 
+  geom_errorbar(aes(xmin = S - se, xmax = S + se), width = 0.2) +  # Add SE as error bars
+  theme_minimal() + 
+  xlab('Rarefied richness')
+
+rar_plot_gen <- 
+  rar_gen[time_order] |> t() |>  as.data.frame() |> 
+  rownames_to_column('Stages') |>
+  mutate(Genus = factor(Stages, levels = time_order)) |>
+  ggplot(aes(S, Stages)) +
+  geom_col() + 
+  coord_flip() + 
+  geom_errorbar(aes(xmin = S - se, xmax = S + se), width = 0.2) +  # Add SE as error bars
+  theme_minimal() + 
+  xlab('Rarefied richness')
+
+
+combined_plot_rar <- gridExtra::grid.arrange(rar_plot_fam, rar_plot_gen, ncol = 2, nrow = 1)
+
+combined_plot_rar |> plot()
+
+```
+Now lets explore the change in richness by regions 
+
+```{r}
+
+# define a function that will compute richnness 
+
+compute_richness <- function(subset_fossil,
+                             sample, 
+                             time_order,
+                             region, 
+                             taxa = "FAMILY"){
+  
+  
+  
+  
+  
+  fam_matrix_all <- xtabs(formula(paste0("~ midpoint_period + ",
+                                         taxa)), subset_fossil)
+  
+  rar_fam <- vegan::rarefy(fam_matrix_all, sample, se = T) |> 
+    as.data.frame() |> t() |>  as.data.frame() |> 
+    rownames_to_column('Stages') |>
+    mutate(Stages = factor(Stages, levels = time_order), 
+           region = region) |>
+    filter(!is.na(Stages))
+  
+  return(rar_fam)
+  
+  
+}
+
+```
+
+
+
+# compute richness for each region
+```{r}
+
+
+rich_per_reg_fam <- 
+  unique(subset_fossil$region) |> 
+  map(~compute_richness(subset_fossil |> filter(region == .x), 
+                        sample = 20 , 
+                        time_order, 
+                        region = .x, 
+                        taxa = 'FAMILY') ) |> 
+  bind_rows()
+
+
+
+
+
+rich_per_reg_gen <- 
+  unique(subset_fossil$region) |> 
+  map(~compute_richness(subset_fossil |> filter(region == .x), 
+                        sample = 20 , 
+                        time_order, 
+                        region = .x, 
+                        taxa = 'GENUS') ) |> 
+  bind_rows()
+
+
+
+```
+
+
+Plot the results 
+
+```{r}
+
+rar_rich_by_reg_by_fam <- 
+  rich_per_reg_fam |> 
+  mutate(region = factor(region, 
+                         levels = 
+                           c('Western North America',
+                             'Central North America',
+                             'Eastern North America',
+                             'Western Europe',
+                             'Eastern Europe',
+                             'Caucasus'))) |> 
+  filter(Stages %in% time_order) |>
+  ggplot(aes(S, Stages)) +
+  geom_col() + 
+  facet_wrap(~region) +
+  coord_flip() + 
+  geom_errorbar(aes(xmin = S - se, xmax = S + se), width = 0.2) +  # Add SE as error bars
+  theme_minimal() + 
+  xlab('Rarefied richness of families')+
+  theme(
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)  # Rotate x-axis labels 90 degrees
+  )
+
+
+
+rar_rich_by_reg_by_gen <- 
+  rich_per_reg_gen |> 
+  mutate(region = factor(region, 
+                         levels = 
+                           c('Western North America',
+                             'Central North America',
+                             'Eastern North America',
+                             'Western Europe',
+                             'Eastern Europe',
+                             'Caucasus'))) |> 
+  filter(Stages %in% time_order) |>
+  ggplot(aes(S, Stages)) +
+  geom_col() + 
+  facet_wrap(~region) +
+  coord_flip() + 
+  geom_errorbar(aes(xmin = S - se, xmax = S + se), width = 0.2) +  # Add SE as error bars
+  theme_minimal() + 
+  xlab('Rarefied richness of genera') +
+  theme(
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)  # Rotate x-axis labels 90 degrees
+  )
+
+
+# bind both plots with gridExtra
+
+
+combined_rar_reg_facet <- 
+  gridExtra::grid.arrange(rar_rich_by_reg_by_fam, rar_rich_by_reg_by_gen, ncol = 2, nrow = 1)
+
+combined_rar_reg_facet |> plot()
+
+
+```
+
+
+We will focus in the patterns at the genera level 
+
+
+```{r}
+
+
+
+fossil_dat_5_dis <- 
+  subset_fossil |> 
+  select(grid_id_5,GENUS, region, midpoint_period,sp_id, !geometry)
+
+
+genus_count_per_reg_time <- 
+  fossil_dat_5_dis |>
+  group_by(grid_id_5, region, midpoint_period) |>
+  summarize(n = n_distinct(GENUS)) 
+
+genus_count_per_reg_time$geometry <- NULL
+
+```
+
+Counting the number of observed genus per grid and period and region
+
+
+```{r}
+
+genus_count_per_reg_time  |> 
+  filter(!is.na(midpoint_period)) |> 
+  mutate(region = factor(region, 
+                         levels = 
+                           c('Western North America',
+                             'Central North America',
+                             'Eastern North America',
+                             'Western Europe',
+                             'Eastern Europe',
+                             'Caucasus')))  |> 
+  mutate(midpoint_period = factor(midpoint_period, 
+                                  levels = time_order)) |>  
+  ggplot(aes(x = midpoint_period, y = n, fill = region)) +
+  geom_boxplot() +
+  facet_wrap(~region) + 
+  ylab('Observed richness of genera per grid')  +  theme_minimal() + 
+  theme(
+    legend.position = "bottom",
+    legend.direction = "horizontal",
+    legend.key.size = unit(0.5, "cm"),  # Adjust the size of the legend keys
+    legend.text = element_text(size = 8)  # Adjust the text size in the legend
+  )+
+  theme(
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)  # Rotate x-axis labels 90 degrees
+  ) 
+
+
+
+
+```
+
+## Compute dissimilarity between regions and periods 
+
+
+
+```{r}
+
+
+## Normalizing the counts of species per genus to relative abundance per site, in other words for each site count the number of species per genus 
+
+genus_count_per_reg_time <-
+  fossil_dat_5_dis |>
+  group_by(grid_id_5, GENUS, region, midpoint_period) |>
+  summarize(n = n_distinct(sp_id)) |>
+  spread(midpoint_period, n, fill = 0) |>
+  group_by(grid_id_5 ) |> 
+  group_split() |> 
+  imap(~ .x  |> 
+         mutate(across(c(`Aquitanian`:`Zanclean`),~ ./sum(., na.rm = T)))) |> 
+  bind_rows() |>
+  mutate(across(c(`Aquitanian`:`Zanclean`), ~ ifelse(is.na(.), 0, .))) 
+
+
+
+## Compute the dissimilarity between regions and periods
+
+matrix_counts <- function(data, stage){
+  
+  mc <- xtabs(formula(paste0(stage,"~grid_id_5+GENUS")), data)
+  
+  mc <- mc[mc |> rowSums() != 0,]
+  
+  return(mc)
+} 
+
+normalized_count_matrices_list <- 
+  map(time_order,~matrix_counts(genus_count_per_reg_time, .x)) |> 
+  set_names(time_order)
+
+
+```
+
+
+Apply bray curtis index over the normalized genus counts 
+
+```{r}
+
+
+dissimilarity_matrices_list <- 
+  normalized_count_matrices_list |> 
+  map(~vegan::vegdist(.x, method = 'bray')) 
+
+
+saveRDS(dissimilarity_matrices_list, 'DATA/out/dissimilarity_matrices_list.rds')
+
+
+```
+
+
+## Visualize the dissimilarity matrices 
+
+
+Compute average dissimilarity for all regions. 
+
+```{r}
+
+dissimilarity_matrices_list <- readRDS('DATA/out/dissimilarity_matrices_list.rds')
+
+diss_correct <- sapply(dissimilarity_matrices_list, sum) /
+  sapply(lapply(dissimilarity_matrices_list, dim), prod)
+
+plot(diss_correct)
+
+data.frame(diss_correct) |>
+  rownames_to_column('period') |>
+  mutate(time = change_period_to_midpoint(period)) |> 
+  ggplot() +
+  geom_point(aes(x = time, y = diss_correct)) +
+  geom_line(aes(x = time, y = diss_correct)) +
+  ylim( c(0.44,0.46))+
+  scale_x_reverse("Age (Ma)") +
+  ylab("Average dissimilarity") +
+  deeptime::coord_geo(dat = 'stages', 
+                      pos = 'top',
+                      xlim = c(3,23), 
+                      fill = NA) +
+  theme_classic(base_size = 16)
+```
+Detrend dissimilarity 
+
+```{r}
+detrend_dis <- residuals(loess(diss_correct~change_period_to_midpoint(names(diss_correct))))
+
+data.frame(detrend_dis) |>
+  rownames_to_column('period') |>
+  mutate(time = change_period_to_midpoint(period)) |> 
+  ggplot(aes(x = time, y = detrend_dis)) +
+  geom_point() +
+  geom_line() +
+  ylim( c(-0.01,0.01)) +
+  scale_x_reverse("Age (Ma)") +
+  ylab("Average dissimilarity (detrended)") +
+  deeptime::coord_geo(dat = 'stages', 
+                      pos = 'top',
+                      xlim = c(3,23), 
+                      fill = NA) +
+  theme_classic(base_size = 16) + 
+  geom_smooth(method = "lm")
+```
+
+
+Compute trend in dissimilarity per region 
+
+
+```{r}
+dissimilarity_dataset <- 
+  lapply(1:length(time_order), function(x){ 
+    
+    dis_df <- dissimilarity_matrices_list[[x]] |> as.matrix() |>  reshape2::melt()
+    
+    dis_df <- 
+      dis_df |> 
+      mutate(time = time_order[x]) |> 
+      mutate(mid_point = change_period_to_midpoint(time))
+    
+    dis_df$reg_from <- subset_fossil$region[match(dis_df$Var1,subset_fossil$grid_id_5)]
+    dis_df$reg_to <- subset_fossil$region[match(dis_df$Var2,subset_fossil$grid_id_5)]
+    
+    
+    
+    dis_df$from_x <- subset_fossil$rot_lat[match(dis_df$Var1,subset_fossil$grid_id_5)]
+    dis_df$from_y <- subset_fossil$rot_lng[match(dis_df$Var1,subset_fossil$grid_id_5)]
+    
+    
+    dis_df$to_x <- subset_fossil$rot_lat[match(dis_df$Var2,subset_fossil$grid_id_5)]
+    dis_df$to_y <-subset_fossil$rot_lng[match(dis_df$Var2,subset_fossil$grid_id_5)]
+    
+    dis_df
+  }) |>
+  bind_rows()
+
+
+saveRDS(dissimilarity_dataset,'DATA/out/dissimilarity_dataset.rds')
+```
+
+
+
+Visualize differences in average dissimilarity per region 
+
+
+```{r}
+
+dissimilarity_dataset$mid_point |> unique()
+
+names(dissimilarity_dataset)
+dissimilarity_dataset |> 
+  ggplot(aes(mid_point, value)) + 
+  geom_point()  + 
+  facet_wrap(~reg_to+reg_from, as.table = T) + 
+  geom_smooth() + 
+  ylim(c(0.5, 1))
+
+```
+
+
+Lets observe the detrended trends 
+
+
+
+```{r}
+dissimilarity_dataset <- 
+
+dissimilarity_dataset |>
+  mutate(detrend_dis = 
+           dissimilarity_dataset |>
+           group_by(reg_from, reg_to) |>
+           group_split() |>
+           purrr::map(~{
+             data.frame('detrended_diss' = residuals(loess(value~mid_point, data = .x)))
+           }) |> 
+           bind_rows() |>
+           pull("detrended_diss"))
+
+
+dissimilarity_dataset$detrend_dis
+
+```
+
+```{r}
+dissimilarity_dataset |> 
+  ggplot(aes(mid_point, detrend_dis)) + 
+  geom_point()  + 
+  facet_wrap(~reg_to+reg_from, as.table = T) + 
+  geom_smooth(method = "lm") 
+
+
+
+dissimilarity_dataset |>
+  group_by(reg_to, reg_from) |> 
+  summarize(coef = coef(lm(.data[["detrend_dis"]]~.data[["mid_point"]]))[[2]], 
+            interc =  coef(lm(.data[["detrend_dis"]]~.data[["mid_point"]]))[[1]], 
+            r = vegan::RsquareAdj(lm(.data[["detrend_dis"]]~.data[["mid_point"]]))[[2]], 
+            p = broom::tidy(lm(.data[["detrend_dis"]]~.data[["mid_point"]])) |>
+              select("p.value") |> slice(2) |> pull() ) |> 
+  mutate(signif = ifelse(p>0.05, F, T)) |> 
+  filter(signif)
+
+```
+
+
+
+
+
+
+
+```{r, eval = FALSE}
+
+library(igraph)
+g <- graph_from_adjacency_matrix(as.matrix(dissimilarity_matrices_list[[7]] ), weighted = TRUE, mode = "undirected")
+
+
+
+layout_time <- st_coordinates(subset_fossil$geometry[match(V(g)$name,as.character(subset_fossil$grid_id_5))])
+
+rownames(layout_time) <- V(g)$name
+plot(layout_time)
+
+plot(g, edge.width = E(g)$weight, layout = layout_time)
+
+
+# Prepare the graph edges as spatial data for plotting
+edge_list <- get.edgelist(g, names = TRUE)  # Get the list of edges
+layout_time <- data.frame(layout_time)
+# Create a data frame of edges with start and end coordinates
+edges_df <- data.frame(
+  x_start = layout_time$X[match(edge_list[, 1], rownames(layout_time))],
+  y_start = layout_time$Y[match(edge_list[, 1], rownames(layout_time))],
+  x_end = layout_time$X[match(edge_list[, 2], rownames(layout_time))],
+  y_end = layout_time$Y[match(edge_list[, 2], rownames(layout_time))],
+  weight = E(g)$weight  # Use edge weights for customization
+)
+
+world <- rnaturalearth::ne_countries(scale = "medium", returnclass = "sf")
+
+quantile(edges_df$weight)
+
+# Plot the map with the graph on top
+ggplot(data = reg_gridded) +
+  geom_sf(aes(fill = Region)) +  # Plot the world map in the background
+  geom_segment(data = edges_df |> 
+                 filter(weight < quantile(weight, 0.25)),
+               aes(x = x_start, 
+                   y = y_start,
+                   xend = x_end, 
+                   yend = y_end, 
+                   color = 1-weight, 
+                   alpha = weight),
+               linewidth = weight ) +  # Plot edges
+  geom_point(data = layout_time, aes(x = X, y = Y), size = 3, color = "red") +  # Plot nodes
+  theme_minimal() +
+  theme(legend.position = "none") +  # Customize theme and remove legend
+  labs(title = "Graph Over Map", x = "Longitude", y = "Latitude")
+```
+
+```{r, eval = FALSE}
+
+# Assuming X = longitude and Y = latitude
+layout_time_sf <- st_as_sf(layout_time, coords = c("X", "Y"), crs = 4326)  # Assuming WGS84 (EPSG:4326) for lat/lon
+
+# If using a projected CRS (e.g., orthographic or azimuthal equal-area)
+layout_time_sf <- st_transform(layout_time_sf, crs = "+proj=aeqd +lat_0=40 +lon_0=-30")  # Same CRS as the map
+
+
+edges_df_sf <- edges_df %>%
+  # Create a LineString geometry from x_start/y_start to x_end/y_end
+  rowwise() %>%
+  mutate(geometry = st_sfc(st_linestring(matrix(c(x_start, y_start, x_end, y_end), ncol = 2, byrow = TRUE)), crs = 4326)) %>%
+  st_as_sf()  # Convert to sf object
+
+# Transform edges to match the projection of the map
+edges_df_sf <- st_transform(edges_df_sf, crs = "+proj=aeqd +lat_0=40 +lon_0=-30")
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ```{r} -->
+<!-- q_filter<- quantile(edges_df_sf$weight, 0.25) -->
+<!-- data2_plot <- edges_df_sf |> -->
+<!--   filter(weight < q_filter) -->
+
+
+<!-- ggplot(data = reg_gridded) + -->
+<!--   geom_sf(aes(fill = Region)) +  # Plot the regions -->
+<!--   geom_sf(data = data2_plot +   -->
+<!--             aes(geometry = geometry, -->
+<!--                 color = weight,  -->
+<!--                 alpha = weight),  -->
+<!--           size = 1) +  # Plot edges as LineStrings -->
+<!--   geom_sf(data = layout_time_sf, size = 3, color = "red") +  # Plot nodes as sf point +  -->
+<!--   theme_minimal() + -->
+<!--   theme(legend.position = "none") +  # Customize theme and remove legend -->
+<!--   labs(title = "Graph Over Map", x = "Longitude", y = "Latitude") + -->
+<!--   # Use azimuthal equal-area projection centered between North America and Europe -->
+<!--   coord_sf(crs = "+proj=aeqd +lat_0=40 +lon_0=-30") -->
+
+<!-- ``` -->
+
+
+
+
+<!-- ```{r} -->
+<!-- ggplot(data = reg_gridded) + -->
+<!--   geom_sf(aes(fill = Region)) +  # Plot the regions -->
+<!--   geom_segment(data = edges_df |>  -->
+<!--                  filter(weight < quantile(weight, 0.25)), -->
+<!--                aes(x = x_start,  -->
+<!--                    y = y_start, -->
+<!--                    xend = x_end,  -->
+<!--                    yend = y_end,  -->
+<!--                    color = 1-weight,  -->
+<!--                    alpha = weight), -->
+<!--                linewidth = weight) +  # Plot edges -->
+<!--   geom_point(data = layout_time, aes(x = X, y = Y), size = 3, color = "red") +  # Plot nodes -->
+<!--   theme_minimal() + -->
+<!--   theme(legend.position = "none") +  # Customize theme and remove legend -->
+<!--   labs(title = "Graph Over Map", x = "Longitude", y = "Latitude") + -->
+<!--   # Use orthographic projection centered between North America and Europe -->
+<!--   coord_sf(crs = "+proj=ortho +lat_0=40 +lon_0=-30") -->
+
+<!-- ``` -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
