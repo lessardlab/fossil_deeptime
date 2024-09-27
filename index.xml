@@ -377,10 +377,6 @@ latitudes. We found that …</p>
       difference between a focal temperature cell and its eight
       neighboring cells within a stratigraphic period, following the
       Horn algorithm.</p>
-      <sec id="fluctuations-in-spatial-heterogeneity-of-atmospheric-temperature-t_svar">
-        <title>Fluctuations in spatial heterogeneity of atmospheric
-        temperature (t_svar)</title>
-      </sec>
     </sec>
     <sec id="general-dissimilarity-modelling">
       <title>General dissimilarity modelling</title>
@@ -415,689 +411,686 @@ latitudes. We found that …</p>
 </sec>
 <sec id="results">
   <title>Results</title>
+  <p>TBD</p>
 </sec>
 <sec id="discussion">
   <title>Discussion</title>
-  <sec id="section">
-    <title></title>
-  </sec>
-  <sec id="section-1">
-    <title></title>
-    <ref-list>
-      <ref id="ref-khattar2021determinism">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Khattar</surname><given-names>Gabriel</given-names></name>
-            <name><surname>Macedo</surname><given-names>Margarete</given-names></name>
-            <name><surname>Monteiro</surname><given-names>Ricardo</given-names></name>
-            <name><surname>Peres-Neto</surname><given-names>Pedro</given-names></name>
-          </person-group>
-          <article-title>Determinism and stochasticity in the spatial–temporal continuum of ecological communities: The case of tropical mountains</article-title>
-          <source>Ecography</source>
-          <publisher-name>Wiley Online Library</publisher-name>
-          <year iso-8601-date="2021">2021</year>
-          <volume>44</volume>
-          <issue>9</issue>
-          <fpage>1391</fpage>
-          <lpage>1402</lpage>
-        </element-citation>
-      </ref>
-      <ref id="ref-kraft2015community">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Kraft</surname><given-names>Nathan JB</given-names></name>
-            <name><surname>Adler</surname><given-names>Peter B</given-names></name>
-            <name><surname>Godoy</surname><given-names>Oscar</given-names></name>
-            <name><surname>James</surname><given-names>Emily C</given-names></name>
-            <name><surname>Fuller</surname><given-names>Steve</given-names></name>
-            <name><surname>Levine</surname><given-names>Jonathan M</given-names></name>
-          </person-group>
-          <article-title>Community assembly, coexistence and the environmental filtering metaphor</article-title>
-          <source>Functional ecology</source>
-          <publisher-name>Wiley Online Library</publisher-name>
-          <year iso-8601-date="2015">2015</year>
-          <volume>29</volume>
-          <issue>5</issue>
-          <fpage>592</fpage>
-          <lpage>599</lpage>
-        </element-citation>
-      </ref>
-      <ref id="ref-ackerly2003community">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Ackerly</surname><given-names>David D</given-names></name>
-          </person-group>
-          <article-title>Community assembly, niche conservatism, and adaptive evolution in changing environments</article-title>
-          <source>International Journal of Plant Sciences</source>
-          <publisher-name>The University of Chicago Press</publisher-name>
-          <year iso-8601-date="2003">2003</year>
-          <volume>164</volume>
-          <issue>S3</issue>
-          <fpage>S165</fpage>
-          <lpage>S184</lpage>
-        </element-citation>
-      </ref>
-      <ref id="ref-chang2016integrating">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Chang</surname><given-names>Cynthia</given-names></name>
-            <name><surname>HilleRisLambers</surname><given-names>Janneke</given-names></name>
-          </person-group>
-          <article-title>Integrating succession and community assembly perspectives</article-title>
-          <source>F1000Research</source>
-          <publisher-name>Faculty of 1000 Ltd</publisher-name>
-          <year iso-8601-date="2016">2016</year>
-          <volume>5</volume>
-        </element-citation>
-      </ref>
-      <ref id="ref-weiher2011advances">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Weiher</surname><given-names>Evan</given-names></name>
-            <name><surname>Freund</surname><given-names>Deborah</given-names></name>
-            <name><surname>Bunton</surname><given-names>Tyler</given-names></name>
-            <name><surname>Stefanski</surname><given-names>Artur</given-names></name>
-            <name><surname>Lee</surname><given-names>Tali</given-names></name>
-            <name><surname>Bentivenga</surname><given-names>Stephen</given-names></name>
-          </person-group>
-          <article-title>Advances, challenges and a developing synthesis of ecological community assembly theory</article-title>
-          <source>Philosophical Transactions of the Royal Society B: Biological Sciences</source>
-          <publisher-name>The Royal Society</publisher-name>
-          <year iso-8601-date="2011">2011</year>
-          <volume>366</volume>
-          <issue>1576</issue>
-          <fpage>2403</fpage>
-          <lpage>2413</lpage>
-        </element-citation>
-      </ref>
-      <ref id="ref-fukami2015historical">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Fukami</surname><given-names>Tadashi</given-names></name>
-          </person-group>
-          <article-title>Historical contingency in community assembly: Integrating niches, species pools, and priority effects</article-title>
-          <source>Annual review of ecology, evolution, and systematics</source>
-          <publisher-name>Annual Reviews</publisher-name>
-          <year iso-8601-date="2015">2015</year>
-          <volume>46</volume>
-          <issue>1</issue>
-          <fpage>1</fpage>
-          <lpage>23</lpage>
-        </element-citation>
-      </ref>
-      <ref id="ref-harrison2020climate">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Harrison</surname><given-names>Susan</given-names></name>
-            <name><surname>Spasojevic</surname><given-names>Marko J</given-names></name>
-            <name><surname>Li</surname><given-names>Daijiang</given-names></name>
-          </person-group>
-          <article-title>Climate and plant community diversity in space and time</article-title>
-          <source>Proceedings of the National Academy of Sciences</source>
-          <publisher-name>National Acad Sciences</publisher-name>
-          <year iso-8601-date="2020">2020</year>
-          <volume>117</volume>
-          <issue>9</issue>
-          <fpage>4464</fpage>
-          <lpage>4470</lpage>
-        </element-citation>
-      </ref>
-      <ref id="ref-erwin2009climate">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Erwin</surname><given-names>Douglas H</given-names></name>
-          </person-group>
-          <article-title>Climate as a driver of evolutionary change</article-title>
-          <source>Current Biology</source>
-          <publisher-name>Elsevier</publisher-name>
-          <year iso-8601-date="2009">2009</year>
-          <volume>19</volume>
-          <issue>14</issue>
-          <fpage>R575</fpage>
-          <lpage>R583</lpage>
-        </element-citation>
-      </ref>
-      <ref id="ref-dimichele2004long">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>DiMichele</surname><given-names>William A</given-names></name>
-            <name><surname>Behrensmeyer</surname><given-names>Anna K</given-names></name>
-            <name><surname>Olszewski</surname><given-names>TD</given-names></name>
-            <name><surname>Labandeira</surname><given-names>Conrad C</given-names></name>
-            <name><surname>Pandolfi</surname><given-names>John M</given-names></name>
-            <name><surname>Wing</surname><given-names>Scott L</given-names></name>
-            <name><surname>Bobe</surname><given-names>Rene</given-names></name>
-          </person-group>
-          <article-title>Long-term stasis in ecological assemblages: Evidence from the fossil record</article-title>
-          <source>Annu. Rev. Ecol. Evol. Syst.</source>
-          <publisher-name>Annual Reviews</publisher-name>
-          <year iso-8601-date="2004">2004</year>
-          <volume>35</volume>
-          <issue>1</issue>
-          <fpage>285</fpage>
-          <lpage>322</lpage>
-        </element-citation>
-      </ref>
-      <ref id="ref-jackson2015community">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Jackson</surname><given-names>Stephen T</given-names></name>
-            <name><surname>Blois</surname><given-names>Jessica L</given-names></name>
-          </person-group>
-          <article-title>Community ecology in a changing environment: Perspectives from the quaternary</article-title>
-          <source>Proceedings of the National Academy of Sciences</source>
-          <publisher-name>National Acad Sciences</publisher-name>
-          <year iso-8601-date="2015">2015</year>
-          <volume>112</volume>
-          <issue>16</issue>
-          <fpage>4915</fpage>
-          <lpage>4921</lpage>
-        </element-citation>
-      </ref>
-      <ref id="ref-jackson2006can">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Jackson</surname><given-names>Jeremy BC</given-names></name>
-            <name><surname>Erwin</surname><given-names>Douglas H</given-names></name>
-          </person-group>
-          <article-title>What can we learn about ecology and evolution from the fossil record?</article-title>
-          <source>Trends in Ecology &amp; Evolution</source>
-          <publisher-name>Elsevier</publisher-name>
-          <year iso-8601-date="2006">2006</year>
-          <volume>21</volume>
-          <issue>6</issue>
-          <fpage>322</fpage>
-          <lpage>328</lpage>
-        </element-citation>
-      </ref>
-      <ref id="ref-ludwig2019perspectives">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Ludwig</surname><given-names>Patrick</given-names></name>
-            <name><surname>Gómez-Navarro</surname><given-names>Juan J</given-names></name>
-            <name><surname>Pinto</surname><given-names>Joaquim G</given-names></name>
-            <name><surname>Raible</surname><given-names>Christoph C</given-names></name>
-            <name><surname>Wagner</surname><given-names>Sebastian</given-names></name>
-            <name><surname>Zorita</surname><given-names>Eduardo</given-names></name>
-          </person-group>
-          <article-title>Perspectives of regional paleoclimate modeling</article-title>
-          <source>Annals of the New York Academy of Sciences</source>
-          <publisher-name>Wiley Online Library</publisher-name>
-          <year iso-8601-date="2019">2019</year>
-          <volume>1436</volume>
-          <issue>1</issue>
-          <fpage>54</fpage>
-          <lpage>69</lpage>
-        </element-citation>
-      </ref>
-      <ref id="ref-hargreaves2009importance">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Hargreaves</surname><given-names>JC</given-names></name>
-            <name><surname>Annan</surname><given-names>JD</given-names></name>
-          </person-group>
-          <article-title>On the importance of paleoclimate modelling for improving predictions of future climate change</article-title>
-          <source>Climate of the Past</source>
-          <publisher-name>Copernicus Publications Göttingen, Germany</publisher-name>
-          <year iso-8601-date="2009">2009</year>
-          <volume>5</volume>
-          <issue>4</issue>
-          <fpage>803</fpage>
-          <lpage>814</lpage>
-        </element-citation>
-      </ref>
-      <ref id="ref-benson2021biodiversity">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Benson</surname><given-names>Roger BJ</given-names></name>
-            <name><surname>Butler</surname><given-names>Richard</given-names></name>
-            <name><surname>Close</surname><given-names>Roger A</given-names></name>
-            <name><surname>Saupe</surname><given-names>Erin</given-names></name>
-            <name><surname>Rabosky</surname><given-names>Daniel L</given-names></name>
-          </person-group>
-          <article-title>Biodiversity across space and time in the fossil record</article-title>
-          <source>Current Biology</source>
-          <publisher-name>Elsevier</publisher-name>
-          <year iso-8601-date="2021">2021</year>
-          <volume>31</volume>
-          <issue>19</issue>
-          <fpage>R1225</fpage>
-          <lpage>R1236</lpage>
-        </element-citation>
-      </ref>
-      <ref id="ref-bartlein1989orbital">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Bartlein</surname><given-names>PATRICK J</given-names></name>
-            <name><surname>Prentice</surname><given-names>IC</given-names></name>
-          </person-group>
-          <article-title>Orbital variations, climate and paleoecology</article-title>
-          <source>Trends in ecology &amp; evolution</source>
-          <publisher-name>Elsevier</publisher-name>
-          <year iso-8601-date="1989">1989</year>
-          <volume>4</volume>
-          <issue>7</issue>
-          <fpage>195</fpage>
-          <lpage>199</lpage>
-        </element-citation>
-      </ref>
-      <ref id="ref-faith2013climate">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Faith</surname><given-names>J Tyler</given-names></name>
-            <name><surname>Behrensmeyer</surname><given-names>Anna K</given-names></name>
-          </person-group>
-          <article-title>Climate change and faunal turnover: Testing the mechanics of the turnover-pulse hypothesis with south african fossil data</article-title>
-          <source>Paleobiology</source>
-          <publisher-name>Cambridge University Press</publisher-name>
-          <year iso-8601-date="2013">2013</year>
-          <volume>39</volume>
-          <issue>4</issue>
-          <fpage>609</fpage>
-          <lpage>627</lpage>
-        </element-citation>
-      </ref>
-      <ref id="ref-myers2015paleoenm">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Myers</surname><given-names>Corinne E</given-names></name>
-            <name><surname>Stigall</surname><given-names>Alycia L</given-names></name>
-            <name><surname>Lieberman</surname><given-names>Bruce S</given-names></name>
-          </person-group>
-          <article-title>PaleoENM: Applying ecological niche modeling to the fossil record</article-title>
-          <source>Paleobiology</source>
-          <publisher-name>Cambridge University Press</publisher-name>
-          <year iso-8601-date="2015">2015</year>
-          <volume>41</volume>
-          <issue>2</issue>
-          <fpage>226</fpage>
-          <lpage>244</lpage>
-        </element-citation>
-      </ref>
-      <ref id="ref-barr2017signal">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Barr</surname><given-names>W Andrew</given-names></name>
-          </person-group>
-          <article-title>Signal or noise? A null model method for evaluating the significance of turnover pulses</article-title>
-          <source>Paleobiology</source>
-          <publisher-name>Cambridge University Press</publisher-name>
-          <year iso-8601-date="2017">2017</year>
-          <volume>43</volume>
-          <issue>4</issue>
-          <fpage>656</fpage>
-          <lpage>666</lpage>
-        </element-citation>
-      </ref>
-      <ref id="ref-kiessling2023improving">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Kiessling</surname><given-names>Wolfgang</given-names></name>
-            <name><surname>Smith</surname><given-names>Jansen A</given-names></name>
-            <name><surname>Raja</surname><given-names>Nussaı̈bah B</given-names></name>
-          </person-group>
-          <article-title>Improving the relevance of paleontology to climate change policy</article-title>
-          <source>Proceedings of the National Academy of Sciences</source>
-          <publisher-name>National Acad Sciences</publisher-name>
-          <year iso-8601-date="2023">2023</year>
-          <volume>120</volume>
-          <issue>7</issue>
-          <fpage>e2201926119</fpage>
-          <lpage></lpage>
-        </element-citation>
-      </ref>
-      <ref id="ref-hagen2023coupling">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Hagen</surname><given-names>Oskar</given-names></name>
-          </person-group>
-          <article-title>Coupling eco-evolutionary mechanisms with deep-time environmental dynamics to understand biodiversity patterns</article-title>
-          <source>Ecography</source>
-          <publisher-name>Wiley Online Library</publisher-name>
-          <year iso-8601-date="2023">2023</year>
-          <volume>2023</volume>
-          <issue>4</issue>
-          <fpage>e06132</fpage>
-          <lpage></lpage>
-        </element-citation>
-      </ref>
-      <ref id="ref-zachos2001trends">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Zachos</surname><given-names>James</given-names></name>
-            <name><surname>Pagani</surname><given-names>Mark</given-names></name>
-            <name><surname>Sloan</surname><given-names>Lisa</given-names></name>
-            <name><surname>Thomas</surname><given-names>Ellen</given-names></name>
-            <name><surname>Billups</surname><given-names>Katharina</given-names></name>
-          </person-group>
-          <article-title>Trends, rhythms, and aberrations in global climate 65 ma to present</article-title>
-          <source>science</source>
-          <publisher-name>American Association for the Advancement of Science</publisher-name>
-          <year iso-8601-date="2001">2001</year>
-          <volume>292</volume>
-          <issue>5517</issue>
-          <fpage>686</fpage>
-          <lpage>693</lpage>
-        </element-citation>
-      </ref>
-      <ref id="ref-erwin2009climate">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Erwin</surname><given-names>Douglas H</given-names></name>
-          </person-group>
-          <article-title>Climate as a driver of evolutionary change</article-title>
-          <source>Current Biology</source>
-          <publisher-name>Elsevier</publisher-name>
-          <year iso-8601-date="2009">2009</year>
-          <volume>19</volume>
-          <issue>14</issue>
-          <fpage>R575</fpage>
-          <lpage>R583</lpage>
-        </element-citation>
-      </ref>
-      <ref id="ref-nogues2009predicting">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Nogués-Bravo</surname><given-names>David</given-names></name>
-          </person-group>
-          <article-title>Predicting the past distribution of species climatic niches</article-title>
-          <source>Global Ecology and Biogeography</source>
-          <publisher-name>Wiley Online Library</publisher-name>
-          <year iso-8601-date="2009">2009</year>
-          <volume>18</volume>
-          <issue>5</issue>
-          <fpage>521</fpage>
-          <lpage>531</lpage>
-        </element-citation>
-      </ref>
-      <ref id="ref-nogues2018cracking">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Nogués-Bravo</surname><given-names>David</given-names></name>
-            <name><surname>Rodrı́guez-Sánchez</surname><given-names>Francisco</given-names></name>
-            <name><surname>Orsini</surname><given-names>Luisa</given-names></name>
-            <name><surname>Boer</surname><given-names>Erik de</given-names></name>
-            <name><surname>Jansson</surname><given-names>Roland</given-names></name>
-            <name><surname>Morlon</surname><given-names>Helene</given-names></name>
-            <name><surname>Fordham</surname><given-names>Damien A</given-names></name>
-            <name><surname>Jackson</surname><given-names>Stephen T</given-names></name>
-          </person-group>
-          <article-title>Cracking the code of biodiversity responses to past climate change</article-title>
-          <source>Trends in ecology &amp; evolution</source>
-          <publisher-name>Elsevier</publisher-name>
-          <year iso-8601-date="2018">2018</year>
-          <volume>33</volume>
-          <issue>10</issue>
-          <fpage>765</fpage>
-          <lpage>776</lpage>
-        </element-citation>
-      </ref>
-      <ref id="ref-alroy2000global">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Alroy</surname><given-names>John</given-names></name>
-            <name><surname>Koch</surname><given-names>Paul L</given-names></name>
-            <name><surname>Zachos</surname><given-names>James C</given-names></name>
-          </person-group>
-          <article-title>Global climate change and north american mammalian evolution</article-title>
-          <source>Paleobiology</source>
-          <publisher-name>Cambridge University Press</publisher-name>
-          <year iso-8601-date="2000">2000</year>
-          <volume>26</volume>
-          <issue>S4</issue>
-          <fpage>259</fpage>
-          <lpage>288</lpage>
-        </element-citation>
-      </ref>
-      <ref id="ref-blanco2021punctuated">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Blanco</surname><given-names>Fernando</given-names></name>
-            <name><surname>Calatayud</surname><given-names>Joaquı́n</given-names></name>
-            <name><surname>Martı́n-Perea</surname><given-names>David M</given-names></name>
-            <name><surname>Domingo</surname><given-names>M Soledad</given-names></name>
-            <name><surname>Menéndez</surname><given-names>Iris</given-names></name>
-            <name><surname>Müller</surname><given-names>Johannes</given-names></name>
-            <name><surname>Fernández</surname><given-names>Manuel Hernández</given-names></name>
-            <name><surname>Cantalapiedra</surname><given-names>Juan L</given-names></name>
-          </person-group>
-          <article-title>Punctuated ecological equilibrium in mammal communities over evolutionary time scales</article-title>
-          <source>Science</source>
-          <publisher-name>American Association for the Advancement of Science</publisher-name>
-          <year iso-8601-date="2021">2021</year>
-          <volume>372</volume>
-          <issue>6539</issue>
-          <fpage>300</fpage>
-          <lpage>303</lpage>
-        </element-citation>
-      </ref>
-      <ref id="ref-davis2001range">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Davis</surname><given-names>Margaret B</given-names></name>
-            <name><surname>Shaw</surname><given-names>Ruth G</given-names></name>
-          </person-group>
-          <article-title>Range shifts and adaptive responses to quaternary climate change</article-title>
-          <source>Science</source>
-          <publisher-name>American Association for the Advancement of Science</publisher-name>
-          <year iso-8601-date="2001">2001</year>
-          <volume>292</volume>
-          <issue>5517</issue>
-          <fpage>673</fpage>
-          <lpage>679</lpage>
-        </element-citation>
-      </ref>
-      <ref id="ref-Lewis2023paleo">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Jones</surname><given-names>Lewis A.</given-names></name>
-            <name><surname>Gearty</surname><given-names>William</given-names></name>
-            <name><surname>Allen</surname><given-names>Bethany J.</given-names></name>
-            <name><surname>Eichenseer</surname><given-names>Kilian</given-names></name>
-            <name><surname>Dean</surname><given-names>Christopher D.</given-names></name>
-            <name><surname>Galván</surname><given-names>Sofía</given-names></name>
-            <name><surname>Kouvari</surname><given-names>Miranta</given-names></name>
-            <name><surname>Godoy</surname><given-names>Pedro L.</given-names></name>
-            <name><surname>Nicholl</surname><given-names>Cecily S. C.</given-names></name>
-            <name><surname>Buffan</surname><given-names>Lucas</given-names></name>
-            <name><surname>Dillon</surname><given-names>Erin M.</given-names></name>
-            <name><surname>Flannery-Sutherland</surname><given-names>Joseph T.</given-names></name>
-            <name><surname>Chiarenza</surname><given-names>Alfio Alessandro</given-names></name>
-          </person-group>
-          <article-title>Palaeoverse: A community-driven r package to support palaeobiological analysis</article-title>
-          <source>Methods in Ecology and Evolution</source>
-          <year iso-8601-date="2023">2023</year>
-          <pub-id pub-id-type="doi">10.1111/2041-210X.14099</pub-id>
-          <fpage>1</fpage>
-          <lpage>11</lpage>
-        </element-citation>
-      </ref>
-      <ref id="ref-merdith2021extending">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Merdith</surname><given-names>Andrew S</given-names></name>
-            <name><surname>Williams</surname><given-names>Simon E</given-names></name>
-            <name><surname>Collins</surname><given-names>Alan S</given-names></name>
-            <name><surname>Tetley</surname><given-names>Michael G</given-names></name>
-            <name><surname>Mulder</surname><given-names>Jacob A</given-names></name>
-            <name><surname>Blades</surname><given-names>Morgan L</given-names></name>
-            <name><surname>Young</surname><given-names>Alexander</given-names></name>
-            <name><surname>Armistead</surname><given-names>Sheree E</given-names></name>
-            <name><surname>Cannon</surname><given-names>John</given-names></name>
-            <name><surname>Zahirovic</surname><given-names>Sabin</given-names></name>
-            <etal/>
-          </person-group>
-          <article-title>Extending full-plate tectonic models into deep time: Linking the neoproterozoic and the phanerozoic</article-title>
-          <source>Earth-Science Reviews</source>
-          <publisher-name>Elsevier</publisher-name>
-          <year iso-8601-date="2021">2021</year>
-          <volume>214</volume>
-          <fpage>103477</fpage>
-          <lpage></lpage>
-        </element-citation>
-      </ref>
-      <ref id="ref-vasconcelos2022retiring">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Vasconcelos</surname><given-names>Thais</given-names></name>
-            <name><surname>O’Meara</surname><given-names>Brian C</given-names></name>
-            <name><surname>Beaulieu</surname><given-names>Jeremy M</given-names></name>
-          </person-group>
-          <article-title>Retiring “cradles” and “museums” of biodiversity</article-title>
-          <source>The American Naturalist</source>
-          <publisher-name>The University of Chicago Press Chicago, IL</publisher-name>
-          <year iso-8601-date="2022">2022</year>
-          <volume>199</volume>
-          <issue>2</issue>
-          <fpage>194</fpage>
-          <lpage>205</lpage>
-        </element-citation>
-      </ref>
-      <ref id="ref-gerhold2018deep">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Gerhold</surname><given-names>Pille</given-names></name>
-            <name><surname>Carlucci</surname><given-names>Marcos B</given-names></name>
-            <name><surname>Procheş</surname><given-names>Şerban</given-names></name>
-            <name><surname>Prinzing</surname><given-names>Andreas</given-names></name>
-          </person-group>
-          <article-title>The deep past controls the phylogenetic structure of present, local communities</article-title>
-          <source>Annual Review of Ecology, Evolution, and Systematics</source>
-          <publisher-name>Annual Reviews</publisher-name>
-          <year iso-8601-date="2018">2018</year>
-          <volume>49</volume>
-          <fpage>477</fpage>
-          <lpage>497</lpage>
-        </element-citation>
-      </ref>
-      <ref id="ref-sonne2022biodiversity">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Sonne</surname><given-names>Jesper</given-names></name>
-            <name><surname>Dalsgaard</surname><given-names>Bo</given-names></name>
-            <name><surname>Borregaard</surname><given-names>Michael K</given-names></name>
-            <name><surname>Kennedy</surname><given-names>Jonathan</given-names></name>
-            <name><surname>Fjeldså</surname><given-names>Jon</given-names></name>
-            <name><surname>Rahbek</surname><given-names>Carsten</given-names></name>
-          </person-group>
-          <article-title>Biodiversity cradles and museums segregating within hotspots of endemism</article-title>
-          <source>Proceedings of the Royal Society B</source>
-          <publisher-name>The Royal Society</publisher-name>
-          <year iso-8601-date="2022">2022</year>
-          <volume>289</volume>
-          <issue>1981</issue>
-          <fpage>20221102</fpage>
-          <lpage></lpage>
-        </element-citation>
-      </ref>
-      <ref id="ref-cavender2016evolutionary">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Cavender-Bares</surname><given-names>Jeannine</given-names></name>
-            <name><surname>Ackerly</surname><given-names>David D</given-names></name>
-            <name><surname>Hobbie</surname><given-names>Sarah E</given-names></name>
-            <name><surname>Townsend</surname><given-names>Philip A</given-names></name>
-          </person-group>
-          <article-title>Evolutionary legacy effects on ecosystems: Biogeographic origins, plant traits, and implications for management in the era of global change</article-title>
-          <source>Annual Review of Ecology, Evolution, and Systematics</source>
-          <publisher-name>Annual Reviews</publisher-name>
-          <year iso-8601-date="2016">2016</year>
-          <volume>47</volume>
-          <fpage>433</fpage>
-          <lpage>462</lpage>
-        </element-citation>
-      </ref>
-      <ref id="ref-de2022predicted">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Fuente</surname><given-names>Alejandro de la</given-names></name>
-            <name><surname>Krockenberger</surname><given-names>Andrew</given-names></name>
-            <name><surname>Hirsch</surname><given-names>Ben</given-names></name>
-            <name><surname>Cernusak</surname><given-names>Lucas</given-names></name>
-            <name><surname>Williams</surname><given-names>Stephen E</given-names></name>
-          </person-group>
-          <article-title>Predicted alteration of vertebrate communities in response to climate-induced elevational shifts</article-title>
-          <source>Diversity and Distributions</source>
-          <publisher-name>Wiley Online Library</publisher-name>
-          <year iso-8601-date="2022">2022</year>
-          <volume>28</volume>
-          <issue>6</issue>
-          <fpage>1180</fpage>
-          <lpage>1190</lpage>
-        </element-citation>
-      </ref>
-      <ref id="ref-davis2005evolutionary">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Davis</surname><given-names>Margaret B</given-names></name>
-            <name><surname>Shaw</surname><given-names>Ruth G</given-names></name>
-            <name><surname>Etterson</surname><given-names>Julie R</given-names></name>
-          </person-group>
-          <article-title>Evolutionary responses to changing climate</article-title>
-          <source>Ecology</source>
-          <publisher-name>Wiley Online Library</publisher-name>
-          <year iso-8601-date="2005">2005</year>
-          <volume>86</volume>
-          <issue>7</issue>
-          <fpage>1704</fpage>
-          <lpage>1714</lpage>
-        </element-citation>
-      </ref>
-      <ref id="ref-mottl2021global">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Mottl</surname><given-names>Ondřej</given-names></name>
-            <name><surname>Flantua</surname><given-names>Suzette GA</given-names></name>
-            <name><surname>Bhatta</surname><given-names>Kuber P</given-names></name>
-            <name><surname>Felde</surname><given-names>Vivian A</given-names></name>
-            <name><surname>Giesecke</surname><given-names>Thomas</given-names></name>
-            <name><surname>Goring</surname><given-names>Simon</given-names></name>
-            <name><surname>Grimm</surname><given-names>Eric C</given-names></name>
-            <name><surname>Haberle</surname><given-names>Simon</given-names></name>
-            <name><surname>Hooghiemstra</surname><given-names>Henry</given-names></name>
-            <name><surname>Ivory</surname><given-names>Sarah</given-names></name>
-            <etal/>
-          </person-group>
-          <article-title>Global acceleration in rates of vegetation change over the past 18,000 years</article-title>
-          <source>Science</source>
-          <publisher-name>American Association for the Advancement of Science</publisher-name>
-          <year iso-8601-date="2021">2021</year>
-          <volume>372</volume>
-          <issue>6544</issue>
-          <fpage>860</fpage>
-          <lpage>864</lpage>
-        </element-citation>
-      </ref>
-      <ref id="ref-jabot2020assessing">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name><surname>Jabot</surname><given-names>Franck</given-names></name>
-            <name><surname>Laroche</surname><given-names>Fabien</given-names></name>
-            <name><surname>Massol</surname><given-names>François</given-names></name>
-            <name><surname>Arthaud</surname><given-names>Florent</given-names></name>
-            <name><surname>Crabot</surname><given-names>Julie</given-names></name>
-            <name><surname>Dubart</surname><given-names>Maxime</given-names></name>
-            <name><surname>Blanchet</surname><given-names>Simon</given-names></name>
-            <name><surname>Munoz</surname><given-names>François</given-names></name>
-            <name><surname>David</surname><given-names>Patrice</given-names></name>
-            <name><surname>Datry</surname><given-names>Thibault</given-names></name>
-          </person-group>
-          <article-title>Assessing metacommunity processes through signatures in spatiotemporal turnover of community composition</article-title>
-          <source>Ecology Letters</source>
-          <publisher-name>Wiley Online Library</publisher-name>
-          <year iso-8601-date="2020">2020</year>
-          <volume>23</volume>
-          <issue>9</issue>
-          <fpage>1330</fpage>
-          <lpage>1339</lpage>
-        </element-citation>
-      </ref>
-    </ref-list>
-  </sec>
+  <p>TBD</p>
 </sec>
 </body>
 
 <back>
+<ref-list>
+  <title></title>
+  <ref id="ref-khattar2021determinism">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Khattar</surname><given-names>Gabriel</given-names></name>
+        <name><surname>Macedo</surname><given-names>Margarete</given-names></name>
+        <name><surname>Monteiro</surname><given-names>Ricardo</given-names></name>
+        <name><surname>Peres-Neto</surname><given-names>Pedro</given-names></name>
+      </person-group>
+      <article-title>Determinism and stochasticity in the spatial–temporal continuum of ecological communities: The case of tropical mountains</article-title>
+      <source>Ecography</source>
+      <publisher-name>Wiley Online Library</publisher-name>
+      <year iso-8601-date="2021">2021</year>
+      <volume>44</volume>
+      <issue>9</issue>
+      <fpage>1391</fpage>
+      <lpage>1402</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-kraft2015community">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Kraft</surname><given-names>Nathan JB</given-names></name>
+        <name><surname>Adler</surname><given-names>Peter B</given-names></name>
+        <name><surname>Godoy</surname><given-names>Oscar</given-names></name>
+        <name><surname>James</surname><given-names>Emily C</given-names></name>
+        <name><surname>Fuller</surname><given-names>Steve</given-names></name>
+        <name><surname>Levine</surname><given-names>Jonathan M</given-names></name>
+      </person-group>
+      <article-title>Community assembly, coexistence and the environmental filtering metaphor</article-title>
+      <source>Functional ecology</source>
+      <publisher-name>Wiley Online Library</publisher-name>
+      <year iso-8601-date="2015">2015</year>
+      <volume>29</volume>
+      <issue>5</issue>
+      <fpage>592</fpage>
+      <lpage>599</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-ackerly2003community">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Ackerly</surname><given-names>David D</given-names></name>
+      </person-group>
+      <article-title>Community assembly, niche conservatism, and adaptive evolution in changing environments</article-title>
+      <source>International Journal of Plant Sciences</source>
+      <publisher-name>The University of Chicago Press</publisher-name>
+      <year iso-8601-date="2003">2003</year>
+      <volume>164</volume>
+      <issue>S3</issue>
+      <fpage>S165</fpage>
+      <lpage>S184</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-chang2016integrating">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Chang</surname><given-names>Cynthia</given-names></name>
+        <name><surname>HilleRisLambers</surname><given-names>Janneke</given-names></name>
+      </person-group>
+      <article-title>Integrating succession and community assembly perspectives</article-title>
+      <source>F1000Research</source>
+      <publisher-name>Faculty of 1000 Ltd</publisher-name>
+      <year iso-8601-date="2016">2016</year>
+      <volume>5</volume>
+    </element-citation>
+  </ref>
+  <ref id="ref-weiher2011advances">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Weiher</surname><given-names>Evan</given-names></name>
+        <name><surname>Freund</surname><given-names>Deborah</given-names></name>
+        <name><surname>Bunton</surname><given-names>Tyler</given-names></name>
+        <name><surname>Stefanski</surname><given-names>Artur</given-names></name>
+        <name><surname>Lee</surname><given-names>Tali</given-names></name>
+        <name><surname>Bentivenga</surname><given-names>Stephen</given-names></name>
+      </person-group>
+      <article-title>Advances, challenges and a developing synthesis of ecological community assembly theory</article-title>
+      <source>Philosophical Transactions of the Royal Society B: Biological Sciences</source>
+      <publisher-name>The Royal Society</publisher-name>
+      <year iso-8601-date="2011">2011</year>
+      <volume>366</volume>
+      <issue>1576</issue>
+      <fpage>2403</fpage>
+      <lpage>2413</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-fukami2015historical">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Fukami</surname><given-names>Tadashi</given-names></name>
+      </person-group>
+      <article-title>Historical contingency in community assembly: Integrating niches, species pools, and priority effects</article-title>
+      <source>Annual review of ecology, evolution, and systematics</source>
+      <publisher-name>Annual Reviews</publisher-name>
+      <year iso-8601-date="2015">2015</year>
+      <volume>46</volume>
+      <issue>1</issue>
+      <fpage>1</fpage>
+      <lpage>23</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-harrison2020climate">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Harrison</surname><given-names>Susan</given-names></name>
+        <name><surname>Spasojevic</surname><given-names>Marko J</given-names></name>
+        <name><surname>Li</surname><given-names>Daijiang</given-names></name>
+      </person-group>
+      <article-title>Climate and plant community diversity in space and time</article-title>
+      <source>Proceedings of the National Academy of Sciences</source>
+      <publisher-name>National Acad Sciences</publisher-name>
+      <year iso-8601-date="2020">2020</year>
+      <volume>117</volume>
+      <issue>9</issue>
+      <fpage>4464</fpage>
+      <lpage>4470</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-erwin2009climate">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Erwin</surname><given-names>Douglas H</given-names></name>
+      </person-group>
+      <article-title>Climate as a driver of evolutionary change</article-title>
+      <source>Current Biology</source>
+      <publisher-name>Elsevier</publisher-name>
+      <year iso-8601-date="2009">2009</year>
+      <volume>19</volume>
+      <issue>14</issue>
+      <fpage>R575</fpage>
+      <lpage>R583</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-dimichele2004long">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>DiMichele</surname><given-names>William A</given-names></name>
+        <name><surname>Behrensmeyer</surname><given-names>Anna K</given-names></name>
+        <name><surname>Olszewski</surname><given-names>TD</given-names></name>
+        <name><surname>Labandeira</surname><given-names>Conrad C</given-names></name>
+        <name><surname>Pandolfi</surname><given-names>John M</given-names></name>
+        <name><surname>Wing</surname><given-names>Scott L</given-names></name>
+        <name><surname>Bobe</surname><given-names>Rene</given-names></name>
+      </person-group>
+      <article-title>Long-term stasis in ecological assemblages: Evidence from the fossil record</article-title>
+      <source>Annu. Rev. Ecol. Evol. Syst.</source>
+      <publisher-name>Annual Reviews</publisher-name>
+      <year iso-8601-date="2004">2004</year>
+      <volume>35</volume>
+      <issue>1</issue>
+      <fpage>285</fpage>
+      <lpage>322</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-jackson2015community">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Jackson</surname><given-names>Stephen T</given-names></name>
+        <name><surname>Blois</surname><given-names>Jessica L</given-names></name>
+      </person-group>
+      <article-title>Community ecology in a changing environment: Perspectives from the quaternary</article-title>
+      <source>Proceedings of the National Academy of Sciences</source>
+      <publisher-name>National Acad Sciences</publisher-name>
+      <year iso-8601-date="2015">2015</year>
+      <volume>112</volume>
+      <issue>16</issue>
+      <fpage>4915</fpage>
+      <lpage>4921</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-jackson2006can">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Jackson</surname><given-names>Jeremy BC</given-names></name>
+        <name><surname>Erwin</surname><given-names>Douglas H</given-names></name>
+      </person-group>
+      <article-title>What can we learn about ecology and evolution from the fossil record?</article-title>
+      <source>Trends in Ecology &amp; Evolution</source>
+      <publisher-name>Elsevier</publisher-name>
+      <year iso-8601-date="2006">2006</year>
+      <volume>21</volume>
+      <issue>6</issue>
+      <fpage>322</fpage>
+      <lpage>328</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-ludwig2019perspectives">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Ludwig</surname><given-names>Patrick</given-names></name>
+        <name><surname>Gómez-Navarro</surname><given-names>Juan J</given-names></name>
+        <name><surname>Pinto</surname><given-names>Joaquim G</given-names></name>
+        <name><surname>Raible</surname><given-names>Christoph C</given-names></name>
+        <name><surname>Wagner</surname><given-names>Sebastian</given-names></name>
+        <name><surname>Zorita</surname><given-names>Eduardo</given-names></name>
+      </person-group>
+      <article-title>Perspectives of regional paleoclimate modeling</article-title>
+      <source>Annals of the New York Academy of Sciences</source>
+      <publisher-name>Wiley Online Library</publisher-name>
+      <year iso-8601-date="2019">2019</year>
+      <volume>1436</volume>
+      <issue>1</issue>
+      <fpage>54</fpage>
+      <lpage>69</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-hargreaves2009importance">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Hargreaves</surname><given-names>JC</given-names></name>
+        <name><surname>Annan</surname><given-names>JD</given-names></name>
+      </person-group>
+      <article-title>On the importance of paleoclimate modelling for improving predictions of future climate change</article-title>
+      <source>Climate of the Past</source>
+      <publisher-name>Copernicus Publications Göttingen, Germany</publisher-name>
+      <year iso-8601-date="2009">2009</year>
+      <volume>5</volume>
+      <issue>4</issue>
+      <fpage>803</fpage>
+      <lpage>814</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-benson2021biodiversity">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Benson</surname><given-names>Roger BJ</given-names></name>
+        <name><surname>Butler</surname><given-names>Richard</given-names></name>
+        <name><surname>Close</surname><given-names>Roger A</given-names></name>
+        <name><surname>Saupe</surname><given-names>Erin</given-names></name>
+        <name><surname>Rabosky</surname><given-names>Daniel L</given-names></name>
+      </person-group>
+      <article-title>Biodiversity across space and time in the fossil record</article-title>
+      <source>Current Biology</source>
+      <publisher-name>Elsevier</publisher-name>
+      <year iso-8601-date="2021">2021</year>
+      <volume>31</volume>
+      <issue>19</issue>
+      <fpage>R1225</fpage>
+      <lpage>R1236</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-bartlein1989orbital">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Bartlein</surname><given-names>PATRICK J</given-names></name>
+        <name><surname>Prentice</surname><given-names>IC</given-names></name>
+      </person-group>
+      <article-title>Orbital variations, climate and paleoecology</article-title>
+      <source>Trends in ecology &amp; evolution</source>
+      <publisher-name>Elsevier</publisher-name>
+      <year iso-8601-date="1989">1989</year>
+      <volume>4</volume>
+      <issue>7</issue>
+      <fpage>195</fpage>
+      <lpage>199</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-faith2013climate">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Faith</surname><given-names>J Tyler</given-names></name>
+        <name><surname>Behrensmeyer</surname><given-names>Anna K</given-names></name>
+      </person-group>
+      <article-title>Climate change and faunal turnover: Testing the mechanics of the turnover-pulse hypothesis with south african fossil data</article-title>
+      <source>Paleobiology</source>
+      <publisher-name>Cambridge University Press</publisher-name>
+      <year iso-8601-date="2013">2013</year>
+      <volume>39</volume>
+      <issue>4</issue>
+      <fpage>609</fpage>
+      <lpage>627</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-myers2015paleoenm">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Myers</surname><given-names>Corinne E</given-names></name>
+        <name><surname>Stigall</surname><given-names>Alycia L</given-names></name>
+        <name><surname>Lieberman</surname><given-names>Bruce S</given-names></name>
+      </person-group>
+      <article-title>PaleoENM: Applying ecological niche modeling to the fossil record</article-title>
+      <source>Paleobiology</source>
+      <publisher-name>Cambridge University Press</publisher-name>
+      <year iso-8601-date="2015">2015</year>
+      <volume>41</volume>
+      <issue>2</issue>
+      <fpage>226</fpage>
+      <lpage>244</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-barr2017signal">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Barr</surname><given-names>W Andrew</given-names></name>
+      </person-group>
+      <article-title>Signal or noise? A null model method for evaluating the significance of turnover pulses</article-title>
+      <source>Paleobiology</source>
+      <publisher-name>Cambridge University Press</publisher-name>
+      <year iso-8601-date="2017">2017</year>
+      <volume>43</volume>
+      <issue>4</issue>
+      <fpage>656</fpage>
+      <lpage>666</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-kiessling2023improving">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Kiessling</surname><given-names>Wolfgang</given-names></name>
+        <name><surname>Smith</surname><given-names>Jansen A</given-names></name>
+        <name><surname>Raja</surname><given-names>Nussaı̈bah B</given-names></name>
+      </person-group>
+      <article-title>Improving the relevance of paleontology to climate change policy</article-title>
+      <source>Proceedings of the National Academy of Sciences</source>
+      <publisher-name>National Acad Sciences</publisher-name>
+      <year iso-8601-date="2023">2023</year>
+      <volume>120</volume>
+      <issue>7</issue>
+      <fpage>e2201926119</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-hagen2023coupling">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Hagen</surname><given-names>Oskar</given-names></name>
+      </person-group>
+      <article-title>Coupling eco-evolutionary mechanisms with deep-time environmental dynamics to understand biodiversity patterns</article-title>
+      <source>Ecography</source>
+      <publisher-name>Wiley Online Library</publisher-name>
+      <year iso-8601-date="2023">2023</year>
+      <volume>2023</volume>
+      <issue>4</issue>
+      <fpage>e06132</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-zachos2001trends">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Zachos</surname><given-names>James</given-names></name>
+        <name><surname>Pagani</surname><given-names>Mark</given-names></name>
+        <name><surname>Sloan</surname><given-names>Lisa</given-names></name>
+        <name><surname>Thomas</surname><given-names>Ellen</given-names></name>
+        <name><surname>Billups</surname><given-names>Katharina</given-names></name>
+      </person-group>
+      <article-title>Trends, rhythms, and aberrations in global climate 65 ma to present</article-title>
+      <source>science</source>
+      <publisher-name>American Association for the Advancement of Science</publisher-name>
+      <year iso-8601-date="2001">2001</year>
+      <volume>292</volume>
+      <issue>5517</issue>
+      <fpage>686</fpage>
+      <lpage>693</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-erwin2009climate">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Erwin</surname><given-names>Douglas H</given-names></name>
+      </person-group>
+      <article-title>Climate as a driver of evolutionary change</article-title>
+      <source>Current Biology</source>
+      <publisher-name>Elsevier</publisher-name>
+      <year iso-8601-date="2009">2009</year>
+      <volume>19</volume>
+      <issue>14</issue>
+      <fpage>R575</fpage>
+      <lpage>R583</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-nogues2009predicting">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Nogués-Bravo</surname><given-names>David</given-names></name>
+      </person-group>
+      <article-title>Predicting the past distribution of species climatic niches</article-title>
+      <source>Global Ecology and Biogeography</source>
+      <publisher-name>Wiley Online Library</publisher-name>
+      <year iso-8601-date="2009">2009</year>
+      <volume>18</volume>
+      <issue>5</issue>
+      <fpage>521</fpage>
+      <lpage>531</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-nogues2018cracking">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Nogués-Bravo</surname><given-names>David</given-names></name>
+        <name><surname>Rodrı́guez-Sánchez</surname><given-names>Francisco</given-names></name>
+        <name><surname>Orsini</surname><given-names>Luisa</given-names></name>
+        <name><surname>Boer</surname><given-names>Erik de</given-names></name>
+        <name><surname>Jansson</surname><given-names>Roland</given-names></name>
+        <name><surname>Morlon</surname><given-names>Helene</given-names></name>
+        <name><surname>Fordham</surname><given-names>Damien A</given-names></name>
+        <name><surname>Jackson</surname><given-names>Stephen T</given-names></name>
+      </person-group>
+      <article-title>Cracking the code of biodiversity responses to past climate change</article-title>
+      <source>Trends in ecology &amp; evolution</source>
+      <publisher-name>Elsevier</publisher-name>
+      <year iso-8601-date="2018">2018</year>
+      <volume>33</volume>
+      <issue>10</issue>
+      <fpage>765</fpage>
+      <lpage>776</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-alroy2000global">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Alroy</surname><given-names>John</given-names></name>
+        <name><surname>Koch</surname><given-names>Paul L</given-names></name>
+        <name><surname>Zachos</surname><given-names>James C</given-names></name>
+      </person-group>
+      <article-title>Global climate change and north american mammalian evolution</article-title>
+      <source>Paleobiology</source>
+      <publisher-name>Cambridge University Press</publisher-name>
+      <year iso-8601-date="2000">2000</year>
+      <volume>26</volume>
+      <issue>S4</issue>
+      <fpage>259</fpage>
+      <lpage>288</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-blanco2021punctuated">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Blanco</surname><given-names>Fernando</given-names></name>
+        <name><surname>Calatayud</surname><given-names>Joaquı́n</given-names></name>
+        <name><surname>Martı́n-Perea</surname><given-names>David M</given-names></name>
+        <name><surname>Domingo</surname><given-names>M Soledad</given-names></name>
+        <name><surname>Menéndez</surname><given-names>Iris</given-names></name>
+        <name><surname>Müller</surname><given-names>Johannes</given-names></name>
+        <name><surname>Fernández</surname><given-names>Manuel Hernández</given-names></name>
+        <name><surname>Cantalapiedra</surname><given-names>Juan L</given-names></name>
+      </person-group>
+      <article-title>Punctuated ecological equilibrium in mammal communities over evolutionary time scales</article-title>
+      <source>Science</source>
+      <publisher-name>American Association for the Advancement of Science</publisher-name>
+      <year iso-8601-date="2021">2021</year>
+      <volume>372</volume>
+      <issue>6539</issue>
+      <fpage>300</fpage>
+      <lpage>303</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-davis2001range">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Davis</surname><given-names>Margaret B</given-names></name>
+        <name><surname>Shaw</surname><given-names>Ruth G</given-names></name>
+      </person-group>
+      <article-title>Range shifts and adaptive responses to quaternary climate change</article-title>
+      <source>Science</source>
+      <publisher-name>American Association for the Advancement of Science</publisher-name>
+      <year iso-8601-date="2001">2001</year>
+      <volume>292</volume>
+      <issue>5517</issue>
+      <fpage>673</fpage>
+      <lpage>679</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-Lewis2023paleo">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Jones</surname><given-names>Lewis A.</given-names></name>
+        <name><surname>Gearty</surname><given-names>William</given-names></name>
+        <name><surname>Allen</surname><given-names>Bethany J.</given-names></name>
+        <name><surname>Eichenseer</surname><given-names>Kilian</given-names></name>
+        <name><surname>Dean</surname><given-names>Christopher D.</given-names></name>
+        <name><surname>Galván</surname><given-names>Sofía</given-names></name>
+        <name><surname>Kouvari</surname><given-names>Miranta</given-names></name>
+        <name><surname>Godoy</surname><given-names>Pedro L.</given-names></name>
+        <name><surname>Nicholl</surname><given-names>Cecily S. C.</given-names></name>
+        <name><surname>Buffan</surname><given-names>Lucas</given-names></name>
+        <name><surname>Dillon</surname><given-names>Erin M.</given-names></name>
+        <name><surname>Flannery-Sutherland</surname><given-names>Joseph T.</given-names></name>
+        <name><surname>Chiarenza</surname><given-names>Alfio Alessandro</given-names></name>
+      </person-group>
+      <article-title>Palaeoverse: A community-driven r package to support palaeobiological analysis</article-title>
+      <source>Methods in Ecology and Evolution</source>
+      <year iso-8601-date="2023">2023</year>
+      <pub-id pub-id-type="doi">10.1111/2041-210X.14099</pub-id>
+      <fpage>1</fpage>
+      <lpage>11</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-merdith2021extending">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Merdith</surname><given-names>Andrew S</given-names></name>
+        <name><surname>Williams</surname><given-names>Simon E</given-names></name>
+        <name><surname>Collins</surname><given-names>Alan S</given-names></name>
+        <name><surname>Tetley</surname><given-names>Michael G</given-names></name>
+        <name><surname>Mulder</surname><given-names>Jacob A</given-names></name>
+        <name><surname>Blades</surname><given-names>Morgan L</given-names></name>
+        <name><surname>Young</surname><given-names>Alexander</given-names></name>
+        <name><surname>Armistead</surname><given-names>Sheree E</given-names></name>
+        <name><surname>Cannon</surname><given-names>John</given-names></name>
+        <name><surname>Zahirovic</surname><given-names>Sabin</given-names></name>
+        <etal/>
+      </person-group>
+      <article-title>Extending full-plate tectonic models into deep time: Linking the neoproterozoic and the phanerozoic</article-title>
+      <source>Earth-Science Reviews</source>
+      <publisher-name>Elsevier</publisher-name>
+      <year iso-8601-date="2021">2021</year>
+      <volume>214</volume>
+      <fpage>103477</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-vasconcelos2022retiring">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Vasconcelos</surname><given-names>Thais</given-names></name>
+        <name><surname>O’Meara</surname><given-names>Brian C</given-names></name>
+        <name><surname>Beaulieu</surname><given-names>Jeremy M</given-names></name>
+      </person-group>
+      <article-title>Retiring “cradles” and “museums” of biodiversity</article-title>
+      <source>The American Naturalist</source>
+      <publisher-name>The University of Chicago Press Chicago, IL</publisher-name>
+      <year iso-8601-date="2022">2022</year>
+      <volume>199</volume>
+      <issue>2</issue>
+      <fpage>194</fpage>
+      <lpage>205</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-gerhold2018deep">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Gerhold</surname><given-names>Pille</given-names></name>
+        <name><surname>Carlucci</surname><given-names>Marcos B</given-names></name>
+        <name><surname>Procheş</surname><given-names>Şerban</given-names></name>
+        <name><surname>Prinzing</surname><given-names>Andreas</given-names></name>
+      </person-group>
+      <article-title>The deep past controls the phylogenetic structure of present, local communities</article-title>
+      <source>Annual Review of Ecology, Evolution, and Systematics</source>
+      <publisher-name>Annual Reviews</publisher-name>
+      <year iso-8601-date="2018">2018</year>
+      <volume>49</volume>
+      <fpage>477</fpage>
+      <lpage>497</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-sonne2022biodiversity">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Sonne</surname><given-names>Jesper</given-names></name>
+        <name><surname>Dalsgaard</surname><given-names>Bo</given-names></name>
+        <name><surname>Borregaard</surname><given-names>Michael K</given-names></name>
+        <name><surname>Kennedy</surname><given-names>Jonathan</given-names></name>
+        <name><surname>Fjeldså</surname><given-names>Jon</given-names></name>
+        <name><surname>Rahbek</surname><given-names>Carsten</given-names></name>
+      </person-group>
+      <article-title>Biodiversity cradles and museums segregating within hotspots of endemism</article-title>
+      <source>Proceedings of the Royal Society B</source>
+      <publisher-name>The Royal Society</publisher-name>
+      <year iso-8601-date="2022">2022</year>
+      <volume>289</volume>
+      <issue>1981</issue>
+      <fpage>20221102</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-cavender2016evolutionary">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Cavender-Bares</surname><given-names>Jeannine</given-names></name>
+        <name><surname>Ackerly</surname><given-names>David D</given-names></name>
+        <name><surname>Hobbie</surname><given-names>Sarah E</given-names></name>
+        <name><surname>Townsend</surname><given-names>Philip A</given-names></name>
+      </person-group>
+      <article-title>Evolutionary legacy effects on ecosystems: Biogeographic origins, plant traits, and implications for management in the era of global change</article-title>
+      <source>Annual Review of Ecology, Evolution, and Systematics</source>
+      <publisher-name>Annual Reviews</publisher-name>
+      <year iso-8601-date="2016">2016</year>
+      <volume>47</volume>
+      <fpage>433</fpage>
+      <lpage>462</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-de2022predicted">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Fuente</surname><given-names>Alejandro de la</given-names></name>
+        <name><surname>Krockenberger</surname><given-names>Andrew</given-names></name>
+        <name><surname>Hirsch</surname><given-names>Ben</given-names></name>
+        <name><surname>Cernusak</surname><given-names>Lucas</given-names></name>
+        <name><surname>Williams</surname><given-names>Stephen E</given-names></name>
+      </person-group>
+      <article-title>Predicted alteration of vertebrate communities in response to climate-induced elevational shifts</article-title>
+      <source>Diversity and Distributions</source>
+      <publisher-name>Wiley Online Library</publisher-name>
+      <year iso-8601-date="2022">2022</year>
+      <volume>28</volume>
+      <issue>6</issue>
+      <fpage>1180</fpage>
+      <lpage>1190</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-davis2005evolutionary">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Davis</surname><given-names>Margaret B</given-names></name>
+        <name><surname>Shaw</surname><given-names>Ruth G</given-names></name>
+        <name><surname>Etterson</surname><given-names>Julie R</given-names></name>
+      </person-group>
+      <article-title>Evolutionary responses to changing climate</article-title>
+      <source>Ecology</source>
+      <publisher-name>Wiley Online Library</publisher-name>
+      <year iso-8601-date="2005">2005</year>
+      <volume>86</volume>
+      <issue>7</issue>
+      <fpage>1704</fpage>
+      <lpage>1714</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-mottl2021global">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Mottl</surname><given-names>Ondřej</given-names></name>
+        <name><surname>Flantua</surname><given-names>Suzette GA</given-names></name>
+        <name><surname>Bhatta</surname><given-names>Kuber P</given-names></name>
+        <name><surname>Felde</surname><given-names>Vivian A</given-names></name>
+        <name><surname>Giesecke</surname><given-names>Thomas</given-names></name>
+        <name><surname>Goring</surname><given-names>Simon</given-names></name>
+        <name><surname>Grimm</surname><given-names>Eric C</given-names></name>
+        <name><surname>Haberle</surname><given-names>Simon</given-names></name>
+        <name><surname>Hooghiemstra</surname><given-names>Henry</given-names></name>
+        <name><surname>Ivory</surname><given-names>Sarah</given-names></name>
+        <etal/>
+      </person-group>
+      <article-title>Global acceleration in rates of vegetation change over the past 18,000 years</article-title>
+      <source>Science</source>
+      <publisher-name>American Association for the Advancement of Science</publisher-name>
+      <year iso-8601-date="2021">2021</year>
+      <volume>372</volume>
+      <issue>6544</issue>
+      <fpage>860</fpage>
+      <lpage>864</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-jabot2020assessing">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Jabot</surname><given-names>Franck</given-names></name>
+        <name><surname>Laroche</surname><given-names>Fabien</given-names></name>
+        <name><surname>Massol</surname><given-names>François</given-names></name>
+        <name><surname>Arthaud</surname><given-names>Florent</given-names></name>
+        <name><surname>Crabot</surname><given-names>Julie</given-names></name>
+        <name><surname>Dubart</surname><given-names>Maxime</given-names></name>
+        <name><surname>Blanchet</surname><given-names>Simon</given-names></name>
+        <name><surname>Munoz</surname><given-names>François</given-names></name>
+        <name><surname>David</surname><given-names>Patrice</given-names></name>
+        <name><surname>Datry</surname><given-names>Thibault</given-names></name>
+      </person-group>
+      <article-title>Assessing metacommunity processes through signatures in spatiotemporal turnover of community composition</article-title>
+      <source>Ecology Letters</source>
+      <publisher-name>Wiley Online Library</publisher-name>
+      <year iso-8601-date="2020">2020</year>
+      <volume>23</volume>
+      <issue>9</issue>
+      <fpage>1330</fpage>
+      <lpage>1339</lpage>
+    </element-citation>
+  </ref>
+</ref-list>
 </back>
 
 <sub-article article-type="notebook" id="nb-4-nb-1">
