@@ -10,7 +10,12 @@ author:
 date: today
 keywords: [paleoclimates, biotas, historical biogeography]
 abstract: |
-  Novel environmental pressures influences community assembly dynamics and broad scale patterns in biodiversity composition. While modern community assembly theory offers insights into the effects of climate change on broad-scale biodiversity patterns, these are often based on short-term snapshots, limiting our understanding of long-term processes underlying patterns of species turnover across ecological communities. Morevoer, a critical gap remains in elucidating how deep-time climatic shifts have shaped  historical community assembly, as represented by the fossil record. In this study, we aim to uncover the historical dynamics into the mechanisms that could shape present and future biodiversity patterns in response to ongoing climate change. We evaluate two hypotheses regarding the impact of paleo-climate change on shifts in fossil species composition between distinct sites within a broader region, also known as beta-diversity. The Severity of Climate Change hypothesis posits that species turnover increases with the magnitude of climate change, while the Climatic Instability hypothesis suggests that frequent climate fluctuations promote higher species turnover through dynamic niche shifts. We evaluate our hypothesis  alongside the influences of contemporary niche and dispersal assembly processes, which are typically considered in current ecological studies. To test these, we integrate fossil and paleoclimatic data focusing on large-mammals in the Neogene, a time marked by major climatic shifts in Northern latitudes. We found that ... 
+  Climate change plays a critical role in shaping biodiversity over extended timescales, yet most insights come from short-term contemporary observations. By examining how climatic shifts have historically driven the movement and redistribution of animal species between different geographic regions (i.e. ecological turnover) during distinct periods in geological time, we can uncover the historical dynamics into the mechanisms that could shape present and future biodiversity patterns in response to ongoing climate change. To address this gap in historical biogeography, here we evaluate two key hypotheses: On one hand, the Severity of Climate Change hypothesis, which posits that faunal turnover follows the magnitude of climatic transitions between regions over distinct time periods, as these extreme changes disrupt ecosystems, forcing species to adapt, migrate, or go extinct. On the other hand, the Climatic Instability hypothesis, which argues that transitions from stable climates to periods of rapid climate fluctuations drive higher faunal turnover by promoting dynamic niche shifts. To test these hypotheses we focus on the large-mammal fossil turnover dynamics within North America and Europe across the Neogene, an epoch marked by major climatic shifts in the Northern Hemisphere.
+  
+  
+  We found that ... 
+  
+  In this study, we aim to 
   
   
 
@@ -19,12 +24,6 @@ bibliography: references.bib
 ---
 
 # Introduction
-
-The impact of climate change on biodiversity patterns, particularly at broad spatial scales, has been a central focus in modern community assembly theory [@ackerly2003community; @kraft2015community; @harrison2020climate]. However, much of the current research remains limited by the temporal scope of available data. Ecologists critic community assembly studies on their relying on "one-time snapshots" of species distributions to infer long-term processes [@khattar2021determinism; @harrison2020climate; @chang2016integrating]. Such approach als falls short in capturing how species turnover is shaped by climate dynamics over extended geological periods [@weiher2011advances; @fukami2015historical; @dimichele2004long]. The result is a fragmented understanding of how long-term climate change dynamics has influenced species turnover across large spatial scales, especially over timescales relevant to both evolutionary and ecological community assembly processes [@erwin2009climate; @jackson2015community; @jackson2006can].
-
-In addition to the typically evaluated contemporary niche and dispersal based processes, two hypotheses offer a framework to understand climate change’s impact on biodiversity distribution across several time periods. The severity of climate change hypothesis suggests that if the magnitude of climate change drives turnover, then the compositional differences between fossil assemblages in space and over time will increase with larger climatic magnitude deltas. This is because shifts in the average climate conditions of a region over multi-million years may encourage species origination through local adaptation or migration from neighboring regions, while also increasing global extinction and local extirpation rates [@davis2001range; @davis2005evolutionary; @de2022predicted; @vasconcelos2022retiring]. The Climatic Instability hypothesis posits that compositional differences between fossil assemblages in space to be associated with the degree of temporal change in a region’s climate spatial heterogeneity. This is because unstable climates can create new ecological niches within a region that offer opportunities for diversification and extinction, while stable climates lessen the pressures for adaptation, migration, and extinction [@vasconcelos2022retiring; @cavender2016evolutionary; @sonne2022biodiversity; @gerhold2018deep]
-
-Along Earth's history, broad scale climatic changes [@zachos2001trends] create novel pressures that influences species' distributional ranges [@erwin2009climate; @nogues2009predicting; @nogues2018cracking; @alroy2000global]. Thus far, we understand very little the role of these deep time climatic changes in shaping macroscale patterns in biodiversity [@myers2015paleoenm; @benson2021biodiversity; @bartlein1989orbital]. This knowledge can be critical to make informed predictions about past, current, and future biodiversity distribution in light of ongoing climatic changes [@kiessling2023improving; @hagen2023coupling; @nogues2018cracking]. Paleoclimate models—reconstructions of Earth's climate over geological timescales—offer a promising avenue for integration with independent paleoecological data [@hargreaves2009importance; @ludwig2019perspectives; @faith2013climate; @barr2017signal]. By combining paleoclimatic reconstructions, fossil data, and community assembly theory, we can model a relationship between historical climatic changes and the changes the compositional dissimilarity of fossil assemblages at macroecological scales across stratigraphic periods [@naglu2023across; @blanco2021punctuated; @mottl2021global; @jabot2020assessing]. Here we aim to model the compositional dissimilarity of large-mammal fossil assemblages within North America and Europe and during the Neogene period. Specifically, we ask 1) Does the magnitude of climate change influence fossil assemblage dissimilarity? and 2) To what extent do temproal instability and spatial heterogeneity of climate contribute to fossil assemblage dissimilarity? While more extreme climatic shifts are expected to increase turnover through mechanisms such as origination, extirpation, and extinction, their impact on assemblage dissimilarity will be amplified if these shifts are also accompanied by significant climatic instability and fluctuations in spatial heterogeneity.
 
 # Methods
 
@@ -52,30 +51,28 @@ To assess the distribution of temperature across regions within each stratigraph
 
 ## Statistical analyses
 
-### Broad-scale fossil diversity patterns 
+### Broad-scale fossil diversity patterns
 
 #### Taxonomic richness
 
 Our analysis began with quantifying the relative abundance of fossil genera across various grid cells and stratigraphic stages. For each grid cell, we normalized the genus counts by dividing the number of occurrences of each genus by the total species count at that site. This proportional representation enabled meaningful comparisons of genus composition across both spatial and temporal scales.
 
-#### Paleocommunity composition 
+#### Paleocommunity composition
 
 To evaluate the ecological dissimilarity between regions and time periods, we constructed genus-by-site matrices for each stratigraphic stage. We created these matrices by cross-tabulating the normalized genus abundances against the sites, with the exclusion of any sites lacking fossil records (i.e., those with zero total counts), ensuring our analysis was restricted to regions with available data (at least 3 unique genera recorded). We then calculated pairwise Bray-Curtis dissimilarities between grid cells within each stratigraphic stage. This approach provided an overview of taxonomic turnover of continental fossil communities across different stratigraphic stages.
 
-### Paleoclimatic variables 
+### Paleoclimatic variables
 
 From Hagen's (2019) 1-million-year (1Ma) resolution paleoclimatic reconstructions, we derived a set of four paleoclimatic variables, each aggregated by stratigraphic period within the Neogene. Specifically, these variables include: 1) **Average atmospheric temperature (t_var)**, calculated as the mean temperature across all 1Ma intervals within each stratigraphic stage; 2) **Magnitude of atmospheric temperature change (t_slope)**, which represents the slope of a linear regression model fitted to the relationship between age and temperature for a given stratigraphic stage; 3) **Atmospheric temperature temporal instability (t_inst)**, measured as the standard deviation of the residuals from the linear model used to estimate t_slope; and 4) **Spatial heterogeneity of atmospheric temperature (t_svar)**, computed as the mean difference between a focal temperature cell and its eight neighboring cells within a stratigraphic period, following the Horn algorithm.
-
 
 ### General dissimilarity modelling
 
 In this study, we applied General Dissimilarity Models (GDM) to explore spatial variation in fossil paleocommunity composition across environmental gradients and stratigraphic stages. GDMs offer a non-linear framework to quantify species turnover across environmental gradients while accounting for spatial effects on ecological dissimilarity. By focusing our analysis on fossil genera instead of species, we minimized biases associated with inconsistent taxonomic resolution across fossil sites. Separate GDMs were fitted to compositional dissimilarity matrices for each stratigraphic stage, modeling compositional turnover as a function of four paleoclimatic temperature variables: average atmospheric temperature (t_mean), magnitude of temperature change (t_slope), temporal temperature instability (t_var), and spatial temperature heterogeneity (t_svar). The geographic distance between fossil paleocommunities was included as a covariate, calculated as the Euclidean distance between site centroids within each paleocommunity grid. The relative contribution of each variable was determined through iterative adjustment of spline functions to maximize the fit between observed and predicted dissimilarity. We then examined how the explanatory power of each temperature variable shifted across stratigraphic stages. Lastly, by transforming and rescaling each environmental predictor to a common scale of biological relevance, we mapped geographic variation in community assembly processes over time, enabling a more meaningful comparison of climatic drivers of species turnover across regions and stages.
 
-# Results 
+# Results
 
 TBD
 
-# Discussion 
+# Discussion
 
 TBD
-

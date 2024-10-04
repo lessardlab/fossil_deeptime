@@ -143,6 +143,11 @@ mean_temp <- sapply(Temp_binned, function(stack) {
 saveRDS(mean_temp, 'DATA/temperature_grid/mean_temp.rds')
 
 mean_temp <- readRDS('DATA/temperature_grid/mean_temp.rds')
+
+library(terra)
+
+
+
 ```
 
 
@@ -202,8 +207,140 @@ saveRDS(temporal_variance, 'DATA/out/temporal_variance.rds')
 ```
 
 
+# Temperature deltas 
 
 
+## Shifts in mean temperature 
+
+```{r}
+
+# Number of layers
+n_layers <- nlayers(mean_temp_stack)
+
+# Compute differences using vectorized operations
+diff_mean_temp <- mean_temp_stack[[2:n_layers]] - mean_temp_stack[[1:(n_layers - 1)]]
+
+# Find the min and max values across all layers for unified scale
+min_val <- min(diff_mean_temp, na.rm = TRUE)
+max_val <- max(diff_mean_temp, na.rm = TRUE)
+
+# Convert the raster brick to a data frame for ggplot2
+brick_df <- as.data.frame(diff_mean_temp, xy = TRUE)
+brick_df_melt <- reshape2::melt(brick_df, id.vars = c("x", "y"))
+
+# Plot all layers with the same color scale
+p<- ggplot(brick_df_melt, aes(x = x, y = y, fill = value)) +
+  geom_raster() +
+  scale_fill_viridis_c(option = 'B') +  # Unified color scale
+  theme_minimal() +
+  labs(fill = "Legend") +
+  # Use transition_states to animate the 'layer'
+  transition_states(states = variable, transition_length = 2, state_length = 1) +
+  ease_aes('linear')  # Optional: Makes the transitions smooth
+
+
+# Animate the plot
+anim <- animate(p, nframes = n_layers, fps = 2)  # Adjust nframes and fps for speed
+```
+
+## Shifts in spatial similarity 
+
+```{r}
+# Compute differences using vectorized operations
+diff_temp_gradients <- temp_gradients[[2:n_layers]] - temp_gradients[[1:(n_layers - 1)]]
+
+
+# Find the min and max values across all layers for unified scale
+min_val <- min(diff_temp_gradients, na.rm = TRUE)
+max_val <- max(diff_temp_gradients, na.rm = TRUE)
+
+# Convert the raster brick to a data frame for ggplot2
+brick_df <- as.data.frame(diff_temp_gradients*1000, xy = TRUE)
+brick_df_melt <- reshape2::melt(brick_df, id.vars = c("x", "y"))
+
+# Plot all layers with the same color scale
+p <- ggplot(brick_df_melt, aes(x = x, y = y, fill = value)) +
+  geom_raster() +  # Plot each layer separately
+  scale_fill_viridis_c(option = 'B') +  # Unified color scale
+  theme_minimal() +
+  labs(fill = "Legend") +
+  # Use transition_states to animate the 'layer'
+  transition_states(states = variable, transition_length = 2, state_length = 1) +
+  ease_aes('linear')  # Optional: Makes the transitions smooth
+
+
+# Animate the plot
+anim <- animate(p, nframes = n_layers, fps = 2)  
+anim
+```
+
+## Shifts in climate change velocity (cliamte change acceleration)
+
+```{r}
+# Compute differences using vectorized operations
+diff_temporal_slopes <- temporal_slope[[2:n_layers]] - temporal_slope[[1:(n_layers - 1)]]
+
+names(diff_temporal_slopes) <- paste(names(temporal_slope)[-8],names(temporal_slope)[-1], sep = '_to_')
+
+# Find the min and max values across all layers for unified scale
+min_val <- min(diff_temporal_slopes, na.rm = TRUE)
+max_val <- max(diff_temporal_slopes, na.rm = TRUE)
+
+# Convert the raster brick to a data frame for ggplot2
+brick_df <- as.data.frame(diff_temporal_slopes, xy = TRUE)
+brick_df_melt <- reshape2::melt(brick_df, id.vars = c("x", "y"))
+
+
+
+# Plot all layers with the same color scale
+p <- ggplot(brick_df_melt, aes(x = x, y = y, fill = value)) +
+  geom_raster() +  # Plot each layer separately
+  scale_fill_viridis_c(option = 'B') +  # Unified color scale
+  theme_minimal() +
+  labs(fill = "Legend") +
+  # Use transition_states to animate the 'layer'
+  transition_states(states = variable, transition_length = 2, state_length = 1) +
+  ease_aes('linear')  # Optional: Makes the transitions smooth
+
+
+# Animate the plot
+anim <- animate(p, nframes = n_layers, fps = 2)  
+anim
+```
+
+
+## Shifts in the temporal instability 
+
+```{r}
+# Compute differences using vectorized operations
+diff_temporal_variance <- temporal_variance[[2:n_layers]] - temporal_variance[[1:(n_layers - 1)]]
+
+names(diff_temporal_variance) <- paste(names(temporal_variance)[-8],names(temporal_variance)[-1], sep = '_to_')
+
+# Find the min and max values across all layers for unified scale
+min_val <- min(diff_temporal_variance, na.rm = TRUE)
+max_val <- max(diff_temporal_variance, na.rm = TRUE)
+
+# Convert the raster brick to a data frame for ggplot2
+brick_df <- as.data.frame(diff_temporal_variance, xy = TRUE)
+brick_df_melt <- reshape2::melt(brick_df, id.vars = c("x", "y"))
+
+
+# Plot all layers with the same color scale
+p <- ggplot(brick_df_melt, aes(x = x, y = y, fill = value)) +
+  geom_raster() +  # Plot each layer separately
+  scale_fill_viridis_c(option = 'B') +  # Unified color scale
+  theme_minimal() +
+  labs(fill = "Legend") +
+  # Use transition_states to animate the 'layer'
+  transition_states(states = variable, transition_length = 2, state_length = 1) +
+  ease_aes('linear')  # Optional: Makes the transitions smooth
+
+
+# Animate the plot
+anim <- animate(p, nframes = n_layers, fps = 2)  
+anim
+```
 
 
 

@@ -1,0 +1,316 @@
+---
+title: "Evaluate fossil assemblage richness"
+author: 'Gabriel Munoz'
+date: today
+---
+## Load libraries
+
+```{r, include = FALSE}
+source("C:/Users/gabri/Documents/PhD/00_Chapter_fossil/02_chapter_fossil/manuscript/quarto_manuscript/notebooks/00_functions.R")
+
+library(deeptime)
+library(tidyverse)
+library(patchwork)
+library(vegan)
+library(sf)
+
+
+reg_gridded <- st_read("DATA/regions_gridded/Data_RegionsGridded.shp")
+```
+
+## Load data 
+
+```{r}
+subset_fossil <- readRDS('DATA/out/fossil_data_cleaned.rds')
+time_order <- c('Aquitanian', 'Burdigalian', 'Langhian', 'Serravallian', 'Tortonian', 'Messinian', 'Zanclean', 'Piacenzian')
+```
+
+
+## Visualize ecological turnover at Family level 
+
+
+```{r}
+
+family_count_age <- 
+  subset_fossil |> 
+  select(-geometry) |> 
+  group_by(stage_age = round(midpoint_time)) |> 
+  summarize(n = n_distinct(FAMILY))  
+
+
+fam_raw_count_plot <- 
+  ggplot(family_count_age) +
+  geom_line(aes(x = stage_age, y = n)) +
+  scale_x_reverse("Age (Ma)") +
+  ylab("Number of Families (raw)") +
+  coord_geo(
+    pos = as.list(rep("bottom", 3)),
+    dat = list("stages", "epochs", "periods"),
+    height = list(unit(2, "lines"), unit(2, "lines"), unit(2, "line")),
+    rot = list(90, 90, 0), size = list(2.5, 2.5, 5), abbrv = FALSE
+  ) +
+  theme_classic(base_size = 16)
+
+
+gen_count_age <- 
+  subset_fossil |> 
+  select(-geometry) |> 
+  group_by(stage_age = round(midpoint_time)) |> 
+  summarize(n = n_distinct(GENUS))  
+
+
+gen_raw_count_plot <- 
+  ggplot(gen_count_age) +
+  geom_line(aes(x = stage_age, y = n)) +
+  scale_x_reverse("Age (Ma)") +
+  ylab("Number of Genera (raw)") +
+  coord_geo(
+    pos = as.list(rep("bottom", 3)),
+    dat = list("stages", "epochs", "periods"),
+    height = list(unit(2, "lines"), unit(2, "lines"), unit(2, "line")),
+    rot = list(90, 90, 0), size = list(2.5, 2.5, 5), abbrv = FALSE
+  ) +
+  theme_classic(base_size = 16)
+
+## combine both plots with ggextra
+
+fam_gen_plot <- gridExtra::grid.arrange(fam_raw_count_plot, gen_raw_count_plot, ncol = 2, nrow = 1)
+
+
+```
+
+Visualize the rarefied counts 
+
+
+```{r}
+subset_fossil <- 
+  subset_fossil |>
+  mutate(stage_age = round(midpoint_time),
+         FAMILY = as.factor(FAMILY))
+```
+
+```{r}
+
+fam_matrix_all <- xtabs(~ midpoint_period + FAMILY, subset_fossil)
+gen_matrix_all <- xtabs(~ midpoint_period + GENUS, subset_fossil)
+
+rar_fam <- vegan::rarefy(fam_matrix_all, 100, se = T) |> 
+  as.data.frame() 
+
+rar_gen <- vegan::rarefy(gen_matrix_all, 100, se = T) |> 
+  as.data.frame() 
+
+
+rar_plot_fam <- 
+  rar_fam[time_order] |> t() |>  as.data.frame() |> 
+  rownames_to_column('Stages') |>
+  mutate(Stages = factor(Stages, levels = time_order)) |> 
+  ggplot(aes(S, Stages)) +
+  geom_col() + 
+  coord_flip() + 
+  geom_errorbar(aes(xmin = S - se, xmax = S + se), width = 0.2) +  # Add SE as error bars
+  theme_minimal() + 
+  xlab('Rarefied richness')
+
+rar_plot_gen <- 
+  rar_gen[time_order] |> t() |>  as.data.frame() |> 
+  rownames_to_column('Stages') |>
+  mutate(Genus = factor(Stages, levels = time_order)) |>
+  ggplot(aes(S, Stages)) +
+  geom_col() + 
+  coord_flip() + 
+  geom_errorbar(aes(xmin = S - se, xmax = S + se), width = 0.2) +  # Add SE as error bars
+  theme_minimal() + 
+  xlab('Rarefied richness')
+
+
+combined_plot_rar <- gridExtra::grid.arrange(rar_plot_fam, rar_plot_gen, ncol = 2, nrow = 1)
+
+combined_plot_rar |> plot()
+
+```
+Now lets explore the change in richness by regions 
+
+```{r}
+
+# define a function that will compute richnness 
+
+compute_richness <- function(subset_fossil,
+                             sample, 
+                             time_order,
+                             region, 
+                             taxa = "FAMILY"){
+  
+  
+  
+  
+  
+  fam_matrix_all <- xtabs(formula(paste0("~ midpoint_period + ",
+                                         taxa)), subset_fossil)
+  
+  rar_fam <- vegan::rarefy(fam_matrix_all, sample, se = T) |> 
+    as.data.frame() |> t() |>  as.data.frame() |> 
+    rownames_to_column('Stages') |>
+    mutate(Stages = factor(Stages, levels = time_order), 
+           region = region) |>
+    filter(!is.na(Stages))
+  
+  return(rar_fam)
+  
+  
+}
+
+```
+
+
+
+# compute richness for each region
+```{r}
+
+
+rich_per_reg_fam <- 
+  unique(subset_fossil$region) |> 
+  map(~compute_richness(subset_fossil |> filter(region == .x), 
+                        sample = 20 , 
+                        time_order, 
+                        region = .x, 
+                        taxa = 'FAMILY') ) |> 
+  bind_rows()
+
+
+
+
+
+rich_per_reg_gen <- 
+  unique(subset_fossil$region) |> 
+  map(~compute_richness(subset_fossil |> filter(region == .x), 
+                        sample = 20 , 
+                        time_order, 
+                        region = .x, 
+                        taxa = 'GENUS') ) |> 
+  bind_rows()
+
+
+
+```
+
+
+Plot the results 
+
+```{r}
+
+rar_rich_by_reg_by_fam <- 
+  rich_per_reg_fam |> 
+  mutate(region = factor(region, 
+                         levels = 
+                           c('Western North America',
+                             'Central North America',
+                             'Eastern North America',
+                             'Western Europe',
+                             'Eastern Europe',
+                             'Caucasus'))) |> 
+  filter(Stages %in% time_order) |>
+  ggplot(aes(S, Stages)) +
+  geom_col() + 
+  facet_wrap(~region) +
+  coord_flip() + 
+  geom_errorbar(aes(xmin = S - se, xmax = S + se), width = 0.2) +  # Add SE as error bars
+  theme_minimal() + 
+  xlab('Rarefied richness of families')+
+  theme(
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)  # Rotate x-axis labels 90 degrees
+  )
+
+
+
+rar_rich_by_reg_by_gen <- 
+  rich_per_reg_gen |> 
+  mutate(region = factor(region, 
+                         levels = 
+                           c('Western North America',
+                             'Central North America',
+                             'Eastern North America',
+                             'Western Europe',
+                             'Eastern Europe',
+                             'Caucasus'))) |> 
+  filter(Stages %in% time_order) |>
+  ggplot(aes(S, Stages)) +
+  geom_col() + 
+  facet_wrap(~region) +
+  coord_flip() + 
+  geom_errorbar(aes(xmin = S - se, xmax = S + se), width = 0.2) +  # Add SE as error bars
+  theme_minimal() + 
+  xlab('Rarefied richness of genera') +
+  theme(
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)  # Rotate x-axis labels 90 degrees
+  )
+
+
+# bind both plots with gridExtra
+
+
+combined_rar_reg_facet <- 
+  gridExtra::grid.arrange(rar_rich_by_reg_by_fam, rar_rich_by_reg_by_gen, ncol = 2, nrow = 1)
+
+combined_rar_reg_facet |> plot()
+
+
+```
+
+
+We will focus in the patterns at the genera level 
+
+
+```{r}
+
+
+
+fossil_dat_5_dis <- 
+  subset_fossil |> 
+  select(grid_id_5,GENUS, region, midpoint_period,sp_id, !geometry)
+
+
+genus_count_per_reg_time <- 
+  fossil_dat_5_dis |>
+  group_by(grid_id_5, region, midpoint_period) |>
+  summarize(n = n_distinct(GENUS)) 
+
+genus_count_per_reg_time$geometry <- NULL
+
+```
+
+Counting the number of observed genus per grid and period and region
+
+
+```{r}
+
+genus_count_per_reg_time  |> 
+  filter(!is.na(midpoint_period)) |> 
+  mutate(region = factor(region, 
+                         levels = 
+                           c('Western North America',
+                             'Central North America',
+                             'Eastern North America',
+                             'Western Europe',
+                             'Eastern Europe',
+                             'Caucasus')))  |> 
+  mutate(midpoint_period = factor(midpoint_period, 
+                                  levels = time_order)) |>  
+  ggplot(aes(x = midpoint_period, y = n, fill = region)) +
+  geom_boxplot() +
+  facet_wrap(~region) + 
+  ylab('Observed richness of genera per grid')  +  theme_minimal() + 
+  theme(
+    legend.position = "bottom",
+    legend.direction = "horizontal",
+    legend.key.size = unit(0.5, "cm"),  # Adjust the size of the legend keys
+    legend.text = element_text(size = 8)  # Adjust the text size in the legend
+  )+
+  theme(
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)  # Rotate x-axis labels 90 degrees
+  ) 
+
+
+
+
+```
